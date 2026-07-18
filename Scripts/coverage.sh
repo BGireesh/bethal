@@ -48,6 +48,10 @@ SKIP_BASENAMES = {
     "RootView.swift",
     "OnboardingView.swift",
     "OnboardingController.swift",  # thin SwiftUI wrapper; logic in OnboardingViewModel
+    "HomeShellView.swift",
+    "HomeShellController.swift",
+    "EmptyStateView.swift",
+    "SettingsView.swift",
 }
 failures = []
 tracked_files = []
@@ -80,7 +84,9 @@ for target in data.get("targets", []):
                     "AppSessionPreferences.swift", "StorageError.swift", "FileSystemClient.swift", "JSONCoding.swift",
                     "SchemaMigrator.swift", "WorkingDirectoryStore.swift", "KeyValueStore.swift", "AppSessionStore.swift",
                     "BookmarkClient.swift", "OnboardingCompleter.swift", "OnboardingViewModel.swift",
-                    "OnboardingCopy.swift",
+                    "OnboardingCopy.swift", "AppSection.swift", "HomeNavigationState.swift",
+                    "EmptyStateContent.swift", "DesignTokens.swift", "WorkspaceOpener.swift",
+                    "SettingsViewModel.swift", "HomeShellViewModel.swift",
                 }
                 if not domain_like:
                     continue

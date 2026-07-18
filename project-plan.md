@@ -293,7 +293,7 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 03 — Onboarding & privacy flow  
-**Status:** `[~]` in progress (PR open)  
+**Status:** `[x]` done (merged PR #3)  
 **Branch:** `feat/03-onboarding`  
 **Goal:** First-launch onboarding with privacy story + working directory selection.
 
@@ -312,20 +312,21 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 04 — Home shell, navigation, settings shell  
-**Status:** `[ ]`  
+**Status:** `[~]` in progress (PR open)  
 **Branch:** `feat/04-shell`  
 **Goal:** App chrome: Meetings list, Todos list placeholders, Settings.
 
 **Deliverables:**
 
-- Sidebar or tab navigation: Meetings | Todos | Settings  
-- Empty states  
-- Settings: show working directory, open in Finder, placeholder AI default  
-- Design system tokens (spacing, typography) baseline  
+- `NavigationSplitView` sidebar: Meetings | Todos | Settings  
+- Empty states for meetings/todos  
+- Settings: working directory path, Open in Finder, AI/capture/calendar summaries  
+- Design tokens (`DesignSpacing`, `DesignTypographyRole`)  
+- `HomeShellViewModel` + `SettingsViewModel`  
 
-**Manual test:** Navigate all sections; open working directory in Finder.
+**Manual test:** Navigate all sections; open working directory in Finder; empty states when no data.
 
-**Tests:** Navigation/router or settings VM unit tests.
+**Tests:** Navigation, empty states, settings VM, workspace opener, home shell VM (100% Domain/Services + VMs).
 
 ---
 
@@ -587,15 +588,10 @@ Dependencies are mostly linear; **07** can parallelize with **08** after **06** 
 | 2026-07-18 | Sub-task 01 marked done after PR #1 merge (scaffold + tests + coverage gate). |
 | 2026-07-18 | Sub-task 02 marked done after PR #2 merge (storage layer). |
 | 2026-07-18 | Sub-task 03 in progress: onboarding + privacy + working directory. |
+| 2026-07-18 | Sub-task 03 marked done after PR #3 merge; sub-task 04 home shell in progress. |
 
 ---
 
 ## 11. Next action
 
-**Sub-tasks 01–02 complete.** Next after 03 merges: **Sub-task 04 — Home shell**.
-
-When 03 is merged and marked done, start:
-
-1. Branch `feat/04-shell`  
-2. Meetings / Todos / Settings navigation shell  
-3. Tests + PR
+**Sub-tasks 01–03 complete** once 04’s PR is open. Next after 04 merges: **Sub-task 05 — Recording spike**.
