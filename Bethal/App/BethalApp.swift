@@ -4,7 +4,7 @@ import SwiftUI
 struct BethalApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
         .defaultSize(
             width: AppIdentity.defaultWindowWidth,

@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    var session: AppSessionPreferences = .empty
+
     var body: some View {
         VStack(spacing: 16) {
             Image(systemName: "waveform.circle.fill")
@@ -16,12 +18,26 @@ struct ContentView: View {
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
 
+            if let path = session.workingDirectoryPath {
+                VStack(spacing: 4) {
+                    Text("Working directory")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Text(path)
+                        .font(.caption.monospaced())
+                        .foregroundStyle(.secondary)
+                        .textSelection(.enabled)
+                        .multilineTextAlignment(.center)
+                }
+                .padding(.top, 4)
+            }
+
             Text(AppIdentity.bundleIdentifier)
                 .font(.caption.monospaced())
                 .foregroundStyle(.tertiary)
                 .textSelection(.enabled)
 
-            Text("Scaffold ready — onboarding and capture land in later PRs.")
+            Text("Home shell (meetings, todos, settings) arrives in the next PRs.")
                 .font(.callout)
                 .foregroundStyle(.secondary)
                 .padding(.top, 8)
@@ -32,5 +48,10 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(
+        session: AppSessionPreferences(
+            hasCompletedOnboarding: true,
+            workingDirectoryPath: "/Users/example/Documents/Bethal"
+        )
+    )
 }

@@ -13,7 +13,7 @@ Bethal records meetings (audio or audio+video) on your Mac, stores everything un
 
 ## Status
 
-Sub-task **01** scaffold done. Sub-task **02** adds domain models + working-directory storage (no onboarding UI yet). Recording, transcription, AI processing, and todos UI land in later PRs — tracked in `project-plan.md`.
+Sub-tasks **01–02** done. Sub-task **03** adds first-launch onboarding (privacy, working directory, optional default AI). Recording and full home shell land next — tracked in `project-plan.md`.
 
 ## Requirements
 
