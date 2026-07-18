@@ -274,7 +274,7 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 02 — Domain models & working-directory storage  
-**Status:** `[~]` in progress (PR open)  
+**Status:** `[x]` done (merged PR #2)  
 **Branch:** `feat/02-storage`  
 **Goal:** Canonical models and file layout under user working directory.
 
@@ -293,20 +293,21 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 03 — Onboarding & privacy flow  
-**Status:** `[ ]`  
+**Status:** `[~]` in progress (PR open)  
 **Branch:** `feat/03-onboarding`  
 **Goal:** First-launch onboarding with privacy story + working directory selection.
 
 **Deliverables:**
 
-- Multi-step onboarding UI (privacy → directory picker → optional default provider placeholder → done)  
-- Persist `hasCompletedOnboarding` + working directory bookmark (security-scoped bookmark for sandboxed access)  
-- Gate main app until complete  
+- Multi-step onboarding UI (privacy → directory picker → optional default provider → finish)  
+- Persist `hasCompletedOnboarding` + working directory security-scoped bookmark via `AppSessionStore`  
+- `OnboardingCompleter` initializes working directory + settings  
+- Gate main app via `RootView` until complete  
 - “Change later in Settings” copy  
 
-**Manual test:** Fresh launch → complete onboarding → relaunch skips to Home; directory created with `.bethal/`.
+**Manual test:** Fresh launch → complete onboarding → relaunch skips to Home; directory has `.bethal/`.
 
-**Tests:** Onboarding state machine / settings persistence with temp FS (100% view-model/service coverage).
+**Tests:** Flow state, session store, bookmarks, completer, view model (100% Domain/Services + OnboardingViewModel).
 
 ---
 
@@ -584,18 +585,17 @@ Dependencies are mostly linear; **07** can parallelize with **08** after **06** 
 |------|--------|
 | 2026-07-18 | Initial project plan from product requirements; 14 sub-tasks defined. |
 | 2026-07-18 | Sub-task 01 marked done after PR #1 merge (scaffold + tests + coverage gate). |
+| 2026-07-18 | Sub-task 02 marked done after PR #2 merge (storage layer). |
+| 2026-07-18 | Sub-task 03 in progress: onboarding + privacy + working directory. |
 
 ---
 
 ## 11. Next action
 
-**Sub-task 01 complete.** Next: **Sub-task 02 — Domain models & working-directory storage**.
+**Sub-tasks 01–02 complete.** Next after 03 merges: **Sub-task 04 — Home shell**.
 
-When ready:
+When 03 is merged and marked done, start:
 
-1. Create branch `feat/02-storage`  
-2. Implement models + `WorkingDirectoryStore` (layout, meta, index, schema version)  
-3. Unit tests at 100% Domain/Storage coverage  
-4. Open PR for manual test  
-
-Reply with **go ahead on 02** to begin.
+1. Branch `feat/04-shell`  
+2. Meetings / Todos / Settings navigation shell  
+3. Tests + PR

@@ -42,21 +42,12 @@ with open(path) as f:
 
 # Enforce 100% on Domain/* and Services/* (testable pure logic + storage).
 COVERED_MARKERS = ("/Domain/", "/Services/", "Domain/", "Services/")
-COVERED_BASENAMES = {
-    "AppIdentity.swift",
-    "ProjectLayout.swift",
-    "MeetingStatus.swift",
-    "CaptureMode.swift",
-    "Meeting.swift",
-    "Transcript.swift",
-    "TodoItem.swift",
-    "AppSettings.swift",
-    "SchemaManifest.swift",
-    "StorageError.swift",
-    "FileSystemClient.swift",
-    "JSONCoding.swift",
-    "SchemaMigrator.swift",
-    "WorkingDirectoryStore.swift",
+SKIP_BASENAMES = {
+    "BethalApp.swift",
+    "ContentView.swift",
+    "RootView.swift",
+    "OnboardingView.swift",
+    "OnboardingController.swift",  # thin SwiftUI wrapper; logic in OnboardingViewModel
 }
 failures = []
 tracked_files = []
@@ -70,11 +61,30 @@ for target in data.get("targets", []):
     for f in target.get("files", []):
         file_path = f.get("path") or f.get("name") or ""
         base = file_path.split("/")[-1]
-        is_tracked = any(m in file_path for m in COVERED_MARKERS) or (base in COVERED_BASENAMES)
-        if not is_tracked:
-            continue
-        # Skip pure SwiftUI App views from the gate.
-        if base in ("BethalApp.swift", "ContentView.swift"):
+        is_tracked = any(m in file_path for m in COVERED_MARKERS) or base.endswith(".swift")
+        # Prefer Domain/, Services/, and Features/*ViewModel.swift
+        in_domain_or_services = any(m in file_path for m in COVERED_MARKERS) or base in {
+            "OnboardingViewModel.swift",
+        }
+        # Features folder may appear as basename only in reports
+        if base == "OnboardingViewModel.swift":
+            in_domain_or_services = True
+        if not in_domain_or_services and not any(m in file_path for m in COVERED_MARKERS):
+            # Also track pure Domain/Services by path markers only
+            if "/Domain/" not in file_path and "/Services/" not in file_path and not file_path.startswith("Domain/") and not file_path.startswith("Services/"):
+                # basename-only Domain files still tracked if not UI skips
+                domain_like = base in {
+                    "AppIdentity.swift", "ProjectLayout.swift", "MeetingStatus.swift", "CaptureMode.swift",
+                    "Meeting.swift", "Transcript.swift", "TodoItem.swift", "AppSettings.swift", "SchemaManifest.swift",
+                    "OnboardingStep.swift", "OnboardingFlowState.swift", "KnownAIProviderOption.swift",
+                    "AppSessionPreferences.swift", "StorageError.swift", "FileSystemClient.swift", "JSONCoding.swift",
+                    "SchemaMigrator.swift", "WorkingDirectoryStore.swift", "KeyValueStore.swift", "AppSessionStore.swift",
+                    "BookmarkClient.swift", "OnboardingCompleter.swift", "OnboardingViewModel.swift",
+                    "OnboardingCopy.swift",
+                }
+                if not domain_like:
+                    continue
+        if base in SKIP_BASENAMES:
             continue
         lines = f.get("coveredLines", 0)
         total = f.get("executableLines", 0)
