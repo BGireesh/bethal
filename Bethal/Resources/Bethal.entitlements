@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	  v1 power-user defaults (see project-plan.md §8):
+	  App sandbox is intentionally OFF so future local CLI orchestration
+	  (Claude / Codex / Grok) and user-selected working directories work
+	  without fighting TCC for every path. Revisit if Mac App Store distribution
+	  becomes a goal.
+	-->
+	<key>com.apple.security.app-sandbox</key>
+	<false/>
+</dict>
+</plist>
