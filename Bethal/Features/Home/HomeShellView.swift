@@ -53,6 +53,8 @@ struct HomeShellView: View {
         switch controller.navigation.selectedSection {
         case .meetings:
             meetingsDetail
+        case .record:
+            RecordingSpikeView()
         case .todos:
             todosDetail
         case .settings:

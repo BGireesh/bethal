@@ -13,7 +13,7 @@ Bethal records meetings (audio or audio+video) on your Mac, stores everything un
 
 ## Status
 
-Sub-tasks **01–03** done. Sub-task **04** adds the home shell (Meetings / Todos / Settings). Recording starts in sub-task 05 — tracked in `project-plan.md`.
+Sub-tasks **01–04** done. Sub-task **05** adds a recording spike (mic capture + permissions). See `docs/recording-notes.md`. Production recording UI is sub-task 06 — tracked in `project-plan.md`.
 
 ## Requirements
 

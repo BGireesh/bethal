@@ -7,83 +7,100 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB00000000000000000029 /* BethalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000001 /* BethalApp.swift */; };
-		AB0000000000000000002A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000002 /* ContentView.swift */; };
-		AB0000000000000000002B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000003 /* RootView.swift */; };
-		AB0000000000000000002C /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000004 /* DesignTokens.swift */; };
-		AB0000000000000000002D /* AppIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000005 /* AppIdentity.swift */; };
-		AB0000000000000000002E /* AppSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000006 /* AppSection.swift */; };
-		AB0000000000000000002F /* AppSessionPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000007 /* AppSessionPreferences.swift */; };
-		AB00000000000000000030 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000008 /* AppSettings.swift */; };
-		AB00000000000000000031 /* CaptureMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000009 /* CaptureMode.swift */; };
-		AB00000000000000000032 /* EmptyStateContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000A /* EmptyStateContent.swift */; };
-		AB00000000000000000033 /* HomeNavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000B /* HomeNavigationState.swift */; };
-		AB00000000000000000034 /* KnownAIProviderOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000C /* KnownAIProviderOption.swift */; };
-		AB00000000000000000035 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000D /* Meeting.swift */; };
-		AB00000000000000000036 /* MeetingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000E /* MeetingStatus.swift */; };
-		AB00000000000000000037 /* OnboardingFlowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000F /* OnboardingFlowState.swift */; };
-		AB00000000000000000038 /* OnboardingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000010 /* OnboardingStep.swift */; };
-		AB00000000000000000039 /* ProjectLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000011 /* ProjectLayout.swift */; };
-		AB0000000000000000003A /* SchemaManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000012 /* SchemaManifest.swift */; };
-		AB0000000000000000003B /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000013 /* TodoItem.swift */; };
-		AB0000000000000000003C /* Transcript.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000014 /* Transcript.swift */; };
-		AB0000000000000000003D /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000015 /* EmptyStateView.swift */; };
-		AB0000000000000000003E /* HomeShellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000016 /* HomeShellController.swift */; };
-		AB0000000000000000003F /* HomeShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000017 /* HomeShellView.swift */; };
-		AB00000000000000000040 /* HomeShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000018 /* HomeShellViewModel.swift */; };
-		AB00000000000000000041 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000019 /* OnboardingController.swift */; };
-		AB00000000000000000042 /* OnboardingCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000001A /* OnboardingCopy.swift */; };
-		AB00000000000000000043 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000001B /* OnboardingView.swift */; };
-		AB00000000000000000044 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000001C /* OnboardingViewModel.swift */; };
-		AB00000000000000000045 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000001D /* SettingsView.swift */; };
-		AB00000000000000000046 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000001E /* SettingsViewModel.swift */; };
-		AB00000000000000000047 /* AppSessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000001F /* AppSessionStore.swift */; };
-		AB00000000000000000048 /* BookmarkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000020 /* BookmarkClient.swift */; };
-		AB00000000000000000049 /* KeyValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000021 /* KeyValueStore.swift */; };
-		AB0000000000000000004A /* OnboardingCompleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000022 /* OnboardingCompleter.swift */; };
-		AB0000000000000000004B /* FileSystemClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000023 /* FileSystemClient.swift */; };
-		AB0000000000000000004C /* JSONCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000024 /* JSONCoding.swift */; };
-		AB0000000000000000004D /* SchemaMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000025 /* SchemaMigrator.swift */; };
-		AB0000000000000000004E /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000026 /* StorageError.swift */; };
-		AB0000000000000000004F /* WorkingDirectoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000027 /* WorkingDirectoryStore.swift */; };
-		AB00000000000000000050 /* WorkspaceOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000028 /* WorkspaceOpener.swift */; };
-		RB0000000000000000008A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = RS00000000000000000089 /* Assets.xcassets */; };
-		TB0000000000000000006D /* AppIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000051 /* AppIdentityTests.swift */; };
-		TB0000000000000000006E /* AppSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000052 /* AppSectionTests.swift */; };
-		TB0000000000000000006F /* AppSessionPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000053 /* AppSessionPreferencesTests.swift */; };
-		TB00000000000000000070 /* AppSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000054 /* AppSettingsTests.swift */; };
-		TB00000000000000000071 /* DesignTokensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000055 /* DesignTokensTests.swift */; };
-		TB00000000000000000072 /* EmptyStateContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000056 /* EmptyStateContentTests.swift */; };
-		TB00000000000000000073 /* HomeNavigationStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000057 /* HomeNavigationStateTests.swift */; };
-		TB00000000000000000074 /* KnownAIProviderOptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000058 /* KnownAIProviderOptionTests.swift */; };
-		TB00000000000000000075 /* MeetingModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000059 /* MeetingModelsTests.swift */; };
-		TB00000000000000000076 /* OnboardingFlowStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000005A /* OnboardingFlowStateTests.swift */; };
-		TB00000000000000000077 /* SchemaManifestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000005B /* SchemaManifestTests.swift */; };
-		TB00000000000000000078 /* TodoItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000005C /* TodoItemTests.swift */; };
-		TB00000000000000000079 /* TranscriptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000005D /* TranscriptTests.swift */; };
-		TB0000000000000000007A /* HomeShellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000005E /* HomeShellViewModelTests.swift */; };
-		TB0000000000000000007B /* OnboardingCopyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000005F /* OnboardingCopyTests.swift */; };
-		TB0000000000000000007C /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000060 /* OnboardingViewModelTests.swift */; };
-		TB0000000000000000007D /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000061 /* SettingsViewModelTests.swift */; };
-		TB0000000000000000007E /* ProjectLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000062 /* ProjectLayoutTests.swift */; };
-		TB0000000000000000007F /* AppSessionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000063 /* AppSessionStoreTests.swift */; };
-		TB00000000000000000080 /* BookmarkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000064 /* BookmarkClientTests.swift */; };
-		TB00000000000000000081 /* FoundationFileSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000065 /* FoundationFileSystemTests.swift */; };
-		TB00000000000000000082 /* JSONCodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000066 /* JSONCodingTests.swift */; };
-		TB00000000000000000083 /* OnboardingCompleterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000067 /* OnboardingCompleterTests.swift */; };
-		TB00000000000000000084 /* SchemaMigratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000068 /* SchemaMigratorTests.swift */; };
-		TB00000000000000000085 /* StorageErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000069 /* StorageErrorTests.swift */; };
-		TB00000000000000000086 /* WorkingDirectoryStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000006A /* WorkingDirectoryStoreTests.swift */; };
-		TB00000000000000000087 /* WorkspaceOpenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000006B /* WorkspaceOpenerTests.swift */; };
-		TB00000000000000000088 /* InMemoryFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000006C /* InMemoryFileSystem.swift */; };
+		AB00000000000000000036 /* BethalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000001 /* BethalApp.swift */; };
+		AB00000000000000000037 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000002 /* ContentView.swift */; };
+		AB00000000000000000038 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000003 /* RootView.swift */; };
+		AB00000000000000000039 /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000004 /* DesignTokens.swift */; };
+		AB0000000000000000003A /* AppIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000005 /* AppIdentity.swift */; };
+		AB0000000000000000003B /* AppSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000006 /* AppSection.swift */; };
+		AB0000000000000000003C /* AppSessionPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000007 /* AppSessionPreferences.swift */; };
+		AB0000000000000000003D /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000008 /* AppSettings.swift */; };
+		AB0000000000000000003E /* CaptureMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000009 /* CaptureMode.swift */; };
+		AB0000000000000000003F /* EmptyStateContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000A /* EmptyStateContent.swift */; };
+		AB00000000000000000040 /* HomeNavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000B /* HomeNavigationState.swift */; };
+		AB00000000000000000041 /* KnownAIProviderOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000C /* KnownAIProviderOption.swift */; };
+		AB00000000000000000042 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000D /* Meeting.swift */; };
+		AB00000000000000000043 /* MeetingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000E /* MeetingStatus.swift */; };
+		AB00000000000000000044 /* OnboardingFlowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000F /* OnboardingFlowState.swift */; };
+		AB00000000000000000045 /* OnboardingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000010 /* OnboardingStep.swift */; };
+		AB00000000000000000046 /* PermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000011 /* PermissionStatus.swift */; };
+		AB00000000000000000047 /* ProjectLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000012 /* ProjectLayout.swift */; };
+		AB00000000000000000048 /* RecordingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000013 /* RecordingPhase.swift */; };
+		AB00000000000000000049 /* RecordingSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000014 /* RecordingSessionState.swift */; };
+		AB0000000000000000004A /* SchemaManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000015 /* SchemaManifest.swift */; };
+		AB0000000000000000004B /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000016 /* TodoItem.swift */; };
+		AB0000000000000000004C /* Transcript.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000017 /* Transcript.swift */; };
+		AB0000000000000000004D /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000018 /* EmptyStateView.swift */; };
+		AB0000000000000000004E /* HomeShellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000019 /* HomeShellController.swift */; };
+		AB0000000000000000004F /* HomeShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000001A /* HomeShellView.swift */; };
+		AB00000000000000000050 /* HomeShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000001B /* HomeShellViewModel.swift */; };
+		AB00000000000000000051 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000001C /* OnboardingController.swift */; };
+		AB00000000000000000052 /* OnboardingCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000001D /* OnboardingCopy.swift */; };
+		AB00000000000000000053 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000001E /* OnboardingView.swift */; };
+		AB00000000000000000054 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000001F /* OnboardingViewModel.swift */; };
+		AB00000000000000000055 /* RecordingSpikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000020 /* RecordingSpikeView.swift */; };
+		AB00000000000000000056 /* RecordingSpikeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000021 /* RecordingSpikeViewModel.swift */; };
+		AB00000000000000000057 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000022 /* SettingsView.swift */; };
+		AB00000000000000000058 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000023 /* SettingsViewModel.swift */; };
+		AB00000000000000000059 /* AppSessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000024 /* AppSessionStore.swift */; };
+		AB0000000000000000005A /* BookmarkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000025 /* BookmarkClient.swift */; };
+		AB0000000000000000005B /* KeyValueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000026 /* KeyValueStore.swift */; };
+		AB0000000000000000005C /* OnboardingCompleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000027 /* OnboardingCompleter.swift */; };
+		AB0000000000000000005D /* AVAudioCaptureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000028 /* AVAudioCaptureEngine.swift */; };
+		AB0000000000000000005E /* AVAuthorizationMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000029 /* AVAuthorizationMapper.swift */; };
+		AB0000000000000000005F /* CaptureArtifacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002A /* CaptureArtifacts.swift */; };
+		AB00000000000000000060 /* CaptureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002B /* CaptureEngine.swift */; };
+		AB00000000000000000061 /* MockCaptureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002C /* MockCaptureEngine.swift */; };
+		AB00000000000000000062 /* PermissionChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002D /* PermissionChecking.swift */; };
+		AB00000000000000000063 /* RecordingSessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002E /* RecordingSessionCoordinator.swift */; };
+		AB00000000000000000064 /* SystemPermissionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002F /* SystemPermissionChecker.swift */; };
+		AB00000000000000000065 /* FileSystemClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000030 /* FileSystemClient.swift */; };
+		AB00000000000000000066 /* JSONCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000031 /* JSONCoding.swift */; };
+		AB00000000000000000067 /* SchemaMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000032 /* SchemaMigrator.swift */; };
+		AB00000000000000000068 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000033 /* StorageError.swift */; };
+		AB00000000000000000069 /* WorkingDirectoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000034 /* WorkingDirectoryStore.swift */; };
+		AB0000000000000000006A /* WorkspaceOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000035 /* WorkspaceOpener.swift */; };
+		RB000000000000000000AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = RS000000000000000000AB /* Assets.xcassets */; };
+		TB0000000000000000008B /* AppIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000006B /* AppIdentityTests.swift */; };
+		TB0000000000000000008C /* AppSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000006C /* AppSectionTests.swift */; };
+		TB0000000000000000008D /* AppSessionPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000006D /* AppSessionPreferencesTests.swift */; };
+		TB0000000000000000008E /* AppSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000006E /* AppSettingsTests.swift */; };
+		TB0000000000000000008F /* DesignTokensTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000006F /* DesignTokensTests.swift */; };
+		TB00000000000000000090 /* EmptyStateContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000070 /* EmptyStateContentTests.swift */; };
+		TB00000000000000000091 /* HomeNavigationStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000071 /* HomeNavigationStateTests.swift */; };
+		TB00000000000000000092 /* KnownAIProviderOptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000072 /* KnownAIProviderOptionTests.swift */; };
+		TB00000000000000000093 /* MeetingModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000073 /* MeetingModelsTests.swift */; };
+		TB00000000000000000094 /* OnboardingFlowStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000074 /* OnboardingFlowStateTests.swift */; };
+		TB00000000000000000095 /* RecordingSessionStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000075 /* RecordingSessionStateTests.swift */; };
+		TB00000000000000000096 /* SchemaManifestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000076 /* SchemaManifestTests.swift */; };
+		TB00000000000000000097 /* TodoItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000077 /* TodoItemTests.swift */; };
+		TB00000000000000000098 /* TranscriptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000078 /* TranscriptTests.swift */; };
+		TB00000000000000000099 /* HomeShellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000079 /* HomeShellViewModelTests.swift */; };
+		TB0000000000000000009A /* OnboardingCopyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000007A /* OnboardingCopyTests.swift */; };
+		TB0000000000000000009B /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000007B /* OnboardingViewModelTests.swift */; };
+		TB0000000000000000009C /* RecordingSpikeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000007C /* RecordingSpikeViewModelTests.swift */; };
+		TB0000000000000000009D /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000007D /* SettingsViewModelTests.swift */; };
+		TB0000000000000000009E /* ProjectLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000007E /* ProjectLayoutTests.swift */; };
+		TB0000000000000000009F /* AppSessionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000007F /* AppSessionStoreTests.swift */; };
+		TB000000000000000000A0 /* BookmarkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000080 /* BookmarkClientTests.swift */; };
+		TB000000000000000000A1 /* CaptureEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000081 /* CaptureEngineTests.swift */; };
+		TB000000000000000000A2 /* FoundationFileSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000082 /* FoundationFileSystemTests.swift */; };
+		TB000000000000000000A3 /* JSONCodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000083 /* JSONCodingTests.swift */; };
+		TB000000000000000000A4 /* OnboardingCompleterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000084 /* OnboardingCompleterTests.swift */; };
+		TB000000000000000000A5 /* RecordingCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000085 /* RecordingCoordinatorTests.swift */; };
+		TB000000000000000000A6 /* SchemaMigratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000086 /* SchemaMigratorTests.swift */; };
+		TB000000000000000000A7 /* StorageErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000087 /* StorageErrorTests.swift */; };
+		TB000000000000000000A8 /* WorkingDirectoryStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000088 /* WorkingDirectoryStoreTests.swift */; };
+		TB000000000000000000A9 /* WorkspaceOpenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000089 /* WorkspaceOpenerTests.swift */; };
+		TB000000000000000000AA /* InMemoryFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA0000000000000000008A /* InMemoryFileSystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		PX0000000000000000008D /* PBXContainerItemProxy */ = {
+		PX000000000000000000AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = PJ0000000000000000008E /* Project object */;
+			containerPortal = PJ000000000000000000B0 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = TG0000000000000000008F;
+			remoteGlobalIDString = TG000000000000000000B1;
 			remoteInfo = Bethal;
 		};
 /* End PBXContainerItemProxy section */
@@ -105,72 +122,89 @@
 		AA0000000000000000000E /* MeetingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingStatus.swift; sourceTree = "<group>"; };
 		AA0000000000000000000F /* OnboardingFlowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowState.swift; sourceTree = "<group>"; };
 		AA00000000000000000010 /* OnboardingStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStep.swift; sourceTree = "<group>"; };
-		AA00000000000000000011 /* ProjectLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLayout.swift; sourceTree = "<group>"; };
-		AA00000000000000000012 /* SchemaManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaManifest.swift; sourceTree = "<group>"; };
-		AA00000000000000000013 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
-		AA00000000000000000014 /* Transcript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcript.swift; sourceTree = "<group>"; };
-		AA00000000000000000015 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
-		AA00000000000000000016 /* HomeShellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShellController.swift; sourceTree = "<group>"; };
-		AA00000000000000000017 /* HomeShellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShellView.swift; sourceTree = "<group>"; };
-		AA00000000000000000018 /* HomeShellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShellViewModel.swift; sourceTree = "<group>"; };
-		AA00000000000000000019 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
-		AA0000000000000000001A /* OnboardingCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCopy.swift; sourceTree = "<group>"; };
-		AA0000000000000000001B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		AA0000000000000000001C /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
-		AA0000000000000000001D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		AA0000000000000000001E /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		AA0000000000000000001F /* AppSessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSessionStore.swift; sourceTree = "<group>"; };
-		AA00000000000000000020 /* BookmarkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkClient.swift; sourceTree = "<group>"; };
-		AA00000000000000000021 /* KeyValueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStore.swift; sourceTree = "<group>"; };
-		AA00000000000000000022 /* OnboardingCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCompleter.swift; sourceTree = "<group>"; };
-		AA00000000000000000023 /* FileSystemClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemClient.swift; sourceTree = "<group>"; };
-		AA00000000000000000024 /* JSONCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCoding.swift; sourceTree = "<group>"; };
-		AA00000000000000000025 /* SchemaMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaMigrator.swift; sourceTree = "<group>"; };
-		AA00000000000000000026 /* StorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageError.swift; sourceTree = "<group>"; };
-		AA00000000000000000027 /* WorkingDirectoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingDirectoryStore.swift; sourceTree = "<group>"; };
-		AA00000000000000000028 /* WorkspaceOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceOpener.swift; sourceTree = "<group>"; };
-		RS00000000000000000089 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		TA00000000000000000051 /* AppIdentityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIdentityTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000052 /* AppSectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSectionTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000053 /* AppSessionPreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSessionPreferencesTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000054 /* AppSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000055 /* DesignTokensTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokensTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000056 /* EmptyStateContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateContentTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000057 /* HomeNavigationStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationStateTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000058 /* KnownAIProviderOptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownAIProviderOptionTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000059 /* MeetingModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingModelsTests.swift; sourceTree = "<group>"; };
-		TA0000000000000000005A /* OnboardingFlowStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowStateTests.swift; sourceTree = "<group>"; };
-		TA0000000000000000005B /* SchemaManifestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaManifestTests.swift; sourceTree = "<group>"; };
-		TA0000000000000000005C /* TodoItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemTests.swift; sourceTree = "<group>"; };
-		TA0000000000000000005D /* TranscriptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptTests.swift; sourceTree = "<group>"; };
-		TA0000000000000000005E /* HomeShellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShellViewModelTests.swift; sourceTree = "<group>"; };
-		TA0000000000000000005F /* OnboardingCopyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCopyTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000060 /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000061 /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000062 /* ProjectLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLayoutTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000063 /* AppSessionStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSessionStoreTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000064 /* BookmarkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkClientTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000065 /* FoundationFileSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationFileSystemTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000066 /* JSONCodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCodingTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000067 /* OnboardingCompleterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCompleterTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000068 /* SchemaMigratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaMigratorTests.swift; sourceTree = "<group>"; };
-		TA00000000000000000069 /* StorageErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageErrorTests.swift; sourceTree = "<group>"; };
-		TA0000000000000000006A /* WorkingDirectoryStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingDirectoryStoreTests.swift; sourceTree = "<group>"; };
-		TA0000000000000000006B /* WorkspaceOpenerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceOpenerTests.swift; sourceTree = "<group>"; };
-		TA0000000000000000006C /* InMemoryFileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryFileSystem.swift; sourceTree = "<group>"; };
-		PR0000000000000000008B /* Bethal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bethal.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		PT0000000000000000008C /* BethalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BethalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA00000000000000000011 /* PermissionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionStatus.swift; sourceTree = "<group>"; };
+		AA00000000000000000012 /* ProjectLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLayout.swift; sourceTree = "<group>"; };
+		AA00000000000000000013 /* RecordingPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingPhase.swift; sourceTree = "<group>"; };
+		AA00000000000000000014 /* RecordingSessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSessionState.swift; sourceTree = "<group>"; };
+		AA00000000000000000015 /* SchemaManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaManifest.swift; sourceTree = "<group>"; };
+		AA00000000000000000016 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		AA00000000000000000017 /* Transcript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcript.swift; sourceTree = "<group>"; };
+		AA00000000000000000018 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		AA00000000000000000019 /* HomeShellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShellController.swift; sourceTree = "<group>"; };
+		AA0000000000000000001A /* HomeShellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShellView.swift; sourceTree = "<group>"; };
+		AA0000000000000000001B /* HomeShellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShellViewModel.swift; sourceTree = "<group>"; };
+		AA0000000000000000001C /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
+		AA0000000000000000001D /* OnboardingCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCopy.swift; sourceTree = "<group>"; };
+		AA0000000000000000001E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		AA0000000000000000001F /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		AA00000000000000000020 /* RecordingSpikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSpikeView.swift; sourceTree = "<group>"; };
+		AA00000000000000000021 /* RecordingSpikeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSpikeViewModel.swift; sourceTree = "<group>"; };
+		AA00000000000000000022 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AA00000000000000000023 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		AA00000000000000000024 /* AppSessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSessionStore.swift; sourceTree = "<group>"; };
+		AA00000000000000000025 /* BookmarkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkClient.swift; sourceTree = "<group>"; };
+		AA00000000000000000026 /* KeyValueStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStore.swift; sourceTree = "<group>"; };
+		AA00000000000000000027 /* OnboardingCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCompleter.swift; sourceTree = "<group>"; };
+		AA00000000000000000028 /* AVAudioCaptureEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAudioCaptureEngine.swift; sourceTree = "<group>"; };
+		AA00000000000000000029 /* AVAuthorizationMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAuthorizationMapper.swift; sourceTree = "<group>"; };
+		AA0000000000000000002A /* CaptureArtifacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureArtifacts.swift; sourceTree = "<group>"; };
+		AA0000000000000000002B /* CaptureEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureEngine.swift; sourceTree = "<group>"; };
+		AA0000000000000000002C /* MockCaptureEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCaptureEngine.swift; sourceTree = "<group>"; };
+		AA0000000000000000002D /* PermissionChecking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionChecking.swift; sourceTree = "<group>"; };
+		AA0000000000000000002E /* RecordingSessionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSessionCoordinator.swift; sourceTree = "<group>"; };
+		AA0000000000000000002F /* SystemPermissionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemPermissionChecker.swift; sourceTree = "<group>"; };
+		AA00000000000000000030 /* FileSystemClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemClient.swift; sourceTree = "<group>"; };
+		AA00000000000000000031 /* JSONCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCoding.swift; sourceTree = "<group>"; };
+		AA00000000000000000032 /* SchemaMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaMigrator.swift; sourceTree = "<group>"; };
+		AA00000000000000000033 /* StorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageError.swift; sourceTree = "<group>"; };
+		AA00000000000000000034 /* WorkingDirectoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingDirectoryStore.swift; sourceTree = "<group>"; };
+		AA00000000000000000035 /* WorkspaceOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceOpener.swift; sourceTree = "<group>"; };
+		RS000000000000000000AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		TA0000000000000000006B /* AppIdentityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIdentityTests.swift; sourceTree = "<group>"; };
+		TA0000000000000000006C /* AppSectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSectionTests.swift; sourceTree = "<group>"; };
+		TA0000000000000000006D /* AppSessionPreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSessionPreferencesTests.swift; sourceTree = "<group>"; };
+		TA0000000000000000006E /* AppSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsTests.swift; sourceTree = "<group>"; };
+		TA0000000000000000006F /* DesignTokensTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokensTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000070 /* EmptyStateContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateContentTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000071 /* HomeNavigationStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationStateTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000072 /* KnownAIProviderOptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownAIProviderOptionTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000073 /* MeetingModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingModelsTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000074 /* OnboardingFlowStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowStateTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000075 /* RecordingSessionStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSessionStateTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000076 /* SchemaManifestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaManifestTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000077 /* TodoItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000078 /* TranscriptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000079 /* HomeShellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShellViewModelTests.swift; sourceTree = "<group>"; };
+		TA0000000000000000007A /* OnboardingCopyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCopyTests.swift; sourceTree = "<group>"; };
+		TA0000000000000000007B /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
+		TA0000000000000000007C /* RecordingSpikeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSpikeViewModelTests.swift; sourceTree = "<group>"; };
+		TA0000000000000000007D /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
+		TA0000000000000000007E /* ProjectLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLayoutTests.swift; sourceTree = "<group>"; };
+		TA0000000000000000007F /* AppSessionStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSessionStoreTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000080 /* BookmarkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkClientTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000081 /* CaptureEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureEngineTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000082 /* FoundationFileSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationFileSystemTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000083 /* JSONCodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCodingTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000084 /* OnboardingCompleterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCompleterTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000085 /* RecordingCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingCoordinatorTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000086 /* SchemaMigratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaMigratorTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000087 /* StorageErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageErrorTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000088 /* WorkingDirectoryStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingDirectoryStoreTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000089 /* WorkspaceOpenerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceOpenerTests.swift; sourceTree = "<group>"; };
+		TA0000000000000000008A /* InMemoryFileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryFileSystem.swift; sourceTree = "<group>"; };
+		PR000000000000000000AD /* Bethal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bethal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		PT000000000000000000AE /* BethalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BethalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FW00000000000000000092 /* Frameworks */ = {
+		FW000000000000000000B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FW00000000000000000093 /* Frameworks */ = {
+		FW000000000000000000B5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -180,29 +214,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		GR00000000000000000097 = {
+		GR000000000000000000B9 = {
 			isa = PBXGroup;
 			children = (
-				GR00000000000000000098 /* Bethal */,
-				GR00000000000000000099 /* BethalTests */,
-				GR0000000000000000009A /* Products */,
+				GR000000000000000000BA /* Bethal */,
+				GR000000000000000000BB /* BethalTests */,
+				GR000000000000000000BC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		GR00000000000000000098 /* Bethal */ = {
+		GR000000000000000000BA /* Bethal */ = {
 			isa = PBXGroup;
 			children = (
-				GG000000000000000000A4 /* App */,
-				GG000000000000000000A5 /* DesignSystem */,
-				GG000000000000000000A6 /* Domain */,
-				GG000000000000000000A7 /* Features */,
-				GG000000000000000000AB /* Services */,
-				GG000000000000000000B3 /* Resources */,
+				GG000000000000000000C6 /* App */,
+				GG000000000000000000C7 /* DesignSystem */,
+				GG000000000000000000C8 /* Domain */,
+				GG000000000000000000C9 /* Features */,
+				GG000000000000000000CE /* Services */,
+				GG000000000000000000D7 /* Resources */,
 			);
 			path = Bethal;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000A4 /* App */ = {
+		GG000000000000000000C6 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				AA00000000000000000001 /* BethalApp.swift */,
@@ -212,7 +246,7 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000A5 /* DesignSystem */ = {
+		GG000000000000000000C7 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
 				AA00000000000000000004 /* DesignTokens.swift */,
@@ -220,7 +254,7 @@
 			path = DesignSystem;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000A6 /* Domain */ = {
+		GG000000000000000000C8 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
 				AA00000000000000000005 /* AppIdentity.swift */,
@@ -235,176 +269,209 @@
 				AA0000000000000000000E /* MeetingStatus.swift */,
 				AA0000000000000000000F /* OnboardingFlowState.swift */,
 				AA00000000000000000010 /* OnboardingStep.swift */,
-				AA00000000000000000011 /* ProjectLayout.swift */,
-				AA00000000000000000012 /* SchemaManifest.swift */,
-				AA00000000000000000013 /* TodoItem.swift */,
-				AA00000000000000000014 /* Transcript.swift */,
+				AA00000000000000000011 /* PermissionStatus.swift */,
+				AA00000000000000000012 /* ProjectLayout.swift */,
+				AA00000000000000000013 /* RecordingPhase.swift */,
+				AA00000000000000000014 /* RecordingSessionState.swift */,
+				AA00000000000000000015 /* SchemaManifest.swift */,
+				AA00000000000000000016 /* TodoItem.swift */,
+				AA00000000000000000017 /* Transcript.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000A7 /* Features */ = {
+		GG000000000000000000C9 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				GG000000000000000000A8 /* Home */,
-				GG000000000000000000A9 /* Onboarding */,
-				GG000000000000000000AA /* Settings */,
+				GG000000000000000000CA /* Home */,
+				GG000000000000000000CB /* Onboarding */,
+				GG000000000000000000CC /* Recording */,
+				GG000000000000000000CD /* Settings */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000AB /* Services */ = {
+		GG000000000000000000CE /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				GG000000000000000000AC /* Preferences */,
-				GG000000000000000000AD /* Storage */,
-				GG000000000000000000AE /* Workspace */,
+				GG000000000000000000CF /* Preferences */,
+				GG000000000000000000D0 /* Recording */,
+				GG000000000000000000D1 /* Storage */,
+				GG000000000000000000D2 /* Workspace */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000A8 /* Home */ = {
+		GG000000000000000000CA /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				AA00000000000000000015 /* EmptyStateView.swift */,
-				AA00000000000000000016 /* HomeShellController.swift */,
-				AA00000000000000000017 /* HomeShellView.swift */,
-				AA00000000000000000018 /* HomeShellViewModel.swift */,
+				AA00000000000000000018 /* EmptyStateView.swift */,
+				AA00000000000000000019 /* HomeShellController.swift */,
+				AA0000000000000000001A /* HomeShellView.swift */,
+				AA0000000000000000001B /* HomeShellViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000A9 /* Onboarding */ = {
+		GG000000000000000000CB /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				AA00000000000000000019 /* OnboardingController.swift */,
-				AA0000000000000000001A /* OnboardingCopy.swift */,
-				AA0000000000000000001B /* OnboardingView.swift */,
-				AA0000000000000000001C /* OnboardingViewModel.swift */,
+				AA0000000000000000001C /* OnboardingController.swift */,
+				AA0000000000000000001D /* OnboardingCopy.swift */,
+				AA0000000000000000001E /* OnboardingView.swift */,
+				AA0000000000000000001F /* OnboardingViewModel.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000AA /* Settings */ = {
+		GG000000000000000000CC /* Recording */ = {
 			isa = PBXGroup;
 			children = (
-				AA0000000000000000001D /* SettingsView.swift */,
-				AA0000000000000000001E /* SettingsViewModel.swift */,
+				AA00000000000000000020 /* RecordingSpikeView.swift */,
+				AA00000000000000000021 /* RecordingSpikeViewModel.swift */,
+			);
+			path = Recording;
+			sourceTree = "<group>";
+		};
+		GG000000000000000000CD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000022 /* SettingsView.swift */,
+				AA00000000000000000023 /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000AC /* Preferences */ = {
+		GG000000000000000000CF /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				AA0000000000000000001F /* AppSessionStore.swift */,
-				AA00000000000000000020 /* BookmarkClient.swift */,
-				AA00000000000000000021 /* KeyValueStore.swift */,
-				AA00000000000000000022 /* OnboardingCompleter.swift */,
+				AA00000000000000000024 /* AppSessionStore.swift */,
+				AA00000000000000000025 /* BookmarkClient.swift */,
+				AA00000000000000000026 /* KeyValueStore.swift */,
+				AA00000000000000000027 /* OnboardingCompleter.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000AD /* Storage */ = {
+		GG000000000000000000D0 /* Recording */ = {
 			isa = PBXGroup;
 			children = (
-				AA00000000000000000023 /* FileSystemClient.swift */,
-				AA00000000000000000024 /* JSONCoding.swift */,
-				AA00000000000000000025 /* SchemaMigrator.swift */,
-				AA00000000000000000026 /* StorageError.swift */,
-				AA00000000000000000027 /* WorkingDirectoryStore.swift */,
+				AA00000000000000000028 /* AVAudioCaptureEngine.swift */,
+				AA00000000000000000029 /* AVAuthorizationMapper.swift */,
+				AA0000000000000000002A /* CaptureArtifacts.swift */,
+				AA0000000000000000002B /* CaptureEngine.swift */,
+				AA0000000000000000002C /* MockCaptureEngine.swift */,
+				AA0000000000000000002D /* PermissionChecking.swift */,
+				AA0000000000000000002E /* RecordingSessionCoordinator.swift */,
+				AA0000000000000000002F /* SystemPermissionChecker.swift */,
+			);
+			path = Recording;
+			sourceTree = "<group>";
+		};
+		GG000000000000000000D1 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000030 /* FileSystemClient.swift */,
+				AA00000000000000000031 /* JSONCoding.swift */,
+				AA00000000000000000032 /* SchemaMigrator.swift */,
+				AA00000000000000000033 /* StorageError.swift */,
+				AA00000000000000000034 /* WorkingDirectoryStore.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000AE /* Workspace */ = {
+		GG000000000000000000D2 /* Workspace */ = {
 			isa = PBXGroup;
 			children = (
-				AA00000000000000000028 /* WorkspaceOpener.swift */,
+				AA00000000000000000035 /* WorkspaceOpener.swift */,
 			);
 			path = Workspace;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000B3 /* Resources */ = {
+		GG000000000000000000D7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				RS00000000000000000089 /* Assets.xcassets */,
+				RS000000000000000000AB /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		GR00000000000000000099 /* BethalTests */ = {
+		GR000000000000000000BB /* BethalTests */ = {
 			isa = PBXGroup;
 			children = (
-				TA00000000000000000051 /* AppIdentityTests.swift */,
-				TA00000000000000000062 /* ProjectLayoutTests.swift */,
-				GG000000000000000000AF /* Domain */,
-				GG000000000000000000B0 /* Features */,
-				GG000000000000000000B1 /* Services */,
-				GG000000000000000000B2 /* Support */,
+				TA0000000000000000006B /* AppIdentityTests.swift */,
+				TA0000000000000000007E /* ProjectLayoutTests.swift */,
+				GG000000000000000000D3 /* Domain */,
+				GG000000000000000000D4 /* Features */,
+				GG000000000000000000D5 /* Services */,
+				GG000000000000000000D6 /* Support */,
 			);
 			path = BethalTests;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000AF /* Domain */ = {
+		GG000000000000000000D3 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				TA00000000000000000052 /* AppSectionTests.swift */,
-				TA00000000000000000053 /* AppSessionPreferencesTests.swift */,
-				TA00000000000000000054 /* AppSettingsTests.swift */,
-				TA00000000000000000055 /* DesignTokensTests.swift */,
-				TA00000000000000000056 /* EmptyStateContentTests.swift */,
-				TA00000000000000000057 /* HomeNavigationStateTests.swift */,
-				TA00000000000000000058 /* KnownAIProviderOptionTests.swift */,
-				TA00000000000000000059 /* MeetingModelsTests.swift */,
-				TA0000000000000000005A /* OnboardingFlowStateTests.swift */,
-				TA0000000000000000005B /* SchemaManifestTests.swift */,
-				TA0000000000000000005C /* TodoItemTests.swift */,
-				TA0000000000000000005D /* TranscriptTests.swift */,
+				TA0000000000000000006C /* AppSectionTests.swift */,
+				TA0000000000000000006D /* AppSessionPreferencesTests.swift */,
+				TA0000000000000000006E /* AppSettingsTests.swift */,
+				TA0000000000000000006F /* DesignTokensTests.swift */,
+				TA00000000000000000070 /* EmptyStateContentTests.swift */,
+				TA00000000000000000071 /* HomeNavigationStateTests.swift */,
+				TA00000000000000000072 /* KnownAIProviderOptionTests.swift */,
+				TA00000000000000000073 /* MeetingModelsTests.swift */,
+				TA00000000000000000074 /* OnboardingFlowStateTests.swift */,
+				TA00000000000000000075 /* RecordingSessionStateTests.swift */,
+				TA00000000000000000076 /* SchemaManifestTests.swift */,
+				TA00000000000000000077 /* TodoItemTests.swift */,
+				TA00000000000000000078 /* TranscriptTests.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000B0 /* Features */ = {
+		GG000000000000000000D4 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				TA0000000000000000005E /* HomeShellViewModelTests.swift */,
-				TA0000000000000000005F /* OnboardingCopyTests.swift */,
-				TA00000000000000000060 /* OnboardingViewModelTests.swift */,
-				TA00000000000000000061 /* SettingsViewModelTests.swift */,
+				TA00000000000000000079 /* HomeShellViewModelTests.swift */,
+				TA0000000000000000007A /* OnboardingCopyTests.swift */,
+				TA0000000000000000007B /* OnboardingViewModelTests.swift */,
+				TA0000000000000000007C /* RecordingSpikeViewModelTests.swift */,
+				TA0000000000000000007D /* SettingsViewModelTests.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000B1 /* Services */ = {
+		GG000000000000000000D5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				TA00000000000000000063 /* AppSessionStoreTests.swift */,
-				TA00000000000000000064 /* BookmarkClientTests.swift */,
-				TA00000000000000000065 /* FoundationFileSystemTests.swift */,
-				TA00000000000000000066 /* JSONCodingTests.swift */,
-				TA00000000000000000067 /* OnboardingCompleterTests.swift */,
-				TA00000000000000000068 /* SchemaMigratorTests.swift */,
-				TA00000000000000000069 /* StorageErrorTests.swift */,
-				TA0000000000000000006A /* WorkingDirectoryStoreTests.swift */,
-				TA0000000000000000006B /* WorkspaceOpenerTests.swift */,
+				TA0000000000000000007F /* AppSessionStoreTests.swift */,
+				TA00000000000000000080 /* BookmarkClientTests.swift */,
+				TA00000000000000000081 /* CaptureEngineTests.swift */,
+				TA00000000000000000082 /* FoundationFileSystemTests.swift */,
+				TA00000000000000000083 /* JSONCodingTests.swift */,
+				TA00000000000000000084 /* OnboardingCompleterTests.swift */,
+				TA00000000000000000085 /* RecordingCoordinatorTests.swift */,
+				TA00000000000000000086 /* SchemaMigratorTests.swift */,
+				TA00000000000000000087 /* StorageErrorTests.swift */,
+				TA00000000000000000088 /* WorkingDirectoryStoreTests.swift */,
+				TA00000000000000000089 /* WorkspaceOpenerTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		GG000000000000000000B2 /* Support */ = {
+		GG000000000000000000D6 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				TA0000000000000000006C /* InMemoryFileSystem.swift */,
+				TA0000000000000000008A /* InMemoryFileSystem.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
 		};
-		GR0000000000000000009A /* Products */ = {
+		GR000000000000000000BC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				PR0000000000000000008B /* Bethal.app */,
-				PT0000000000000000008C /* BethalTests.xctest */,
+				PR000000000000000000AD /* Bethal.app */,
+				PT000000000000000000AE /* BethalTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -412,13 +479,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		TG0000000000000000008F /* Bethal */ = {
+		TG000000000000000000B1 /* Bethal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CL000000000000000000A2;
+			buildConfigurationList = CL000000000000000000C4;
 			buildPhases = (
-				PH00000000000000000094 /* Sources */,
-				FW00000000000000000092 /* Frameworks */,
-				PH00000000000000000096 /* Resources */,
+				PH000000000000000000B6 /* Sources */,
+				FW000000000000000000B4 /* Frameworks */,
+				PH000000000000000000B8 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -426,41 +493,41 @@
 			);
 			name = Bethal;
 			productName = Bethal;
-			productReference = PR0000000000000000008B;
+			productReference = PR000000000000000000AD;
 			productType = "com.apple.product-type.application";
 		};
-		TT00000000000000000090 /* BethalTests */ = {
+		TT000000000000000000B2 /* BethalTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CL000000000000000000A3;
+			buildConfigurationList = CL000000000000000000C5;
 			buildPhases = (
-				PH00000000000000000095 /* Sources */,
-				FW00000000000000000093 /* Frameworks */,
+				PH000000000000000000B7 /* Sources */,
+				FW000000000000000000B5 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DP00000000000000000091 /* PBXTargetDependency */,
+				DP000000000000000000B3 /* PBXTargetDependency */,
 			);
 			name = BethalTests;
 			productName = BethalTests;
-			productReference = PT0000000000000000008C;
+			productReference = PT000000000000000000AE;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		PJ0000000000000000008E /* Project object */ = {
+		PJ000000000000000000B0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					TG0000000000000000008F = { CreatedOnToolsVersion = 16.0; };
-					TT00000000000000000090 = { CreatedOnToolsVersion = 16.0; TestTargetID = TG0000000000000000008F; };
+					TG000000000000000000B1 = { CreatedOnToolsVersion = 16.0; };
+					TT000000000000000000B2 = { CreatedOnToolsVersion = 16.0; TestTargetID = TG000000000000000000B1; };
 				};
 			};
-			buildConfigurationList = CL000000000000000000A1;
+			buildConfigurationList = CL000000000000000000C3;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -468,123 +535,140 @@
 				en,
 				Base,
 			);
-			mainGroup = GR00000000000000000097;
-			productRefGroup = GR0000000000000000009A;
+			mainGroup = GR000000000000000000B9;
+			productRefGroup = GR000000000000000000BC;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				TG0000000000000000008F /* Bethal */,
-				TT00000000000000000090 /* BethalTests */,
+				TG000000000000000000B1 /* Bethal */,
+				TT000000000000000000B2 /* BethalTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		PH00000000000000000096 /* Resources */ = {
+		PH000000000000000000B8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				RB0000000000000000008A /* Assets.xcassets in Resources */,
+				RB000000000000000000AC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		PH00000000000000000094 /* Sources */ = {
+		PH000000000000000000B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB00000000000000000029 /* BethalApp.swift in Sources */,
-				AB0000000000000000002A /* ContentView.swift in Sources */,
-				AB0000000000000000002B /* RootView.swift in Sources */,
-				AB0000000000000000002C /* DesignTokens.swift in Sources */,
-				AB0000000000000000002D /* AppIdentity.swift in Sources */,
-				AB0000000000000000002E /* AppSection.swift in Sources */,
-				AB0000000000000000002F /* AppSessionPreferences.swift in Sources */,
-				AB00000000000000000030 /* AppSettings.swift in Sources */,
-				AB00000000000000000031 /* CaptureMode.swift in Sources */,
-				AB00000000000000000032 /* EmptyStateContent.swift in Sources */,
-				AB00000000000000000033 /* HomeNavigationState.swift in Sources */,
-				AB00000000000000000034 /* KnownAIProviderOption.swift in Sources */,
-				AB00000000000000000035 /* Meeting.swift in Sources */,
-				AB00000000000000000036 /* MeetingStatus.swift in Sources */,
-				AB00000000000000000037 /* OnboardingFlowState.swift in Sources */,
-				AB00000000000000000038 /* OnboardingStep.swift in Sources */,
-				AB00000000000000000039 /* ProjectLayout.swift in Sources */,
-				AB0000000000000000003A /* SchemaManifest.swift in Sources */,
-				AB0000000000000000003B /* TodoItem.swift in Sources */,
-				AB0000000000000000003C /* Transcript.swift in Sources */,
-				AB0000000000000000003D /* EmptyStateView.swift in Sources */,
-				AB0000000000000000003E /* HomeShellController.swift in Sources */,
-				AB0000000000000000003F /* HomeShellView.swift in Sources */,
-				AB00000000000000000040 /* HomeShellViewModel.swift in Sources */,
-				AB00000000000000000041 /* OnboardingController.swift in Sources */,
-				AB00000000000000000042 /* OnboardingCopy.swift in Sources */,
-				AB00000000000000000043 /* OnboardingView.swift in Sources */,
-				AB00000000000000000044 /* OnboardingViewModel.swift in Sources */,
-				AB00000000000000000045 /* SettingsView.swift in Sources */,
-				AB00000000000000000046 /* SettingsViewModel.swift in Sources */,
-				AB00000000000000000047 /* AppSessionStore.swift in Sources */,
-				AB00000000000000000048 /* BookmarkClient.swift in Sources */,
-				AB00000000000000000049 /* KeyValueStore.swift in Sources */,
-				AB0000000000000000004A /* OnboardingCompleter.swift in Sources */,
-				AB0000000000000000004B /* FileSystemClient.swift in Sources */,
-				AB0000000000000000004C /* JSONCoding.swift in Sources */,
-				AB0000000000000000004D /* SchemaMigrator.swift in Sources */,
-				AB0000000000000000004E /* StorageError.swift in Sources */,
-				AB0000000000000000004F /* WorkingDirectoryStore.swift in Sources */,
-				AB00000000000000000050 /* WorkspaceOpener.swift in Sources */,
+				AB00000000000000000036 /* BethalApp.swift in Sources */,
+				AB00000000000000000037 /* ContentView.swift in Sources */,
+				AB00000000000000000038 /* RootView.swift in Sources */,
+				AB00000000000000000039 /* DesignTokens.swift in Sources */,
+				AB0000000000000000003A /* AppIdentity.swift in Sources */,
+				AB0000000000000000003B /* AppSection.swift in Sources */,
+				AB0000000000000000003C /* AppSessionPreferences.swift in Sources */,
+				AB0000000000000000003D /* AppSettings.swift in Sources */,
+				AB0000000000000000003E /* CaptureMode.swift in Sources */,
+				AB0000000000000000003F /* EmptyStateContent.swift in Sources */,
+				AB00000000000000000040 /* HomeNavigationState.swift in Sources */,
+				AB00000000000000000041 /* KnownAIProviderOption.swift in Sources */,
+				AB00000000000000000042 /* Meeting.swift in Sources */,
+				AB00000000000000000043 /* MeetingStatus.swift in Sources */,
+				AB00000000000000000044 /* OnboardingFlowState.swift in Sources */,
+				AB00000000000000000045 /* OnboardingStep.swift in Sources */,
+				AB00000000000000000046 /* PermissionStatus.swift in Sources */,
+				AB00000000000000000047 /* ProjectLayout.swift in Sources */,
+				AB00000000000000000048 /* RecordingPhase.swift in Sources */,
+				AB00000000000000000049 /* RecordingSessionState.swift in Sources */,
+				AB0000000000000000004A /* SchemaManifest.swift in Sources */,
+				AB0000000000000000004B /* TodoItem.swift in Sources */,
+				AB0000000000000000004C /* Transcript.swift in Sources */,
+				AB0000000000000000004D /* EmptyStateView.swift in Sources */,
+				AB0000000000000000004E /* HomeShellController.swift in Sources */,
+				AB0000000000000000004F /* HomeShellView.swift in Sources */,
+				AB00000000000000000050 /* HomeShellViewModel.swift in Sources */,
+				AB00000000000000000051 /* OnboardingController.swift in Sources */,
+				AB00000000000000000052 /* OnboardingCopy.swift in Sources */,
+				AB00000000000000000053 /* OnboardingView.swift in Sources */,
+				AB00000000000000000054 /* OnboardingViewModel.swift in Sources */,
+				AB00000000000000000055 /* RecordingSpikeView.swift in Sources */,
+				AB00000000000000000056 /* RecordingSpikeViewModel.swift in Sources */,
+				AB00000000000000000057 /* SettingsView.swift in Sources */,
+				AB00000000000000000058 /* SettingsViewModel.swift in Sources */,
+				AB00000000000000000059 /* AppSessionStore.swift in Sources */,
+				AB0000000000000000005A /* BookmarkClient.swift in Sources */,
+				AB0000000000000000005B /* KeyValueStore.swift in Sources */,
+				AB0000000000000000005C /* OnboardingCompleter.swift in Sources */,
+				AB0000000000000000005D /* AVAudioCaptureEngine.swift in Sources */,
+				AB0000000000000000005E /* AVAuthorizationMapper.swift in Sources */,
+				AB0000000000000000005F /* CaptureArtifacts.swift in Sources */,
+				AB00000000000000000060 /* CaptureEngine.swift in Sources */,
+				AB00000000000000000061 /* MockCaptureEngine.swift in Sources */,
+				AB00000000000000000062 /* PermissionChecking.swift in Sources */,
+				AB00000000000000000063 /* RecordingSessionCoordinator.swift in Sources */,
+				AB00000000000000000064 /* SystemPermissionChecker.swift in Sources */,
+				AB00000000000000000065 /* FileSystemClient.swift in Sources */,
+				AB00000000000000000066 /* JSONCoding.swift in Sources */,
+				AB00000000000000000067 /* SchemaMigrator.swift in Sources */,
+				AB00000000000000000068 /* StorageError.swift in Sources */,
+				AB00000000000000000069 /* WorkingDirectoryStore.swift in Sources */,
+				AB0000000000000000006A /* WorkspaceOpener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		PH00000000000000000095 /* Sources */ = {
+		PH000000000000000000B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				TB0000000000000000006D /* AppIdentityTests.swift in Sources */,
-				TB0000000000000000006E /* AppSectionTests.swift in Sources */,
-				TB0000000000000000006F /* AppSessionPreferencesTests.swift in Sources */,
-				TB00000000000000000070 /* AppSettingsTests.swift in Sources */,
-				TB00000000000000000071 /* DesignTokensTests.swift in Sources */,
-				TB00000000000000000072 /* EmptyStateContentTests.swift in Sources */,
-				TB00000000000000000073 /* HomeNavigationStateTests.swift in Sources */,
-				TB00000000000000000074 /* KnownAIProviderOptionTests.swift in Sources */,
-				TB00000000000000000075 /* MeetingModelsTests.swift in Sources */,
-				TB00000000000000000076 /* OnboardingFlowStateTests.swift in Sources */,
-				TB00000000000000000077 /* SchemaManifestTests.swift in Sources */,
-				TB00000000000000000078 /* TodoItemTests.swift in Sources */,
-				TB00000000000000000079 /* TranscriptTests.swift in Sources */,
-				TB0000000000000000007A /* HomeShellViewModelTests.swift in Sources */,
-				TB0000000000000000007B /* OnboardingCopyTests.swift in Sources */,
-				TB0000000000000000007C /* OnboardingViewModelTests.swift in Sources */,
-				TB0000000000000000007D /* SettingsViewModelTests.swift in Sources */,
-				TB0000000000000000007E /* ProjectLayoutTests.swift in Sources */,
-				TB0000000000000000007F /* AppSessionStoreTests.swift in Sources */,
-				TB00000000000000000080 /* BookmarkClientTests.swift in Sources */,
-				TB00000000000000000081 /* FoundationFileSystemTests.swift in Sources */,
-				TB00000000000000000082 /* JSONCodingTests.swift in Sources */,
-				TB00000000000000000083 /* OnboardingCompleterTests.swift in Sources */,
-				TB00000000000000000084 /* SchemaMigratorTests.swift in Sources */,
-				TB00000000000000000085 /* StorageErrorTests.swift in Sources */,
-				TB00000000000000000086 /* WorkingDirectoryStoreTests.swift in Sources */,
-				TB00000000000000000087 /* WorkspaceOpenerTests.swift in Sources */,
-				TB00000000000000000088 /* InMemoryFileSystem.swift in Sources */,
+				TB0000000000000000008B /* AppIdentityTests.swift in Sources */,
+				TB0000000000000000008C /* AppSectionTests.swift in Sources */,
+				TB0000000000000000008D /* AppSessionPreferencesTests.swift in Sources */,
+				TB0000000000000000008E /* AppSettingsTests.swift in Sources */,
+				TB0000000000000000008F /* DesignTokensTests.swift in Sources */,
+				TB00000000000000000090 /* EmptyStateContentTests.swift in Sources */,
+				TB00000000000000000091 /* HomeNavigationStateTests.swift in Sources */,
+				TB00000000000000000092 /* KnownAIProviderOptionTests.swift in Sources */,
+				TB00000000000000000093 /* MeetingModelsTests.swift in Sources */,
+				TB00000000000000000094 /* OnboardingFlowStateTests.swift in Sources */,
+				TB00000000000000000095 /* RecordingSessionStateTests.swift in Sources */,
+				TB00000000000000000096 /* SchemaManifestTests.swift in Sources */,
+				TB00000000000000000097 /* TodoItemTests.swift in Sources */,
+				TB00000000000000000098 /* TranscriptTests.swift in Sources */,
+				TB00000000000000000099 /* HomeShellViewModelTests.swift in Sources */,
+				TB0000000000000000009A /* OnboardingCopyTests.swift in Sources */,
+				TB0000000000000000009B /* OnboardingViewModelTests.swift in Sources */,
+				TB0000000000000000009C /* RecordingSpikeViewModelTests.swift in Sources */,
+				TB0000000000000000009D /* SettingsViewModelTests.swift in Sources */,
+				TB0000000000000000009E /* ProjectLayoutTests.swift in Sources */,
+				TB0000000000000000009F /* AppSessionStoreTests.swift in Sources */,
+				TB000000000000000000A0 /* BookmarkClientTests.swift in Sources */,
+				TB000000000000000000A1 /* CaptureEngineTests.swift in Sources */,
+				TB000000000000000000A2 /* FoundationFileSystemTests.swift in Sources */,
+				TB000000000000000000A3 /* JSONCodingTests.swift in Sources */,
+				TB000000000000000000A4 /* OnboardingCompleterTests.swift in Sources */,
+				TB000000000000000000A5 /* RecordingCoordinatorTests.swift in Sources */,
+				TB000000000000000000A6 /* SchemaMigratorTests.swift in Sources */,
+				TB000000000000000000A7 /* StorageErrorTests.swift in Sources */,
+				TB000000000000000000A8 /* WorkingDirectoryStoreTests.swift in Sources */,
+				TB000000000000000000A9 /* WorkspaceOpenerTests.swift in Sources */,
+				TB000000000000000000AA /* InMemoryFileSystem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DP00000000000000000091 /* PBXTargetDependency */ = {
+		DP000000000000000000B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = TG0000000000000000008F /* Bethal */;
-			targetProxy = PX0000000000000000008D /* PBXContainerItemProxy */;
+			target = TG000000000000000000B1 /* Bethal */;
+			targetProxy = PX000000000000000000AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		CF0000000000000000009B /* Debug */ = {
+		CF000000000000000000BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -604,7 +688,7 @@
 			};
 			name = Debug;
 		};
-		CF0000000000000000009C /* Release */ = {
+		CF000000000000000000BE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -619,7 +703,7 @@
 			};
 			name = Release;
 		};
-		CF0000000000000000009D /* Debug */ = {
+		CF000000000000000000BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -633,6 +717,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Bethal;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Gireesh. All rights reserved.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Bethal records meeting audio on this Mac so you can transcribe and summarize calls locally.";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -648,7 +733,7 @@
 			};
 			name = Debug;
 		};
-		CF0000000000000000009E /* Release */ = {
+		CF000000000000000000C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -662,6 +747,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Bethal;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Gireesh. All rights reserved.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Bethal records meeting audio on this Mac so you can transcribe and summarize calls locally.";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -677,7 +763,7 @@
 			};
 			name = Release;
 		};
-		CF0000000000000000009F /* Debug */ = {
+		CF000000000000000000C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -694,7 +780,7 @@
 			};
 			name = Debug;
 		};
-		CF000000000000000000A0 /* Release */ = {
+		CF000000000000000000C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -714,34 +800,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CL000000000000000000A1 = {
+		CL000000000000000000C3 = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CF0000000000000000009B /* Debug */,
-				CF0000000000000000009C /* Release */,
+				CF000000000000000000BD /* Debug */,
+				CF000000000000000000BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CL000000000000000000A2 = {
+		CL000000000000000000C4 = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CF0000000000000000009D /* Debug */,
-				CF0000000000000000009E /* Release */,
+				CF000000000000000000BF /* Debug */,
+				CF000000000000000000C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CL000000000000000000A3 = {
+		CL000000000000000000C5 = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CF0000000000000000009F /* Debug */,
-				CF000000000000000000A0 /* Release */,
+				CF000000000000000000C1 /* Debug */,
+				CF000000000000000000C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = PJ0000000000000000008E /* Project object */;
+	rootObject = PJ000000000000000000B0 /* Project object */;
 }

@@ -312,7 +312,7 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 04 — Home shell, navigation, settings shell  
-**Status:** `[~]` in progress (PR open)  
+**Status:** `[x]` done (merged PR #4)  
 **Branch:** `feat/04-shell`  
 **Goal:** App chrome: Meetings list, Todos list placeholders, Settings.
 
@@ -331,20 +331,21 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 05 — Capture permissions & recording spike (tech decision)  
-**Status:** `[ ]`  
+**Status:** `[~]` in progress (PR open)  
 **Branch:** `feat/05-recording-spike`  
 **Goal:** Prove mic + optional screen/system audio capture; document API choices.
 
 **Deliverables:**
 
-- Permission request helpers (mic, screen)  
-- Minimal record → file write for audio; spike video path  
-- `docs/recording-notes.md` (or section in README): limitations, TCC prompts, recommended default mode  
-- State machine interface for production recording session  
+- Permission helpers (`PermissionChecking`, mic + screen)  
+- `RecordingSessionState` machine + `RecordingSessionCoordinator`  
+- `AVAudioCaptureEngine` (mic → `audio.m4a`); A/V defers full ScreenCaptureKit to 06  
+- Sidebar **Record** spike UI  
+- `docs/recording-notes.md`  
 
-**Manual test:** Grant permissions; record 10s audio (and video if ready); file appears under working directory test path.
+**Manual test:** Grant mic; record ~10s; meeting + `audio.m4a` under working directory; Refresh Meetings list.
 
-**Tests:** Session state machine 100%; capture engine behind protocol with mocks.
+**Tests:** State machine, coordinator, mock engine, spike VM (100% Domain/Services; AV/TCC wrappers excluded).
 
 ---
 
@@ -589,9 +590,10 @@ Dependencies are mostly linear; **07** can parallelize with **08** after **06** 
 | 2026-07-18 | Sub-task 02 marked done after PR #2 merge (storage layer). |
 | 2026-07-18 | Sub-task 03 in progress: onboarding + privacy + working directory. |
 | 2026-07-18 | Sub-task 03 marked done after PR #3 merge; sub-task 04 home shell in progress. |
+| 2026-07-18 | Sub-task 04 marked done after PR #4 merge; sub-task 05 recording spike in progress. |
 
 ---
 
 ## 11. Next action
 
-**Sub-tasks 01–03 complete** once 04’s PR is open. Next after 04 merges: **Sub-task 05 — Recording spike**.
+**Sub-tasks 01–04 complete** once 05 merges. Next: **Sub-task 06 — Production recording UI**.

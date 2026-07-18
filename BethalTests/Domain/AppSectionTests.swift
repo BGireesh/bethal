@@ -5,7 +5,7 @@ import Testing
 struct AppSectionTests {
     @Test("all cases have titles and symbols")
     func cases() {
-        #expect(AppSection.allCases.map(\.rawValue) == ["meetings", "todos", "settings"])
+        #expect(AppSection.allCases.map(\.rawValue) == ["meetings", "record", "todos", "settings"])
         for section in AppSection.allCases {
             #expect(!section.title.isEmpty)
             #expect(!section.systemImage.isEmpty)
