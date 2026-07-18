@@ -13,7 +13,7 @@ Bethal records meetings (audio or audio+video) on your Mac, stores everything un
 
 ## Status
 
-Scaffold only (Sub-task 01). Onboarding, recording, transcription, AI processing, and todos land in later PRs — tracked in `project-plan.md`.
+Sub-task **01** scaffold done. Sub-task **02** adds domain models + working-directory storage (no onboarding UI yet). Recording, transcription, AI processing, and todos UI land in later PRs — tracked in `project-plan.md`.
 
 ## Requirements
 
@@ -64,16 +64,31 @@ Or in Xcode: **Product → Test** (`⌘U`). Coverage is enabled on the shared **
 ```text
 Bethal/
   App/           # @main, windows, SwiftUI views
-  Domain/        # Pure models & path conventions (heavily unit-tested)
+  Domain/        # Models, path layout, pure helpers
+  Services/
+    Storage/     # WorkingDirectoryStore, JSON, schema migration
   Resources/     # Assets, entitlements
 BethalTests/     # Swift Testing unit tests
 Scripts/         # test.sh, coverage.sh
 project-plan.md  # Requirements + PR-sized sub-tasks
 ```
 
-## Working directory (coming soon)
+## Working directory layout
 
-All meeting media, transcripts, summaries, and todos will live under a **user-chosen** root (selected during onboarding), with a `.bethal` marker folder. See `ProjectLayout` and `project-plan.md` §2.3.
+Created by `WorkingDirectoryStore.initialize()` under a user-chosen root (onboarding in sub-task 03):
+
+```text
+<WorkingDirectory>/
+  .bethal/schema.json
+  .bethal/settings.json
+  meetings/<id>/meta.json
+  meetings/<id>/transcript.json
+  meetings/<id>/summary.md
+  meetings/<id>/todos.json
+  index/meetings.json
+  index/todos.json
+  exports/
+```
 
 ## Development workflow
 
