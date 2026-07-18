@@ -23,14 +23,29 @@ struct ProjectLayoutTests {
         #expect(layout.indexDirectory.lastPathComponent == "index")
         #expect(layout.exportsDirectory.lastPathComponent == "exports")
         #expect(layout.markerDirectory.path.hasPrefix(root.path))
+        #expect(layout.requiredDirectories.count == 4)
     }
 
-    @Test("meeting directory nests under meetings")
+    @Test("meeting directory and artifact files nest under meetings")
     func meetingDirectory() {
         let layout = ProjectLayout(root: root)
         let meeting = layout.meetingDirectory(id: "abc-123")
         #expect(meeting.lastPathComponent == "abc-123")
         #expect(meeting.deletingLastPathComponent().lastPathComponent == "meetings")
+        #expect(layout.meetingMetaFile(id: "abc-123").lastPathComponent == "meta.json")
+        #expect(layout.meetingTranscriptFile(id: "abc-123").lastPathComponent == "transcript.json")
+        #expect(layout.meetingSummaryFile(id: "abc-123").lastPathComponent == "summary.md")
+        #expect(layout.meetingTodosFile(id: "abc-123").lastPathComponent == "todos.json")
+        #expect(layout.meetingMediaFile(id: "abc-123", fileName: "audio.m4a").lastPathComponent == "audio.m4a")
+    }
+
+    @Test("schema, settings, and index file names")
+    func topLevelFiles() {
+        let layout = ProjectLayout(root: root)
+        #expect(layout.schemaFile.lastPathComponent == "schema.json")
+        #expect(layout.settingsFile.lastPathComponent == "settings.json")
+        #expect(layout.meetingsIndexFile.lastPathComponent == "meetings.json")
+        #expect(layout.todosIndexFile.lastPathComponent == "todos.json")
     }
 
     @Test("relativePath returns path under root")

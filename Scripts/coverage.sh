@@ -40,9 +40,26 @@ path = sys.argv[1]
 with open(path) as f:
     data = json.load(f)
 
-DOMAIN_BASENAMES = {"AppIdentity.swift", "ProjectLayout.swift"}
+# Enforce 100% on Domain/* and Services/* (testable pure logic + storage).
+COVERED_MARKERS = ("/Domain/", "/Services/", "Domain/", "Services/")
+COVERED_BASENAMES = {
+    "AppIdentity.swift",
+    "ProjectLayout.swift",
+    "MeetingStatus.swift",
+    "CaptureMode.swift",
+    "Meeting.swift",
+    "Transcript.swift",
+    "TodoItem.swift",
+    "AppSettings.swift",
+    "SchemaManifest.swift",
+    "StorageError.swift",
+    "FileSystemClient.swift",
+    "JSONCoding.swift",
+    "SchemaMigrator.swift",
+    "WorkingDirectoryStore.swift",
+}
 failures = []
-domain_files = []
+tracked_files = []
 
 for target in data.get("targets", []):
     name = target.get("name", "")
@@ -53,34 +70,37 @@ for target in data.get("targets", []):
     for f in target.get("files", []):
         file_path = f.get("path") or f.get("name") or ""
         base = file_path.split("/")[-1]
-        is_domain = ("/Domain/" in file_path) or file_path.startswith("Domain/") or (base in DOMAIN_BASENAMES)
-        if not is_domain:
+        is_tracked = any(m in file_path for m in COVERED_MARKERS) or (base in COVERED_BASENAMES)
+        if not is_tracked:
+            continue
+        # Skip pure SwiftUI App views from the gate.
+        if base in ("BethalApp.swift", "ContentView.swift"):
             continue
         lines = f.get("coveredLines", 0)
         total = f.get("executableLines", 0)
         pct = f.get("lineCoverage", 0.0) * 100.0
-        domain_files.append((file_path, lines, total, pct))
+        tracked_files.append((file_path, lines, total, pct))
         if total > 0 and pct < 99.999:
             failures.append(f"{file_path}: {pct:.1f}% ({lines}/{total})")
 
-if not domain_files:
-    print("No Domain files found in coverage report; listing app target files:")
+if not tracked_files:
+    print("No Domain/Services files found in coverage report; listing app target files:")
     for target in data.get("targets", []):
         print("target:", target.get("name"))
         for f in target.get("files", []):
             print(" ", f.get("path") or f.get("name"), "coverage=", f.get("lineCoverage"))
     sys.exit(1)
 
-for file_path, lines, total, pct in sorted(domain_files):
+for file_path, lines, total, pct in sorted(tracked_files):
     print(f"  {file_path}: {pct:.1f}% ({lines}/{total} lines)")
 
 if failures:
-    print("\nFAIL: Domain coverage below 100%:")
+    print("\nFAIL: Domain/Services coverage below 100%:")
     for msg in failures:
         print(" ", msg)
     sys.exit(1)
 
-print("\nOK: Domain sources at 100% line coverage.")
+print("\nOK: Domain/Services sources at 100% line coverage.")
 PY
 
 rm -f "${REPORT_JSON}"

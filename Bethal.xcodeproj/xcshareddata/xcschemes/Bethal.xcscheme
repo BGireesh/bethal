@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E10000000000000000000001"
+               BlueprintIdentifier = "TG00000000000000000041"
                BuildableName = "Bethal.app"
                BlueprintName = "Bethal"
                ReferencedContainer = "container:Bethal.xcodeproj">
@@ -32,7 +32,7 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E10000000000000000000001"
+            BlueprintIdentifier = "TG00000000000000000041"
             BuildableName = "Bethal.app"
             BlueprintName = "Bethal"
             ReferencedContainer = "container:Bethal.xcodeproj">
@@ -44,7 +44,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E10000000000000000000002"
+               BlueprintIdentifier = "TT00000000000000000042"
                BuildableName = "BethalTests.xctest"
                BlueprintName = "BethalTests"
                ReferencedContainer = "container:Bethal.xcodeproj">
@@ -66,7 +66,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E10000000000000000000001"
+            BlueprintIdentifier = "TG00000000000000000041"
             BuildableName = "Bethal.app"
             BlueprintName = "Bethal"
             ReferencedContainer = "container:Bethal.xcodeproj">
@@ -83,7 +83,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E10000000000000000000001"
+            BlueprintIdentifier = "TG00000000000000000041"
             BuildableName = "Bethal.app"
             BlueprintName = "Bethal"
             ReferencedContainer = "container:Bethal.xcodeproj">
