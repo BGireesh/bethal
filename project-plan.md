@@ -254,7 +254,7 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 01 — Project scaffold & quality bar  
-**Status:** `[~]` in progress (PR open)  
+**Status:** `[x]` done (merged PR #1)  
 **Branch:** `feat/01-scaffold`  
 **Goal:** Runnable empty macOS app with identity, structure, test target, and docs link.
 
@@ -582,16 +582,19 @@ Dependencies are mostly linear; **07** can parallelize with **08** after **06** 
 | Date | Change |
 |------|--------|
 | 2026-07-18 | Initial project plan from product requirements; 14 sub-tasks defined. |
+| 2026-07-18 | Sub-task 01 marked done after PR #1 merge (scaffold + tests + coverage gate). |
 
 ---
 
 ## 11. Next action
 
-**Start Sub-task 01** when you approve:
+**Sub-task 01 complete.** Next: **Sub-task 02 — Domain models & working-directory storage**.
 
-1. Create branch `feat/01-scaffold`  
-2. Scaffold macOS SwiftUI app `us.gireesh.bethal`  
-3. Test target + README  
+When ready:
+
+1. Create branch `feat/02-storage`  
+2. Implement models + `WorkingDirectoryStore` (layout, meta, index, schema version)  
+3. Unit tests at 100% Domain/Storage coverage  
 4. Open PR for manual test  
 
-Reply with **go ahead on 01** (or adjustments to this plan) to begin implementation.
+Reply with **go ahead on 02** to begin.
