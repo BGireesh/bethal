@@ -52,6 +52,9 @@ SKIP_BASENAMES = {
     "HomeShellController.swift",
     "EmptyStateView.swift",
     "SettingsView.swift",
+    "RecordingSpikeView.swift",  # UI + timer; logic in ViewModel/Coordinator
+    "AVAudioCaptureEngine.swift",  # hardware AV; covered via CaptureEngine protocol + mock
+    "SystemPermissionChecker.swift",  # real TCC; use MockPermissionChecker in tests
 }
 failures = []
 tracked_files = []
@@ -87,6 +90,10 @@ for target in data.get("targets", []):
                     "OnboardingCopy.swift", "AppSection.swift", "HomeNavigationState.swift",
                     "EmptyStateContent.swift", "DesignTokens.swift", "WorkspaceOpener.swift",
                     "SettingsViewModel.swift", "HomeShellViewModel.swift",
+                    "PermissionStatus.swift", "RecordingPhase.swift", "RecordingSessionState.swift",
+                    "CaptureArtifacts.swift", "CaptureEngine.swift", "MockCaptureEngine.swift",
+                    "RecordingSessionCoordinator.swift", "RecordingSpikeViewModel.swift",
+                    "AVAuthorizationMapper.swift", "RecordingSpikeDecisions",
                 }
                 if not domain_like:
                     continue
