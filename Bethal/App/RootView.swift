@@ -9,7 +9,7 @@ struct RootView: View {
             if onboarding.needsOnboarding {
                 OnboardingView(controller: onboarding)
             } else {
-                ContentView(session: onboarding.sessionPreferences)
+                HomeShellView()
             }
         }
     }

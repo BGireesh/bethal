@@ -13,7 +13,7 @@ Bethal records meetings (audio or audio+video) on your Mac, stores everything un
 
 ## Status
 
-Sub-tasks **01–02** done. Sub-task **03** adds first-launch onboarding (privacy, working directory, optional default AI). Recording and full home shell land next — tracked in `project-plan.md`.
+Sub-tasks **01–03** done. Sub-task **04** adds the home shell (Meetings / Todos / Settings). Recording starts in sub-task 05 — tracked in `project-plan.md`.
 
 ## Requirements
 
