@@ -424,7 +424,7 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 10 — Full processing pipeline + review before save  
-**Status:** `[~]` in progress  
+**Status:** `[x]` done (merged PR #10)  
 **Branch:** `feat/10-processing-review`  
 **Goal:** Transcribe → summarize → propose todos → user review → accept/reject.
 
@@ -443,21 +443,21 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 11 — Global todos UI (complete, remind, provenance links)  
-**Status:** `[ ]`  
+**Status:** `[~]` in progress  
 **Branch:** `feat/11-todos`  
 **Goal:** Beautiful global todo list with meeting provenance.
 
 **Deliverables:**
 
-- List: incomplete / completed filters  
-- Mark complete  
-- Reminder setup (local notification)  
-- Hover/detail: source meeting title + date  
-- Hyperlink → Meeting Review route (stub ok if 12 lands next)  
+- Filter Open / Done / All; `TodoListPresentation`  
+- Mark complete / incomplete; complete clears reminder  
+- Local notification reminders (1h / tomorrow 9am / 3 days)  
+- Provenance link opens meeting Review when available  
+- Notes: `docs/todos-notes.md`  
 
 **Manual test:** Todos from multiple meetings; complete one; set reminder; open meeting link.
 
-**Tests:** Todo store CRUD, filter, reminder scheduling protocol mocks.
+**Tests:** Filter/sort, presentation, TodosViewModel + mock notifications (100%; TodosView + UN client excluded).
 
 ---
 
@@ -598,9 +598,10 @@ Dependencies are mostly linear; **07** can parallelize with **08** after **06** 
 | 2026-07-18 | Sub-task 07 marked done after PR #7 merge; sub-task 08 local transcription in progress. |
 | 2026-07-18 | Sub-task 08 marked done after PR #8 merge; sub-task 09 AI providers in progress. |
 | 2026-07-18 | Sub-task 09 marked done after PR #9 merge; sub-task 10 processing review in progress. |
+| 2026-07-18 | Sub-task 10 marked done after PR #10 merge; sub-task 11 global todos UI in progress. |
 
 ---
 
 ## 11. Next action
 
-**Sub-tasks 01–09 complete.** Next: finish **Sub-task 10 — processing review**, then **11 — global todos UI**.
+**Sub-tasks 01–10 complete.** Next: finish **Sub-task 11 — global todos**, then **12 — meeting review player**.
