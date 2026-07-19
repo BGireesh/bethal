@@ -179,4 +179,59 @@ struct SettingsViewModelTests {
         let vm = SettingsViewModel(sessionStore: session, fileSystem: fs, workspace: RecordingWorkspaceOpener())
         #expect(vm.defaultCaptureModeDisplayName == "Audio only")
     }
+
+    @Test("update calendar preferences persists")
+    func updateCalendar() throws {
+        let fs = InMemoryFileSystem()
+        let path = "/Users/test/BethalCalSettings"
+        let session = try seededSession(path: path, fs: fs)
+        let vm = SettingsViewModel(sessionStore: session, fileSystem: fs, workspace: RecordingWorkspaceOpener())
+        vm.updateCalendarPreferences(enabled: false, minutesBefore: 10)
+        #expect(vm.appSettings.calendarAutoDetectEnabled == false)
+        #expect(vm.appSettings.calendarRemindMinutesBefore == 10)
+        #expect(vm.calendarSummary == "Off")
+
+        vm.updateCalendarPreferences(enabled: true, minutesBefore: 3)
+        #expect(vm.calendarSummary.contains("3"))
+
+        let reloaded = try WorkingDirectoryStore(
+            root: URL(fileURLWithPath: path, isDirectory: true),
+            fileSystem: fs
+        ).loadSettings()
+        #expect(reloaded.calendarAutoDetectEnabled)
+        #expect(reloaded.calendarRemindMinutesBefore == 3)
+    }
+
+    @Test("update calendar without working directory fails soft")
+    func updateCalendarNoWD() {
+        let session = AppSessionStore(keyValueStore: InMemoryKeyValueStore())
+        let vm = SettingsViewModel(sessionStore: session, fileSystem: InMemoryFileSystem(), workspace: RecordingWorkspaceOpener())
+        vm.updateCalendarPreferences(enabled: true, minutesBefore: 5)
+        #expect(vm.loadError != nil)
+    }
+
+    @Test("update calendar initializes store when missing schema")
+    func updateCalendarInitializes() throws {
+        let fs = InMemoryFileSystem()
+        let path = "/Users/test/BethalCalInit"
+        let session = AppSessionStore(keyValueStore: InMemoryKeyValueStore())
+        try session.save(AppSessionPreferences(hasCompletedOnboarding: true, workingDirectoryPath: path))
+        // No initialize yet — only path in session
+        let vm = SettingsViewModel(sessionStore: session, fileSystem: fs, workspace: RecordingWorkspaceOpener())
+        vm.updateCalendarPreferences(enabled: true, minutesBefore: 7)
+        #expect(vm.loadError == nil)
+        let settings = try WorkingDirectoryStore(root: URL(fileURLWithPath: path, isDirectory: true), fileSystem: fs).loadSettings()
+        #expect(settings.calendarRemindMinutesBefore == 7)
+    }
+
+    @Test("persist settings surfaces write failures")
+    func persistWriteFailure() throws {
+        let fs = InMemoryFileSystem()
+        let path = "/Users/test/BethalCalWriteFail"
+        let session = try seededSession(path: path, fs: fs)
+        let vm = SettingsViewModel(sessionStore: session, fileSystem: fs, workspace: RecordingWorkspaceOpener())
+        fs.failNextWrite = true
+        vm.updateCalendarPreferences(enabled: true, minutesBefore: 4)
+        #expect(vm.loadError != nil)
+    }
 }

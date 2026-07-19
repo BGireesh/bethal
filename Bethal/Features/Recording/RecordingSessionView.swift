@@ -3,10 +3,16 @@ import SwiftUI
 /// Production recording session UI: title, mode, live timer, start/stop/cancel.
 struct RecordingSessionView: View {
     @StateObject private var controller: RecordingSessionController
+    var prefilledTitle: String?
     var onSessionEnded: (() -> Void)?
 
-    init(controller: RecordingSessionController? = nil, onSessionEnded: (() -> Void)? = nil) {
+    init(
+        controller: RecordingSessionController? = nil,
+        prefilledTitle: String? = nil,
+        onSessionEnded: (() -> Void)? = nil
+    ) {
         _controller = StateObject(wrappedValue: controller ?? RecordingSessionController())
+        self.prefilledTitle = prefilledTitle
         self.onSessionEnded = onSessionEnded
     }
 
@@ -23,6 +29,16 @@ struct RecordingSessionView: View {
         .padding(DesignSpacing.xl)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .navigationTitle(AppSection.record.title)
+        .onAppear {
+            if let prefilledTitle, !prefilledTitle.isEmpty {
+                controller.setTitle(prefilledTitle)
+            }
+        }
+        .onChange(of: prefilledTitle) { _, newValue in
+            if let newValue, !newValue.isEmpty {
+                controller.setTitle(newValue)
+            }
+        }
         .onDisappear { controller.stopTimer() }
     }
 
