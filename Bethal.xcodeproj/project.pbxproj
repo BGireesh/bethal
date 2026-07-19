@@ -96,6 +96,11 @@
 		AB0000000000000000020D /* ProcessingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000020D /* ProcessingCoordinator.swift */; };
 		AB0000000000000000020E /* ProviderChooserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000020E /* ProviderChooserViewModel.swift */; };
 		AB0000000000000000020F /* ProviderChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000020F /* ProviderChooserView.swift */; };
+		AB00000000000000000300 /* ReviewDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000300 /* ReviewDraft.swift */; };
+		AB00000000000000000301 /* ReviewPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000301 /* ReviewPhase.swift */; };
+		AB00000000000000000302 /* ProcessingReviewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000302 /* ProcessingReviewCoordinator.swift */; };
+		AB00000000000000000303 /* ProcessingReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000303 /* ProcessingReviewViewModel.swift */; };
+		AB00000000000000000304 /* ProcessingReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000304 /* ProcessingReviewView.swift */; };
 		RB000000000000000000CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = RS000000000000000000CB /* Assets.xcassets */; };
 		TB000000000000000000A7 /* AppIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000083 /* AppIdentityTests.swift */; };
 		TB000000000000000000A8 /* AppSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000084 /* AppSectionTests.swift */; };
@@ -141,6 +146,9 @@
 		TB00000000000000000213 /* AIProcessResponseParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000213 /* AIProcessResponseParserTests.swift */; };
 		TB00000000000000000214 /* ProcessingCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000214 /* ProcessingCoordinatorTests.swift */; };
 		TB00000000000000000215 /* ProviderChooserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000215 /* ProviderChooserViewModelTests.swift */; };
+		TB00000000000000000305 /* ReviewDraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000305 /* ReviewDraftTests.swift */; };
+		TB00000000000000000306 /* ProcessingReviewCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000306 /* ProcessingReviewCoordinatorTests.swift */; };
+		TB00000000000000000307 /* ProcessingReviewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000307 /* ProcessingReviewViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +251,11 @@
 		AA0000000000000000020D /* ProcessingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingCoordinator.swift; sourceTree = "<group>"; };
 		AA0000000000000000020E /* ProviderChooserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderChooserViewModel.swift; sourceTree = "<group>"; };
 		AA0000000000000000020F /* ProviderChooserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderChooserView.swift; sourceTree = "<group>"; };
+		AA00000000000000000300 /* ReviewDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDraft.swift; sourceTree = "<group>"; };
+		AA00000000000000000301 /* ReviewPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPhase.swift; sourceTree = "<group>"; };
+		AA00000000000000000302 /* ProcessingReviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingReviewCoordinator.swift; sourceTree = "<group>"; };
+		AA00000000000000000303 /* ProcessingReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingReviewViewModel.swift; sourceTree = "<group>"; };
+		AA00000000000000000304 /* ProcessingReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingReviewView.swift; sourceTree = "<group>"; };
 		RS000000000000000000CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		TA00000000000000000083 /* AppIdentityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIdentityTests.swift; sourceTree = "<group>"; };
 		TA00000000000000000084 /* AppSectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSectionTests.swift; sourceTree = "<group>"; };
@@ -288,6 +301,9 @@
 		TA00000000000000000213 /* AIProcessResponseParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIProcessResponseParserTests.swift; sourceTree = "<group>"; };
 		TA00000000000000000214 /* ProcessingCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingCoordinatorTests.swift; sourceTree = "<group>"; };
 		TA00000000000000000215 /* ProviderChooserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderChooserViewModelTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000305 /* ReviewDraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDraftTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000306 /* ProcessingReviewCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingReviewCoordinatorTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000307 /* ProcessingReviewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingReviewViewModelTests.swift; sourceTree = "<group>"; };
 		PR000000000000000000CD /* Bethal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bethal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		PT000000000000000000CE /* BethalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BethalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -383,6 +399,8 @@
 				AA00000000000000000202 /* ProviderSelectionPolicy.swift */,
 				AA00000000000000000203 /* ProcessingPhase.swift */,
 				AA00000000000000000204 /* ProcessingProgress.swift */,
+				AA00000000000000000300 /* ReviewDraft.swift */,
+				AA00000000000000000301 /* ReviewPhase.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -408,6 +426,7 @@
 				GG000000000000000000F0 /* Calendar */,
 				GG000000000000000000F1 /* Notifications */,
 				GG000000000000000000F2 /* Preferences */,
+				GG0000000000000000010E /* Processing */,
 				GG000000000000000000F3 /* Recording */,
 				GG000000000000000000F4 /* Storage */,
 				GG0000000000000000010B /* Transcription */,
@@ -421,6 +440,16 @@
 			children = (
 				AA0000000000000000020E /* ProviderChooserViewModel.swift */,
 				AA0000000000000000020F /* ProviderChooserView.swift */,
+				AA00000000000000000303 /* ProcessingReviewViewModel.swift */,
+				AA00000000000000000304 /* ProcessingReviewView.swift */,
+			);
+			path = Processing;
+			sourceTree = "<group>";
+		};
+		GG0000000000000000010E /* Processing */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000302 /* ProcessingReviewCoordinator.swift */,
 			);
 			path = Processing;
 			sourceTree = "<group>";
@@ -617,6 +646,7 @@
 				TA00000000000000000092 /* TranscriptTests.swift */,
 				TA00000000000000000210 /* ProviderSelectionPolicyTests.swift */,
 				TA00000000000000000211 /* ProcessingPhaseTests.swift */,
+				TA00000000000000000305 /* ReviewDraftTests.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -633,6 +663,7 @@
 				TA00000000000000000099 /* SettingsViewModelTests.swift */,
 				TA00000000000000000108 /* TranscriptionViewModelTests.swift */,
 				TA00000000000000000215 /* ProviderChooserViewModelTests.swift */,
+				TA00000000000000000307 /* ProcessingReviewViewModelTests.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -653,6 +684,7 @@
 				TA00000000000000000212 /* AIProviderRegistryTests.swift */,
 				TA00000000000000000213 /* AIProcessResponseParserTests.swift */,
 				TA00000000000000000214 /* ProcessingCoordinatorTests.swift */,
+				TA00000000000000000306 /* ProcessingReviewCoordinatorTests.swift */,
 				TA000000000000000000A4 /* WorkingDirectoryStoreTests.swift */,
 				TA000000000000000000A5 /* WorkspaceOpenerTests.swift */,
 			);
@@ -851,6 +883,11 @@
 				AB0000000000000000020D /* ProcessingCoordinator.swift in Sources */,
 				AB0000000000000000020E /* ProviderChooserViewModel.swift in Sources */,
 				AB0000000000000000020F /* ProviderChooserView.swift in Sources */,
+				AB00000000000000000300 /* ReviewDraft.swift in Sources */,
+				AB00000000000000000301 /* ReviewPhase.swift in Sources */,
+				AB00000000000000000302 /* ProcessingReviewCoordinator.swift in Sources */,
+				AB00000000000000000303 /* ProcessingReviewViewModel.swift in Sources */,
+				AB00000000000000000304 /* ProcessingReviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -902,6 +939,9 @@
 				TB00000000000000000213 /* AIProcessResponseParserTests.swift in Sources */,
 				TB00000000000000000214 /* ProcessingCoordinatorTests.swift in Sources */,
 				TB00000000000000000215 /* ProviderChooserViewModelTests.swift in Sources */,
+				TB00000000000000000305 /* ReviewDraftTests.swift in Sources */,
+				TB00000000000000000306 /* ProcessingReviewCoordinatorTests.swift in Sources */,
+				TB00000000000000000307 /* ProcessingReviewViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

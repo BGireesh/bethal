@@ -144,6 +144,13 @@ struct HomeShellView: View {
                                 .buttonStyle(.borderedProminent)
                                 .disabled(controller.processingProgress.phase.isInProgress)
                             }
+                            if item.canReview {
+                                Button(item.reviewButtonTitle) {
+                                    controller.openReview(meetingID: item.id)
+                                }
+                                .buttonStyle(.bordered)
+                                .disabled(controller.reviewPhase.isBusy)
+                            }
                         }
                     }
                     .padding(.vertical, 2)
@@ -183,6 +190,22 @@ struct HomeShellView: View {
                 },
                 onRefresh: { controller.refreshProcessingDiscovery() },
                 onDismiss: { controller.dismissProcessingSheet() }
+            )
+        }
+        .sheet(isPresented: Binding(
+            get: { controller.showReviewSheet },
+            set: { if !$0 { controller.dismissReviewSheet() } }
+        )) {
+            ProcessingReviewView(
+                draft: controller.reviewDraft,
+                phase: controller.reviewPhase,
+                errorMessage: controller.reviewError,
+                lastAcceptedCount: controller.reviewAcceptedCount,
+                onUpdateTitle: { id, title in controller.updateReviewCandidate(id: id, title: title) },
+                onRemove: { controller.removeReviewCandidate(id: $0) },
+                onAccept: { controller.acceptReview() },
+                onDiscard: { controller.discardReview() },
+                onDismiss: { controller.dismissReviewSheet() }
             )
         }
     }

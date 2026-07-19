@@ -135,6 +135,27 @@ struct MeetingListPresentationTests {
         #expect(MeetingListPresentation(entry: failed).processButtonTitle == "Retry processing")
     }
 
+    @Test("review affordances by status")
+    func reviewAffordances() {
+        let base = MeetingIndexEntry(
+            id: "m",
+            title: "T",
+            status: .transcribed,
+            captureMode: .audioOnly,
+            startedAt: Date()
+        )
+        #expect(!MeetingListPresentation(entry: base).canReview)
+
+        var pending = base
+        pending.status = .processedPendingReview
+        #expect(MeetingListPresentation(entry: pending).canReview)
+        #expect(MeetingListPresentation(entry: pending).reviewButtonTitle == "Review")
+
+        var completed = base
+        completed.status = .completed
+        #expect(MeetingListPresentation(entry: completed).reviewButtonTitle == "Review again")
+    }
+
     @Test("status display names")
     func statusNames() {
         for status in MeetingStatus.allCases {

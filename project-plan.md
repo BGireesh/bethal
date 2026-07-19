@@ -404,7 +404,7 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 09 — AI provider registry & post-call chooser  
-**Status:** `[~]` in progress  
+**Status:** `[x]` done (merged PR #9)  
 **Branch:** `feat/09-ai-providers`  
 **Goal:** Discover local CLIs; choose provider per call or default.
 
@@ -424,20 +424,21 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 10 — Full processing pipeline + review before save  
-**Status:** `[ ]`  
+**Status:** `[~]` in progress  
 **Branch:** `feat/10-processing-review`  
 **Goal:** Transcribe → summarize → propose todos → user review → accept/reject.
 
 **Deliverables:**
 
-- Pipeline orchestrator with persisted status  
-- Review screen: summary, transcript peek, editable todo candidates (delete, edit text)  
-- Accept → global todos + mark meeting processed  
-- Discard / re-process entry points  
+- `ReviewDraft` + merge rules; `ProcessingReviewCoordinator`  
+- Review sheet: summary, transcript peek, edit/delete todos  
+- Accept → global todos + meeting `completed`; Discard → `transcribed`  
+- Auto-open review after successful Process with AI  
+- Notes: `docs/processing-review-notes.md`  
 
-**Manual test:** End-to-end one meeting with mock or real CLI; reject one todo; accept rest; global list updates.
+**Manual test:** Process a meeting; edit/delete todos; accept; global list updates; discard path re-processable.
 
-**Tests:** Orchestrator state machine, merge rules, candidate editing (100% domain).
+**Tests:** Draft edit/remove, merge, coordinator accept/discard, review VM (100% Domain/Services; review SwiftUI excluded).
 
 ---
 
@@ -596,9 +597,10 @@ Dependencies are mostly linear; **07** can parallelize with **08** after **06** 
 | 2026-07-18 | Sub-task 06 marked done after PR #6 merge; sub-task 07 calendar reminders in progress. |
 | 2026-07-18 | Sub-task 07 marked done after PR #7 merge; sub-task 08 local transcription in progress. |
 | 2026-07-18 | Sub-task 08 marked done after PR #8 merge; sub-task 09 AI providers in progress. |
+| 2026-07-18 | Sub-task 09 marked done after PR #9 merge; sub-task 10 processing review in progress. |
 
 ---
 
 ## 11. Next action
 
-**Sub-tasks 01–08 complete.** Next: finish **Sub-task 09 — AI providers**, then **10 — processing review**.
+**Sub-tasks 01–09 complete.** Next: finish **Sub-task 10 — processing review**, then **11 — global todos UI**.
