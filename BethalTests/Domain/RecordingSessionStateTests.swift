@@ -119,6 +119,7 @@ struct RecordingSessionStateTests {
         var state = RecordingSessionState(phase: .ready)
         #expect(state.canStart)
         #expect(!state.canStop)
+        #expect(!state.canCancel)
         state.phase = .idle
         #expect(state.canStart)
         state.phase = .finalized
@@ -127,13 +128,30 @@ struct RecordingSessionStateTests {
         #expect(state.canStart)
         state.phase = .recording
         #expect(state.canStop)
+        #expect(state.canCancel)
         #expect(!state.canStart)
+        state.phase = .stopping
+        #expect(state.canCancel)
         #expect(RecordingPhase.finalized.isTerminal)
         #expect(RecordingPhase.failed.isTerminal)
         #expect(!RecordingPhase.ready.isTerminal)
         #expect(RecordingPhase.recording.isActiveCapture)
         #expect(RecordingPhase.stopping.isActiveCapture)
         #expect(!RecordingPhase.idle.isActiveCapture)
+    }
+
+    @Test("markCancelled returns to idle")
+    func markCancelled() {
+        var state = RecordingSessionState(phase: .recording, microphoneStatus: .authorized, screenStatus: .denied)
+        let ok = state.markCancelled()
+        #expect(ok)
+        #expect(state.phase == .idle)
+        #expect(state.microphoneStatus == .authorized)
+        #expect(state.meetingID == nil)
+
+        state = RecordingSessionState(phase: .idle)
+        let rejected = state.markCancelled()
+        #expect(!rejected)
     }
 
     @Test("permission display names")

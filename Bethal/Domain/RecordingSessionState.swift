@@ -49,6 +49,11 @@ public struct RecordingSessionState: Equatable, Sendable {
         phase == .recording
     }
 
+    /// Active capture can be discarded without saving a finished meeting.
+    public var canCancel: Bool {
+        phase == .recording || phase == .stopping
+    }
+
     public var requiresScreenPermission: Bool {
         mode == .audioVideo
     }
@@ -161,6 +166,16 @@ public struct RecordingSessionState: Equatable, Sendable {
             microphoneStatus: microphoneStatus,
             screenStatus: screenStatus
         )
+        return true
+    }
+
+    /// Discards an in-progress or stopping session back to idle (keeps permission snapshot).
+    @discardableResult
+    public mutating func markCancelled() -> Bool {
+        guard canCancel || phase == .ready || phase == .failed else { return false }
+        let mic = microphoneStatus
+        let screen = screenStatus
+        self = RecordingSessionState(microphoneStatus: mic, screenStatus: screen)
         return true
     }
 

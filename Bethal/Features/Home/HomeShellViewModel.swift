@@ -36,6 +36,10 @@ public final class HomeShellViewModel: @unchecked Sendable {
     public var showsMeetingsEmpty: Bool { meetings.isEmpty }
     public var showsTodosEmpty: Bool { todos.isEmpty }
 
+    public var meetingPresentations: [MeetingListPresentation] {
+        meetings.map { MeetingListPresentation(entry: $0) }
+    }
+
     public func selectSection(_ section: AppSection) {
         navigation.select(section)
     }

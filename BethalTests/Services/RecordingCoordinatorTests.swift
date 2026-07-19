@@ -172,6 +172,24 @@ struct RecordingCoordinatorTests {
         #expect(ProjectLayout.isValidMeetingID(coordinator.state.meetingID ?? ""))
     }
 
+    @Test("sanitize replaces backslash and keeps valid cleaned id")
+    func sanitizeBackslash() async throws {
+        let fs = InMemoryFileSystem()
+        let session = AppSessionStore(keyValueStore: InMemoryKeyValueStore())
+        try session.save(AppSessionPreferences(hasCompletedOnboarding: true, workingDirectoryPath: "/Users/test/BethalSlashID"))
+        let coordinator = RecordingSessionCoordinator(
+            permissions: MockPermissionChecker(),
+            engine: MockCaptureEngine(fileSystem: fs),
+            fileSystem: fs,
+            sessionStore: session,
+            clock: { fixedNow },
+            idGenerator: { "a\\b" }
+        )
+        await coordinator.prepare(mode: .audioOnly)
+        await coordinator.start()
+        #expect(coordinator.state.meetingID == "a-b")
+    }
+
     @Test("stop while not recording is no-op")
     func stopNoop() async throws {
         let (coordinator, _, _, _) = try makeCoordinator()
@@ -260,6 +278,41 @@ struct RecordingCoordinatorTests {
         await coordinator.start()
         #expect(coordinator.state.phase == .failed)
         #expect(coordinator.state.errorMessage == "Could not transition into recording.")
+    }
+
+    @Test("cancel discards in-progress meeting")
+    func cancelSession() async throws {
+        let (coordinator, _, mock, fs) = try makeCoordinator(path: "/Users/test/BethalCancel")
+        await coordinator.prepare(mode: .audioOnly)
+        await coordinator.start(title: "Temp")
+        #expect(coordinator.state.phase == .recording)
+        #expect(mock.didStart)
+        await coordinator.cancel()
+        #expect(coordinator.state.phase == .idle)
+        let store = WorkingDirectoryStore(
+            root: URL(fileURLWithPath: "/Users/test/BethalCancel", isDirectory: true),
+            fileSystem: fs,
+            clock: { fixedNow }
+        )
+        #expect(throws: StorageError.self) {
+            _ = try store.loadMeeting(id: "rec-meeting-1")
+        }
+    }
+
+    @Test("cancel from ready clears session")
+    func cancelReady() async throws {
+        let (coordinator, _, _, _) = try makeCoordinator(path: "/Users/test/BethalCancelReady")
+        await coordinator.prepare(mode: .audioOnly)
+        #expect(coordinator.state.phase == .ready)
+        await coordinator.cancel()
+        #expect(coordinator.state.phase == .idle)
+    }
+
+    @Test("cancel from idle is safe")
+    func cancelIdle() async throws {
+        let (coordinator, _, _, _) = try makeCoordinator(path: "/Users/test/BethalCancelIdle")
+        await coordinator.cancel()
+        #expect(coordinator.state.phase == .idle)
     }
 
     @Test("start returns early when permissions leave phase not ready")

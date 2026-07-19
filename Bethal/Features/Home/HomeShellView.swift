@@ -27,6 +27,14 @@ struct HomeShellView: View {
                 .toolbar {
                     ToolbarItem(placement: .primaryAction) {
                         Button {
+                            controller.select(.record)
+                        } label: {
+                            Label("Record", systemImage: "record.circle")
+                        }
+                        .help("Start a new meeting recording")
+                    }
+                    ToolbarItem(placement: .automatic) {
+                        Button {
                             controller.refresh()
                         } label: {
                             Label("Refresh", systemImage: "arrow.clockwise")
@@ -54,7 +62,9 @@ struct HomeShellView: View {
         case .meetings:
             meetingsDetail
         case .record:
-            RecordingSpikeView()
+            RecordingSessionView {
+                controller.refresh()
+            }
         case .todos:
             todosDetail
         case .settings:
@@ -64,39 +74,54 @@ struct HomeShellView: View {
 
     @ViewBuilder
     private var meetingsDetail: some View {
-        if controller.showsMeetingsEmpty {
-            EmptyStateView(content: controller.meetingsEmptyState)
-                .navigationTitle(AppSection.meetings.title)
-        } else {
-            List(controller.meetings) { meeting in
-                VStack(alignment: .leading, spacing: DesignSpacing.xs) {
-                    Text(meeting.title)
-                        .font(.headline)
-                    Text(meeting.status.rawValue)
+        Group {
+            if controller.showsMeetingsEmpty {
+                VStack(spacing: DesignSpacing.lg) {
+                    EmptyStateView(content: controller.meetingsEmptyState)
+                    Button("Start recording") {
+                        controller.select(.record)
+                    }
+                    .keyboardShortcut("r", modifiers: [.command])
+                }
+            } else {
+                List(controller.meetingPresentations) { item in
+                    VStack(alignment: .leading, spacing: DesignSpacing.xs) {
+                        Text(item.title)
+                            .font(.headline)
+                        HStack(spacing: DesignSpacing.sm) {
+                            Text(item.statusLabel)
+                            Text("·")
+                            Text(item.modeLabel)
+                            Text("·")
+                            Text(item.whenLabel)
+                        }
                         .font(.caption)
                         .foregroundStyle(.secondary)
+                    }
+                    .padding(.vertical, 2)
                 }
             }
-            .navigationTitle(AppSection.meetings.title)
         }
+        .navigationTitle(AppSection.meetings.title)
     }
 
     @ViewBuilder
     private var todosDetail: some View {
-        if controller.showsTodosEmpty {
-            EmptyStateView(content: controller.todosEmptyState)
-                .navigationTitle(AppSection.todos.title)
-        } else {
-            List(controller.todos) { todo in
-                VStack(alignment: .leading, spacing: DesignSpacing.xs) {
-                    Text(todo.title)
-                        .font(.headline)
-                    Text("From: \(todo.meetingTitle)")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+        Group {
+            if controller.showsTodosEmpty {
+                EmptyStateView(content: controller.todosEmptyState)
+            } else {
+                List(controller.todos) { todo in
+                    VStack(alignment: .leading, spacing: DesignSpacing.xs) {
+                        Text(todo.title)
+                            .font(.headline)
+                        Text("From: \(todo.meetingTitle)")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
-            .navigationTitle(AppSection.todos.title)
         }
+        .navigationTitle(AppSection.todos.title)
     }
 }

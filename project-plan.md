@@ -331,7 +331,7 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 05 — Capture permissions & recording spike (tech decision)  
-**Status:** `[~]` in progress (PR open)  
+**Status:** `[x]` done (merged PR #5)  
 **Branch:** `feat/05-recording-spike`  
 **Goal:** Prove mic + optional screen/system audio capture; document API choices.
 
@@ -350,20 +350,20 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 06 — Production recording UI & session lifecycle  
-**Status:** `[ ]`  
+**Status:** `[~]` in progress (PR open)  
 **Branch:** `feat/06-recording-ui`  
 **Goal:** Explicit start/stop recording with audio vs A/V modes.
 
 **Deliverables:**
 
-- Start Recording control from Home / menu bar (if ready)  
-- Live session UI: timer, mode toggle, stop  
-- On stop: create `meetings/<id>/`, write media + `meta.json`, status `captured`  
-- Cancel path  
+- Production `RecordingSessionView` + `RecordingViewModel` (title, mode, timer, start/stop/cancel)  
+- Toolbar + empty-state **Start recording** entry points  
+- On stop: media + `meta.json` with `captured`; cancel deletes in-progress meeting  
+- Meetings list presentation (status / mode / when labels)  
 
-**Manual test:** Full record stop for audio and A/V; meeting appears in list.
+**Manual test:** Record audio (and A/V mode); stop → meeting in list; cancel discards session.
 
-**Tests:** Meeting creation from session end; status transitions; error paths.
+**Tests:** Cancel path, presentation helpers, production VM (100% Domain/Services).
 
 ---
 
@@ -591,9 +591,10 @@ Dependencies are mostly linear; **07** can parallelize with **08** after **06** 
 | 2026-07-18 | Sub-task 03 in progress: onboarding + privacy + working directory. |
 | 2026-07-18 | Sub-task 03 marked done after PR #3 merge; sub-task 04 home shell in progress. |
 | 2026-07-18 | Sub-task 04 marked done after PR #4 merge; sub-task 05 recording spike in progress. |
+| 2026-07-18 | Sub-task 05 marked done after PR #5 merge; sub-task 06 production recording UI in progress. |
 
 ---
 
 ## 11. Next action
 
-**Sub-tasks 01–04 complete** once 05 merges. Next: **Sub-task 06 — Production recording UI**.
+**Sub-tasks 01–05 complete** once 06 merges. Next: **Sub-task 07 — Calendar integration**.
