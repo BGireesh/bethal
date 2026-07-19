@@ -57,6 +57,9 @@ struct HomeShellViewModelTests {
         #expect(!vm.showsMeetingsEmpty)
         #expect(!vm.showsTodosEmpty)
         #expect(vm.refreshError == nil)
+        #expect(vm.meetingPresentations.count == 1)
+        #expect(vm.meetingPresentations[0].title == "Vendor call")
+        #expect(vm.meetingPresentations[0].statusLabel == "Captured")
     }
 
     @Test("empty states when no data")

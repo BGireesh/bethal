@@ -117,11 +117,40 @@ public final class RecordingSessionCoordinator: @unchecked Sendable {
         _ = state.reset()
     }
 
+    /// Stops capture if needed, deletes the in-progress meeting folder, and returns to idle.
+    public func cancel() async {
+        let meetingID = state.meetingID
+        let wasRecording = state.phase == .recording || state.phase == .stopping
+
+        if state.phase == .recording {
+            _ = try? await engine.stop()
+        }
+
+        if let meetingID {
+            deleteMeetingIfPresent(id: meetingID)
+        }
+
+        if wasRecording || state.phase == .ready || state.phase == .failed || state.phase == .stopping {
+            _ = state.markCancelled()
+        } else {
+            _ = state.reset()
+        }
+    }
+
     public func updateElapsed(to seconds: TimeInterval) {
         state.tick(elapsedSeconds: seconds)
     }
 
     // MARK: - Private
+
+    private func deleteMeetingIfPresent(id: String) {
+        let session = sessionStore.load()
+        guard let path = session.workingDirectoryPath, !path.isEmpty else { return }
+        let root = URL(fileURLWithPath: path, isDirectory: true)
+        let store = WorkingDirectoryStore(root: root, fileSystem: fileSystem, clock: clock)
+        guard store.isInitialized else { return }
+        try? store.deleteMeeting(id: id)
+    }
 
     private func persistFinalizedMeeting(artifacts: CaptureArtifacts) throws {
         guard let meetingID = state.meetingID else { return }

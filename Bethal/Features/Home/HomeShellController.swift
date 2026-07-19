@@ -35,6 +35,7 @@ final class HomeShellController: ObservableObject {
     var showsTodosEmpty: Bool { viewModel.showsTodosEmpty }
     var meetingsEmptyState: EmptyStateContent { viewModel.meetingsEmptyState }
     var todosEmptyState: EmptyStateContent { viewModel.todosEmptyState }
+    var meetingPresentations: [MeetingListPresentation] { viewModel.meetingPresentations }
 
     func select(_ section: AppSection) {
         viewModel.selectSection(section)

@@ -52,7 +52,8 @@ SKIP_BASENAMES = {
     "HomeShellController.swift",
     "EmptyStateView.swift",
     "SettingsView.swift",
-    "RecordingSpikeView.swift",  # UI + timer; logic in ViewModel/Coordinator
+    "RecordingSpikeView.swift",
+    "RecordingSessionView.swift",  # UI + timer; logic in RecordingViewModel
     "AVAudioCaptureEngine.swift",  # hardware AV; covered via CaptureEngine protocol + mock
     "SystemPermissionChecker.swift",  # real TCC; use MockPermissionChecker in tests
 }
@@ -94,6 +95,7 @@ for target in data.get("targets", []):
                     "CaptureArtifacts.swift", "CaptureEngine.swift", "MockCaptureEngine.swift",
                     "RecordingSessionCoordinator.swift", "RecordingSpikeViewModel.swift",
                     "AVAuthorizationMapper.swift", "RecordingSpikeDecisions",
+                    "RecordingViewModel.swift", "MeetingListPresentation.swift",
                 }
                 if not domain_like:
                     continue
