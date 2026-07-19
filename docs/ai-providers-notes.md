@@ -4,7 +4,7 @@
 
 | Topic | Choice | Rationale |
 |-------|--------|-----------|
-| Discovery | PATH lookup for `claude`, `codex`, `grok` | Matches user-owned CLI installs |
+| Discovery | Augmented PATH: Homebrew, `~/.local/bin`, `~/.grok/bin`, cargo/npm bins, then process PATH | GUI apps get a minimal PATH (`/usr/bin:/bin`); shell PATH is not used |
 | Invocation | Non-interactive flags + prompt arg (`-p` / `codex exec`) | Scriptable; no TUI |
 | Output | Strict JSON `{ summaryMarkdown, todos[] }` | Parseable in unit tests and production |
 | Runner | `ProcessRunner` protocol + `FoundationProcessRunner` | 100% coverage via mock |

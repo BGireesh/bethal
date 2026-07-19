@@ -54,7 +54,7 @@ public final class ProviderChooserViewModel: @unchecked Sendable {
         case .noneAvailable:
             progress = .failed(
                 meetingID: meetingID,
-                message: "No local AI tools found. Install Claude, Codex, or Grok CLI and ensure it is on your PATH."
+                message: Self.noneAvailableMessage
             )
             lastError = progress.message
         case .useDefault(let providerID):
@@ -86,13 +86,16 @@ public final class ProviderChooserViewModel: @unchecked Sendable {
         if availableProviders.isEmpty {
             progress = .failed(
                 meetingID: meetingID,
-                message: "No local AI tools found. Install Claude, Codex, or Grok CLI and ensure it is on your PATH."
+                message: Self.noneAvailableMessage
             )
             lastError = progress.message
         } else {
             progress = .choosing(meetingID: meetingID)
         }
     }
+
+    public static let noneAvailableMessage =
+        "No local AI tools found. Bethal checks Homebrew (/opt/homebrew/bin), ~/.local/bin, ~/.grok/bin, and your login shell PATH. Install the Claude, Codex, or Grok CLI, then tap Refresh."
 
     public var preferredProviderID: String? {
         switch decision {

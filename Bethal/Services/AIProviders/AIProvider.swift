@@ -87,11 +87,11 @@ public enum AIProviderBlueprint: String, CaseIterable, Sendable {
     public var howToInstall: String {
         switch self {
         case .claude:
-            return "Install Claude Code CLI and ensure `claude` is on your PATH."
+            return "Install Claude Code (`claude`) via Homebrew or Anthropic’s installer. Bethal also checks /opt/homebrew/bin and your login shell PATH."
         case .codex:
-            return "Install the OpenAI Codex CLI and ensure `codex` is on your PATH."
+            return "Install the OpenAI Codex CLI (`codex`) and ensure the binary is on your PATH (not only the Codex desktop app)."
         case .grok:
-            return "Install the Grok CLI and ensure `grok` is on your PATH."
+            return "Install the Grok CLI (`grok`), typically under ~/.grok/bin or ~/.local/bin."
         }
     }
 

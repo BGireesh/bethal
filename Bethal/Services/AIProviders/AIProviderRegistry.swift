@@ -11,6 +11,9 @@ public final class AIProviderRegistry: @unchecked Sendable {
         runner: ProcessRunner? = nil,
         clock: (() -> Date)? = nil
     ) {
+        // Augmented PATH covers Homebrew / ~/.local/bin / ~/.grok/bin for GUI launches.
+        // (Login-shell fallback is available on PATHExecutableLocator but not used by
+        // default — spawning zsh -lc can hang under XCTest.)
         self.locator = locator ?? PATHExecutableLocator.fromProcessEnvironment()
         self.runner = runner ?? FoundationProcessRunner()
         self.clock = clock ?? Date.init

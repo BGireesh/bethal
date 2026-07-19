@@ -17,8 +17,11 @@ struct AIProviderRegistryTests {
         #expect(locator.resolve(command: "") == nil)
         #expect(locator.resolve(command: "/opt/bin/claude")?.path == "/opt/bin/claude")
         #expect(locator.resolve(command: "/missing/tool") == nil)
-        // Process PATH + systemIsExecutable from FileManager.
-        _ = PATHExecutableLocator.fromProcessEnvironment().resolve(command: "___bethal_missing_binary___")
+        // Production-style discovery without shell fallback (deterministic / fast).
+        _ = PATHExecutableLocator.fromProcessEnvironment(
+            fileExists: { _ in false },
+            enableShellFallback: false
+        ).resolve(command: "___bethal_missing_binary___")
         let withDefaultExists = PATHExecutableLocator(pathEnvironment: "/usr/bin:/bin")
         _ = withDefaultExists.resolve(command: "true")
         _ = withDefaultExists.resolve(command: "___missing___")
@@ -26,9 +29,58 @@ struct AIProviderRegistryTests {
         #expect(!PATHExecutableLocator.systemIsExecutable("/no/such/bethal/path"))
         _ = PATHExecutableLocator(pathEnvironment: "").resolve(command: "x")
         _ = PATHExecutableLocator(pathEnvironment: ":/tmp:", fileExists: { _ in false }).resolve(command: "x")
-        _ = PATHExecutableLocator.fromProcessEnvironment(fileExists: { _ in false }).resolve(command: "x")
         #expect(PATHExecutableLocator.pathString(from: ["PATH": "/opt/bin"]) == "/opt/bin")
         #expect(PATHExecutableLocator.pathString(from: [:]).isEmpty)
+    }
+
+    @Test("augmented PATH prepends homebrew and user bins")
+    func augmentedPATH() {
+        let path = PATHExecutableLocator.augmentedPATH(
+            processPATH: "/usr/bin:/bin",
+            home: "/Users/test"
+        )
+        #expect(path.contains("/Users/test/.local/bin"))
+        #expect(path.contains("/Users/test/.grok/bin"))
+        #expect(path.contains("/opt/homebrew/bin"))
+        #expect(path.contains("/usr/bin"))
+        let homebrewIndex = path.range(of: "/opt/homebrew/bin")!.lowerBound
+        let usrBinIndex = path.range(of: "/usr/bin")!.lowerBound
+        #expect(homebrewIndex < usrBinIndex)
+
+        let dirs = PATHExecutableLocator.commonSearchDirectories(home: "/Users/x")
+        #expect(dirs.contains("/Users/x/.grok/bin"))
+        #expect(dirs.contains("/opt/homebrew/bin"))
+    }
+
+    @Test("shell fallback used when PATH miss")
+    func shellFallback() {
+        let locator = PATHExecutableLocator(
+            pathEnvironment: "/empty",
+            fileExists: { _ in false },
+            enableShellFallback: true,
+            shellResolver: { name in
+                name == "claude" ? URL(fileURLWithPath: "/opt/homebrew/bin/claude") : nil
+            }
+        )
+        #expect(locator.resolve(command: "claude")?.path == "/opt/homebrew/bin/claude")
+        #expect(locator.resolve(command: "codex") == nil)
+
+        let noFallback = PATHExecutableLocator(
+            pathEnvironment: "/empty",
+            fileExists: { _ in false },
+            enableShellFallback: false,
+            shellResolver: { _ in URL(fileURLWithPath: "/should/not/use") }
+        )
+        #expect(noFallback.resolve(command: "claude") == nil)
+
+        // Shell fallback without a resolver is a no-op.
+        let missingResolver = PATHExecutableLocator(
+            pathEnvironment: "/empty",
+            fileExists: { _ in false },
+            enableShellFallback: true,
+            shellResolver: nil
+        )
+        #expect(missingResolver.resolve(command: "claude") == nil)
     }
 
     @Test("map locator")
