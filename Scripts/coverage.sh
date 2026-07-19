@@ -61,6 +61,8 @@ SKIP_BASENAMES = {
     "UserNotificationClient.swift",  # real UNUserNotificationCenter; MockNotificationClient in tests
     "AppleSpeechTranscriptionEngine.swift",  # real Speech framework; MockTranscriptionEngine in tests
     "TranscriptionProgressView.swift",
+    "FoundationProcessRunner.swift",  # real Process; MockProcessRunner in tests
+    "ProviderChooserView.swift",
 }
 failures = []
 tracked_files = []
@@ -107,6 +109,13 @@ for target in data.get("targets", []):
                     "TranscriptionPhase.swift", "TranscriptionProgress.swift",
                     "MeetingAudioResolver.swift", "TranscriptionEngine.swift",
                     "TranscriptionCoordinator.swift", "TranscriptionViewModel.swift",
+                    "MeetingProcessRequest.swift", "MeetingProcessResult.swift",
+                    "ProviderSelectionPolicy.swift", "ProcessingPhase.swift",
+                    "ProcessingProgress.swift", "ProcessRunner.swift",
+                    "ExecutableLocator.swift", "PromptTemplates.swift",
+                    "AIProcessResponseParser.swift", "AIProvider.swift",
+                    "CLIProvider.swift", "AIProviderRegistry.swift",
+                    "ProcessingCoordinator.swift", "ProviderChooserViewModel.swift",
                 }
                 if not domain_like:
                     continue

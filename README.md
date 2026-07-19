@@ -13,7 +13,7 @@ Bethal records meetings (audio or audio+video) on your Mac, stores everything un
 
 ## Status
 
-Sub-tasks **01–07** done. Sub-task **08** adds local transcription (Apple Speech → `transcript.json`) with progress/retry on the meetings list.
+Sub-tasks **01–08** done. Sub-task **09** discovers local AI CLIs (Claude / Codex / Grok), Settings defaults, and post-call **Process with AI** (summary + proposed todos).
 
 ## Requirements
 

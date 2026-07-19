@@ -234,4 +234,34 @@ struct SettingsViewModelTests {
         vm.updateCalendarPreferences(enabled: true, minutesBefore: 4)
         #expect(vm.loadError != nil)
     }
+
+    @Test("update AI preferences persists")
+    func updateAI() throws {
+        let fs = InMemoryFileSystem()
+        let path = "/Users/test/BethalAISettings"
+        let session = try seededSession(path: path, fs: fs)
+        let registry = AIProviderRegistry(
+            locator: MapExecutableLocator(map: [
+                "claude": URL(fileURLWithPath: "/usr/local/bin/claude"),
+            ]),
+            runner: MockProcessRunner()
+        )
+        let vm = SettingsViewModel(
+            sessionStore: session,
+            fileSystem: fs,
+            workspace: RecordingWorkspaceOpener(),
+            registry: registry
+        )
+        vm.updateAIPreferences(defaultProviderID: "codex", askEveryTime: true)
+        #expect(vm.appSettings.defaultAIProviderID == "codex")
+        #expect(vm.appSettings.askEveryTimeForProvider)
+        #expect(vm.defaultProviderDisplayName.contains("Codex") || vm.defaultProviderDisplayName == "Ask every time")
+
+        vm.updateAIPreferences(defaultProviderID: "not-a-provider", askEveryTime: false)
+        #expect(vm.appSettings.defaultAIProviderID == nil)
+
+        vm.refreshDiscoveredProviders()
+        #expect(vm.discoveredProviders.count == 3)
+        #expect(vm.availableProviderOptions.count == 1)
+    }
 }

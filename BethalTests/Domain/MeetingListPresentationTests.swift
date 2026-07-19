@@ -110,6 +110,31 @@ struct MeetingListPresentationTests {
         #expect(MeetingListPresentation(entry: completed).transcribeButtonTitle == "Re-transcribe")
     }
 
+    @Test("process affordances by status")
+    func processAffordances() {
+        let base = MeetingIndexEntry(
+            id: "m",
+            title: "T",
+            status: .captured,
+            captureMode: .audioOnly,
+            startedAt: Date()
+        )
+        #expect(!MeetingListPresentation(entry: base).canProcess)
+
+        var transcribed = base
+        transcribed.status = .transcribed
+        #expect(MeetingListPresentation(entry: transcribed).canProcess)
+        #expect(MeetingListPresentation(entry: transcribed).processButtonTitle == "Process with AI")
+
+        var pending = base
+        pending.status = .processedPendingReview
+        #expect(MeetingListPresentation(entry: pending).processButtonTitle == "Re-process")
+
+        var failed = base
+        failed.status = .failed
+        #expect(MeetingListPresentation(entry: failed).processButtonTitle == "Retry processing")
+    }
+
     @Test("status display names")
     func statusNames() {
         for status in MeetingStatus.allCases {

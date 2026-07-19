@@ -386,7 +386,7 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 08 — Local transcription pipeline  
-**Status:** `[~]` in progress  
+**Status:** `[x]` done (merged PR #8)  
 **Branch:** `feat/08-transcription`  
 **Goal:** Produce timestamped transcript from recorded audio (video: extract audio track).
 
@@ -404,21 +404,22 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 09 — AI provider registry & post-call chooser  
-**Status:** `[ ]`  
+**Status:** `[~]` in progress  
 **Branch:** `feat/09-ai-providers`  
 **Goal:** Discover local CLIs; choose provider per call or default.
 
 **Deliverables:**
 
-- Provider registry + availability checks  
-- Settings: default provider, ask-every-time toggle  
-- Post-call sheet: list available providers  
-- Process runner abstraction (testable)  
-- Prompt templates for summary + todos (fixtures)  
+- `AIProviderRegistry` + PATH discovery for Claude / Codex / Grok  
+- Settings: default tool, ask-every-time, refresh detected tools  
+- Post-call **Process with AI** sheet (chooser / empty how-to / progress)  
+- `ProcessRunner` + `CLIProvider` + prompt templates + JSON parse  
+- Persist `summary.md` + proposed `todos.json`; status → `processedPendingReview`  
+- Notes: `docs/ai-providers-notes.md`  
 
-**Manual test:** With at least one CLI installed, see it listed; with none, empty state + how-to.
+**Manual test:** With at least one CLI installed, see it listed; with none, empty state + how-to; process a transcribed meeting.
 
-**Tests:** Discovery parsing, prompt building, mock process I/O for summary/todo JSON parsing (100%).
+**Tests:** Discovery, selection policy, prompt/parser, mock process I/O, coordinator + chooser VM (100%; FoundationProcessRunner + chooser view excluded).
 
 ---
 
@@ -594,9 +595,10 @@ Dependencies are mostly linear; **07** can parallelize with **08** after **06** 
 | 2026-07-18 | Sub-task 05 marked done after PR #5 merge; sub-task 06 production recording UI in progress. |
 | 2026-07-18 | Sub-task 06 marked done after PR #6 merge; sub-task 07 calendar reminders in progress. |
 | 2026-07-18 | Sub-task 07 marked done after PR #7 merge; sub-task 08 local transcription in progress. |
+| 2026-07-18 | Sub-task 08 marked done after PR #8 merge; sub-task 09 AI providers in progress. |
 
 ---
 
 ## 11. Next action
 
-**Sub-tasks 01–07 complete.** Next: finish **Sub-task 08 — Local transcription**, then **09 — AI providers**.
+**Sub-tasks 01–08 complete.** Next: finish **Sub-task 09 — AI providers**, then **10 — processing review**.

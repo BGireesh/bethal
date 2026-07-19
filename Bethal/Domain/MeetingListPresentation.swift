@@ -55,6 +55,27 @@ public struct MeetingListPresentation: Equatable, Identifiable, Sendable {
         }
     }
 
+    /// Whether the user can run AI summary/todo processing (needs a transcript).
+    public var canProcess: Bool {
+        switch status {
+        case .transcribed, .processedPendingReview, .completed, .failed:
+            return true
+        case .capturing, .captured:
+            return false
+        }
+    }
+
+    public var processButtonTitle: String {
+        switch status {
+        case .processedPendingReview, .completed:
+            return "Re-process"
+        case .failed:
+            return "Retry processing"
+        default:
+            return "Process with AI"
+        }
+    }
+
     public static func formatWhen(_ date: Date, now: Date = Date(), calendar: Calendar = .current) -> String {
         let formatter = DateFormatter()
         formatter.calendar = calendar

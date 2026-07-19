@@ -24,10 +24,47 @@ struct SettingsView: View {
             }
 
             Section("AI processing") {
-                LabeledContent("Default tool") {
-                    Text(controller.settingsProvider)
+                Picker("Default tool", selection: defaultProviderBinding) {
+                    Text("None").tag(String?.none)
+                    ForEach(KnownAIProviderOption.catalog) { option in
+                        Text(option.displayName).tag(String?.some(option.id))
+                    }
                 }
-                Text("Full provider discovery and defaults arrive in a later update.")
+                Toggle(
+                    "Ask every time",
+                    isOn: Binding(
+                        get: { controller.askEveryTimeForProvider },
+                        set: { controller.updateAIPreferences(defaultProviderID: controller.defaultAIProviderID, askEveryTime: $0) }
+                    )
+                )
+                Text("Current: \(controller.settingsProvider)")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+
+                if controller.discoveredProviders.isEmpty {
+                    Text("No tools discovered yet.")
+                        .font(.caption)
+                } else {
+                    ForEach(controller.discoveredProviders) { provider in
+                        HStack {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(provider.displayName)
+                                Text(provider.isAvailable ? (provider.executablePath ?? "") : provider.howToInstall)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                                    .textSelection(.enabled)
+                            }
+                            Spacer()
+                            Text(provider.isAvailable ? "Available" : "Missing")
+                                .font(.caption)
+                                .foregroundStyle(provider.isAvailable ? Color.secondary : Color.orange)
+                        }
+                    }
+                }
+                Button("Refresh local tools") {
+                    controller.refreshDiscoveredProviders()
+                }
+                Text("Bethal runs tools already on your Mac. Meeting data is not uploaded by Bethal.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -89,5 +126,15 @@ struct SettingsView: View {
         .formStyle(.grouped)
         .padding(DesignSpacing.lg)
         .navigationTitle(AppSection.settings.title)
+        .onAppear {
+            controller.refreshDiscoveredProviders()
+        }
+    }
+
+    private var defaultProviderBinding: Binding<String?> {
+        Binding(
+            get: { controller.defaultAIProviderID },
+            set: { controller.updateAIPreferences(defaultProviderID: $0, askEveryTime: controller.askEveryTimeForProvider) }
+        )
     }
 }
