@@ -76,6 +76,25 @@ public struct MeetingListPresentation: Equatable, Identifiable, Sendable {
         }
     }
 
+    /// Whether the user can open the post-AI review sheet.
+    public var canReview: Bool {
+        switch status {
+        case .processedPendingReview, .completed:
+            return true
+        case .capturing, .captured, .transcribed, .failed:
+            return false
+        }
+    }
+
+    public var reviewButtonTitle: String {
+        switch status {
+        case .completed:
+            return "Review again"
+        default:
+            return "Review"
+        }
+    }
+
     public static func formatWhen(_ date: Date, now: Date = Date(), calendar: Calendar = .current) -> String {
         let formatter = DateFormatter()
         formatter.calendar = calendar

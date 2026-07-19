@@ -63,6 +63,7 @@ SKIP_BASENAMES = {
     "TranscriptionProgressView.swift",
     "FoundationProcessRunner.swift",  # real Process; MockProcessRunner in tests
     "ProviderChooserView.swift",
+    "ProcessingReviewView.swift",
 }
 failures = []
 tracked_files = []
@@ -116,6 +117,8 @@ for target in data.get("targets", []):
                     "AIProcessResponseParser.swift", "AIProvider.swift",
                     "CLIProvider.swift", "AIProviderRegistry.swift",
                     "ProcessingCoordinator.swift", "ProviderChooserViewModel.swift",
+                    "ReviewDraft.swift", "ReviewPhase.swift",
+                    "ProcessingReviewCoordinator.swift", "ProcessingReviewViewModel.swift",
                 }
                 if not domain_like:
                     continue

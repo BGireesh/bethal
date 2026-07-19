@@ -32,17 +32,24 @@ final class HomeShellController: ObservableObject {
     @Published private(set) var discoveredProviders: [AIProviderDescriptor]
     @Published private(set) var askEveryTimeForProvider: Bool
     @Published private(set) var defaultAIProviderID: String?
+    @Published private(set) var reviewPhase: ReviewPhase
+    @Published private(set) var reviewDraft: ReviewDraft?
+    @Published private(set) var reviewError: String?
+    @Published private(set) var reviewAcceptedCount: Int
+    @Published var showReviewSheet: Bool
 
     private let viewModel: HomeShellViewModel
     private let calendarReminders: CalendarReminderViewModel
     private let transcription: TranscriptionViewModel
     private let processing: ProviderChooserViewModel
+    private let review: ProcessingReviewViewModel
 
     init(
         viewModel: HomeShellViewModel = HomeShellViewModel(),
         calendarReminders: CalendarReminderViewModel = CalendarReminderViewModel(),
         transcription: TranscriptionViewModel? = nil,
-        processing: ProviderChooserViewModel? = nil
+        processing: ProviderChooserViewModel? = nil,
+        review: ProcessingReviewViewModel? = nil
     ) {
         self.viewModel = viewModel
         self.calendarReminders = calendarReminders
@@ -60,6 +67,7 @@ final class HomeShellController: ObservableObject {
             let coordinator = ProcessingCoordinator(registry: registry)
             self.processing = ProviderChooserViewModel(coordinator: coordinator)
         }
+        self.review = review ?? ProcessingReviewViewModel()
         self.navigation = viewModel.navigation
         self.meetings = viewModel.meetings
         self.todos = viewModel.todos
@@ -88,6 +96,11 @@ final class HomeShellController: ObservableObject {
         self.discoveredProviders = viewModel.settings.discoveredProviders
         self.askEveryTimeForProvider = viewModel.settings.appSettings.askEveryTimeForProvider
         self.defaultAIProviderID = viewModel.settings.appSettings.defaultAIProviderID
+        self.reviewPhase = self.review.phase
+        self.reviewDraft = self.review.draft
+        self.reviewError = self.review.lastError
+        self.reviewAcceptedCount = self.review.lastAcceptedCount
+        self.showReviewSheet = false
     }
 
     var showsMeetingsEmpty: Bool { viewModel.showsMeetingsEmpty }
@@ -192,6 +205,9 @@ final class HomeShellController: ObservableObject {
             await processing.begin(meetingID: id)
             syncProcessing()
             refresh()
+            if processing.progress.phase == .completed, let meetingID = processing.progress.meetingID {
+                openReview(meetingID: meetingID)
+            }
         }
     }
 
@@ -200,6 +216,9 @@ final class HomeShellController: ObservableObject {
             await processing.selectProvider(id: id)
             syncProcessing()
             refresh()
+            if processing.progress.phase == .completed, let meetingID = processing.progress.meetingID {
+                openReview(meetingID: meetingID)
+            }
         }
     }
 
@@ -208,6 +227,9 @@ final class HomeShellController: ObservableObject {
             await processing.retry()
             syncProcessing()
             refresh()
+            if processing.progress.phase == .completed, let meetingID = processing.progress.meetingID {
+                openReview(meetingID: meetingID)
+            }
         }
     }
 
@@ -227,6 +249,42 @@ final class HomeShellController: ObservableObject {
         syncProcessing()
     }
 
+    func openReview(meetingID: String) {
+        showProcessingSheet = false
+        showReviewSheet = true
+        review.load(meetingID: meetingID)
+        syncReview()
+    }
+
+    func updateReviewCandidate(id: String, title: String) {
+        review.updateCandidate(id: id, title: title)
+        syncReview()
+    }
+
+    func removeReviewCandidate(id: String) {
+        review.removeCandidate(id: id)
+        syncReview()
+    }
+
+    func acceptReview() {
+        review.accept()
+        syncReview()
+        refresh()
+    }
+
+    func discardReview() {
+        review.discard()
+        syncReview()
+        refresh()
+    }
+
+    func dismissReviewSheet() {
+        showReviewSheet = false
+        review.reset()
+        syncReview()
+        refresh()
+    }
+
     private func syncProcessing() {
         processingProgress = processing.progress
         processingError = processing.lastError
@@ -234,6 +292,13 @@ final class HomeShellController: ObservableObject {
         processingAvailableProviders = processing.availableProviders
         processingPreferredID = processing.preferredProviderID
         processingEmptyHowTo = processing.emptyStateHowTo
+    }
+
+    private func syncReview() {
+        reviewPhase = review.phase
+        reviewDraft = review.draft
+        reviewError = review.lastError
+        reviewAcceptedCount = review.lastAcceptedCount
     }
 
     private func sync() {
@@ -257,5 +322,6 @@ final class HomeShellController: ObservableObject {
         askEveryTimeForProvider = viewModel.settings.appSettings.askEveryTimeForProvider
         defaultAIProviderID = viewModel.settings.appSettings.defaultAIProviderID
         syncProcessing()
+        syncReview()
     }
 }
