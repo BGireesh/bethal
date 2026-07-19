@@ -37,19 +37,25 @@ final class HomeShellController: ObservableObject {
     @Published private(set) var reviewError: String?
     @Published private(set) var reviewAcceptedCount: Int
     @Published var showReviewSheet: Bool
+    @Published private(set) var todoFilter: TodoListFilter
+    @Published private(set) var todoPresentations: [TodoListPresentation]
+    @Published private(set) var todosLoadError: String?
+    @Published private(set) var todosActionError: String?
 
     private let viewModel: HomeShellViewModel
     private let calendarReminders: CalendarReminderViewModel
     private let transcription: TranscriptionViewModel
     private let processing: ProviderChooserViewModel
     private let review: ProcessingReviewViewModel
+    private let todosVM: TodosViewModel
 
     init(
         viewModel: HomeShellViewModel = HomeShellViewModel(),
         calendarReminders: CalendarReminderViewModel = CalendarReminderViewModel(),
         transcription: TranscriptionViewModel? = nil,
         processing: ProviderChooserViewModel? = nil,
-        review: ProcessingReviewViewModel? = nil
+        review: ProcessingReviewViewModel? = nil,
+        todosVM: TodosViewModel? = nil
     ) {
         self.viewModel = viewModel
         self.calendarReminders = calendarReminders
@@ -68,6 +74,7 @@ final class HomeShellController: ObservableObject {
             self.processing = ProviderChooserViewModel(coordinator: coordinator)
         }
         self.review = review ?? ProcessingReviewViewModel()
+        self.todosVM = todosVM ?? TodosViewModel()
         self.navigation = viewModel.navigation
         self.meetings = viewModel.meetings
         self.todos = viewModel.todos
@@ -101,24 +108,32 @@ final class HomeShellController: ObservableObject {
         self.reviewError = self.review.lastError
         self.reviewAcceptedCount = self.review.lastAcceptedCount
         self.showReviewSheet = false
+        self.todoFilter = self.todosVM.filter
+        self.todoPresentations = self.todosVM.presentations
+        self.todosLoadError = self.todosVM.loadError
+        self.todosActionError = self.todosVM.lastActionError
     }
 
     var showsMeetingsEmpty: Bool { viewModel.showsMeetingsEmpty }
-    var showsTodosEmpty: Bool { viewModel.showsTodosEmpty }
+    var showsTodosEmpty: Bool { todosVM.showsEmpty }
     var meetingsEmptyState: EmptyStateContent { viewModel.meetingsEmptyState }
-    var todosEmptyState: EmptyStateContent { viewModel.todosEmptyState }
+    var todosEmptyState: EmptyStateContent { todosVM.emptyState }
     var meetingPresentations: [MeetingListPresentation] { viewModel.meetingPresentations }
     var calendarEnabled: Bool { viewModel.settings.appSettings.calendarAutoDetectEnabled }
     var calendarMinutes: Int { viewModel.settings.appSettings.calendarRemindMinutesBefore }
 
     func select(_ section: AppSection) {
         viewModel.selectSection(section)
+        if section == .todos {
+            todosVM.reload()
+        }
         sync()
     }
 
     func refresh() {
         viewModel.refresh()
         viewModel.settings.refreshDiscoveredProviders()
+        todosVM.reload()
         sync()
     }
 
@@ -285,6 +300,55 @@ final class HomeShellController: ObservableObject {
         refresh()
     }
 
+    func refreshTodos() {
+        todosVM.reload()
+        syncTodos()
+    }
+
+    func setTodoFilter(_ filter: TodoListFilter) {
+        todosVM.setFilter(filter)
+        syncTodos()
+    }
+
+    func setTodoCompleted(id: String, completed: Bool) {
+        todosVM.setCompleted(id: id, completed: completed)
+        viewModel.refresh()
+        sync()
+    }
+
+    func scheduleTodoReminder(id: String, preset: TodoReminderPreset) {
+        Task {
+            await todosVM.scheduleReminder(id: id, preset: preset)
+            viewModel.refresh()
+            sync()
+        }
+    }
+
+    func clearTodoReminder(id: String) {
+        Task {
+            await todosVM.clearReminder(id: id)
+            viewModel.refresh()
+            sync()
+        }
+    }
+
+    func openTodoSourceMeeting(todoID: String) {
+        todosVM.openSourceMeeting(id: todoID)
+        guard let meetingID = todosVM.consumePendingMeetingID() else {
+            syncTodos()
+            return
+        }
+        // Prefer review when meeting is past AI processing; otherwise land on Meetings.
+        if let entry = viewModel.meetings.first(where: { $0.id == meetingID }),
+           entry.status == .processedPendingReview || entry.status == .completed {
+            viewModel.selectSection(.meetings)
+            openReview(meetingID: meetingID)
+        } else {
+            viewModel.selectSection(.meetings)
+            sync()
+        }
+    }
+
     private func syncProcessing() {
         processingProgress = processing.progress
         processingError = processing.lastError
@@ -301,10 +365,17 @@ final class HomeShellController: ObservableObject {
         reviewAcceptedCount = review.lastAcceptedCount
     }
 
+    private func syncTodos() {
+        todoFilter = todosVM.filter
+        todoPresentations = todosVM.presentations
+        todosLoadError = todosVM.loadError
+        todosActionError = todosVM.lastActionError
+        todos = todosVM.todos
+    }
+
     private func sync() {
         navigation = viewModel.navigation
         meetings = viewModel.meetings
-        todos = viewModel.todos
         refreshError = viewModel.refreshError
         settingsPath = viewModel.settings.workingDirectoryPath
         settingsProvider = viewModel.settings.defaultProviderDisplayName
@@ -323,5 +394,6 @@ final class HomeShellController: ObservableObject {
         defaultAIProviderID = viewModel.settings.appSettings.defaultAIProviderID
         syncProcessing()
         syncReview()
+        syncTodos()
     }
 }

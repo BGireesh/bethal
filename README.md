@@ -13,7 +13,7 @@ Bethal records meetings (audio or audio+video) on your Mac, stores everything un
 
 ## Status
 
-Sub-tasks **01–09** done. Sub-task **10** adds post-AI **Review** (edit/drop todos, accept into global list).
+Sub-tasks **01–10** done. Sub-task **11** builds the global **Todos** list (filters, complete, reminders, provenance links).
 
 ## Requirements
 

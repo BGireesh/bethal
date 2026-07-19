@@ -229,6 +229,34 @@ struct CalendarReminderViewModelTests {
         #expect(settings == .default)
     }
 
+    @Test("notDetermined requests access during refresh")
+    func notDeterminedRefresh() async throws {
+        let (vm, calendar, _) = try makeVM(status: .notDetermined)
+        calendar.requestResult = .authorized
+        await vm.refresh()
+        #expect(vm.authorizationStatus == .authorized)
+    }
+
+    @Test("all-day events are filtered out")
+    func filtersAllDay() async throws {
+        let allDay = CalendarMeetingEvent(
+            id: "ad",
+            title: "Holiday",
+            startDate: fixedNow,
+            endDate: fixedNow.addingTimeInterval(86_400),
+            isAllDay: true
+        )
+        let timed = CalendarMeetingEvent(
+            id: "tm",
+            title: "Call",
+            startDate: fixedNow.addingTimeInterval(30),
+            endDate: fixedNow.addingTimeInterval(600)
+        )
+        let (vm, _, _) = try makeVM(events: [allDay, timed])
+        await vm.refresh()
+        #expect(vm.upcomingEvents.map(\.id) == ["tm"])
+    }
+
     @Test("default clock initializer")
     func defaultClock() async throws {
         let fs = InMemoryFileSystem()

@@ -37,6 +37,28 @@ public final class UserNotificationClient: NotificationClient, @unchecked Sendab
         try await center.add(request)
     }
 
+    public func scheduleTodoReminder(_ notification: TodoReminderNotification) async throws {
+        let content = UNMutableNotificationContent()
+        content.title = notification.title
+        content.body = notification.body
+        content.sound = .default
+        content.userInfo = ["todoID": notification.todoID]
+
+        let interval = max(1, notification.fireDate.timeIntervalSinceNow)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
+        let request = UNNotificationRequest(
+            identifier: notification.id,
+            content: content,
+            trigger: trigger
+        )
+        try await center.add(request)
+    }
+
+    public func cancelTodoReminder(id: String) async throws {
+        center.removePendingNotificationRequests(withIdentifiers: [id])
+        center.removeDeliveredNotifications(withIdentifiers: [id])
+    }
+
     private static func registerCategories(center: UNUserNotificationCenter) {
         let start = UNNotificationAction(
             identifier: startRecordingActionID,

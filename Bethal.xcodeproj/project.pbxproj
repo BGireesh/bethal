@@ -101,6 +101,9 @@
 		AB00000000000000000302 /* ProcessingReviewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000302 /* ProcessingReviewCoordinator.swift */; };
 		AB00000000000000000303 /* ProcessingReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000303 /* ProcessingReviewViewModel.swift */; };
 		AB00000000000000000304 /* ProcessingReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000304 /* ProcessingReviewView.swift */; };
+		AB00000000000000000400 /* TodoListFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000400 /* TodoListFilter.swift */; };
+		AB00000000000000000401 /* TodosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000401 /* TodosViewModel.swift */; };
+		AB00000000000000000402 /* TodosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000402 /* TodosView.swift */; };
 		RB000000000000000000CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = RS000000000000000000CB /* Assets.xcassets */; };
 		TB000000000000000000A7 /* AppIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000083 /* AppIdentityTests.swift */; };
 		TB000000000000000000A8 /* AppSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000084 /* AppSectionTests.swift */; };
@@ -149,6 +152,8 @@
 		TB00000000000000000305 /* ReviewDraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000305 /* ReviewDraftTests.swift */; };
 		TB00000000000000000306 /* ProcessingReviewCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000306 /* ProcessingReviewCoordinatorTests.swift */; };
 		TB00000000000000000307 /* ProcessingReviewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000307 /* ProcessingReviewViewModelTests.swift */; };
+		TB00000000000000000403 /* TodoListFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000403 /* TodoListFilterTests.swift */; };
+		TB00000000000000000404 /* TodosViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000404 /* TodosViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,6 +261,9 @@
 		AA00000000000000000302 /* ProcessingReviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingReviewCoordinator.swift; sourceTree = "<group>"; };
 		AA00000000000000000303 /* ProcessingReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingReviewViewModel.swift; sourceTree = "<group>"; };
 		AA00000000000000000304 /* ProcessingReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingReviewView.swift; sourceTree = "<group>"; };
+		AA00000000000000000400 /* TodoListFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListFilter.swift; sourceTree = "<group>"; };
+		AA00000000000000000401 /* TodosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosViewModel.swift; sourceTree = "<group>"; };
+		AA00000000000000000402 /* TodosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosView.swift; sourceTree = "<group>"; };
 		RS000000000000000000CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		TA00000000000000000083 /* AppIdentityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIdentityTests.swift; sourceTree = "<group>"; };
 		TA00000000000000000084 /* AppSectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSectionTests.swift; sourceTree = "<group>"; };
@@ -304,6 +312,8 @@
 		TA00000000000000000305 /* ReviewDraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDraftTests.swift; sourceTree = "<group>"; };
 		TA00000000000000000306 /* ProcessingReviewCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingReviewCoordinatorTests.swift; sourceTree = "<group>"; };
 		TA00000000000000000307 /* ProcessingReviewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingReviewViewModelTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000403 /* TodoListFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListFilterTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000404 /* TodosViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosViewModelTests.swift; sourceTree = "<group>"; };
 		PR000000000000000000CD /* Bethal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bethal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		PT000000000000000000CE /* BethalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BethalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -401,6 +411,7 @@
 				AA00000000000000000204 /* ProcessingProgress.swift */,
 				AA00000000000000000300 /* ReviewDraft.swift */,
 				AA00000000000000000301 /* ReviewPhase.swift */,
+				AA00000000000000000400 /* TodoListFilter.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -414,9 +425,19 @@
 				GG0000000000000000010C /* Processing */,
 				GG000000000000000000ED /* Recording */,
 				GG000000000000000000EE /* Settings */,
+				GG0000000000000000010F /* Todos */,
 				GG0000000000000000010A /* Transcription */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		GG0000000000000000010F /* Todos */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000401 /* TodosViewModel.swift */,
+				AA00000000000000000402 /* TodosView.swift */,
+			);
+			path = Todos;
 			sourceTree = "<group>";
 		};
 		GG000000000000000000EF /* Services */ = {
@@ -647,6 +668,7 @@
 				TA00000000000000000210 /* ProviderSelectionPolicyTests.swift */,
 				TA00000000000000000211 /* ProcessingPhaseTests.swift */,
 				TA00000000000000000305 /* ReviewDraftTests.swift */,
+				TA00000000000000000403 /* TodoListFilterTests.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -664,6 +686,7 @@
 				TA00000000000000000108 /* TranscriptionViewModelTests.swift */,
 				TA00000000000000000215 /* ProviderChooserViewModelTests.swift */,
 				TA00000000000000000307 /* ProcessingReviewViewModelTests.swift */,
+				TA00000000000000000404 /* TodosViewModelTests.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -888,6 +911,9 @@
 				AB00000000000000000302 /* ProcessingReviewCoordinator.swift in Sources */,
 				AB00000000000000000303 /* ProcessingReviewViewModel.swift in Sources */,
 				AB00000000000000000304 /* ProcessingReviewView.swift in Sources */,
+				AB00000000000000000400 /* TodoListFilter.swift in Sources */,
+				AB00000000000000000401 /* TodosViewModel.swift in Sources */,
+				AB00000000000000000402 /* TodosView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,6 +968,8 @@
 				TB00000000000000000305 /* ReviewDraftTests.swift in Sources */,
 				TB00000000000000000306 /* ProcessingReviewCoordinatorTests.swift in Sources */,
 				TB00000000000000000307 /* ProcessingReviewViewModelTests.swift in Sources */,
+				TB00000000000000000403 /* TodoListFilterTests.swift in Sources */,
+				TB00000000000000000404 /* TodosViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

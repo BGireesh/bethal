@@ -95,7 +95,7 @@ struct HomeShellView: View {
                 controller.clearPendingRecordingTitle()
             }
         case .todos:
-            todosDetail
+            TodosView(controller: controller)
         case .settings:
             SettingsView(controller: controller)
         }
@@ -210,23 +210,4 @@ struct HomeShellView: View {
         }
     }
 
-    @ViewBuilder
-    private var todosDetail: some View {
-        Group {
-            if controller.showsTodosEmpty {
-                EmptyStateView(content: controller.todosEmptyState)
-            } else {
-                List(controller.todos) { todo in
-                    VStack(alignment: .leading, spacing: DesignSpacing.xs) {
-                        Text(todo.title)
-                            .font(.headline)
-                        Text("From: \(todo.meetingTitle)")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                }
-            }
-        }
-        .navigationTitle(AppSection.todos.title)
-    }
 }
