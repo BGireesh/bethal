@@ -114,24 +114,45 @@ struct HomeShellView: View {
                 }
             } else {
                 List(controller.meetingPresentations) { item in
-                    VStack(alignment: .leading, spacing: DesignSpacing.xs) {
-                        Text(item.title)
-                            .font(.headline)
-                        HStack(spacing: DesignSpacing.sm) {
-                            Text(item.statusLabel)
-                            Text("·")
-                            Text(item.modeLabel)
-                            Text("·")
-                            Text(item.whenLabel)
+                    HStack(alignment: .center) {
+                        VStack(alignment: .leading, spacing: DesignSpacing.xs) {
+                            Text(item.title)
+                                .font(.headline)
+                            HStack(spacing: DesignSpacing.sm) {
+                                Text(item.statusLabel)
+                                Text("·")
+                                Text(item.modeLabel)
+                                Text("·")
+                                Text(item.whenLabel)
+                            }
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
                         }
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                        Spacer()
+                        if item.canTranscribe {
+                            Button(item.transcribeButtonTitle) {
+                                controller.transcribeMeeting(id: item.id)
+                            }
+                            .buttonStyle(.bordered)
+                            .disabled(controller.transcriptionProgress.phase.isInProgress)
+                        }
                     }
                     .padding(.vertical, 2)
                 }
             }
         }
         .navigationTitle(AppSection.meetings.title)
+        .sheet(isPresented: Binding(
+            get: { controller.showTranscriptionSheet },
+            set: { if !$0 { controller.dismissTranscriptionSheet() } }
+        )) {
+            TranscriptionProgressView(
+                progress: controller.transcriptionProgress,
+                errorMessage: controller.transcriptionError,
+                onRetry: { controller.retryTranscription() },
+                onDismiss: { controller.dismissTranscriptionSheet() }
+            )
+        }
     }
 
     @ViewBuilder
