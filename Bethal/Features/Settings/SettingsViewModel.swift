@@ -6,21 +6,25 @@ public final class SettingsViewModel: @unchecked Sendable {
     public private(set) var appSettings: AppSettings
     public private(set) var loadError: String?
     public private(set) var lastOpenSucceeded: Bool?
+    public private(set) var discoveredProviders: [AIProviderDescriptor]
 
     private let sessionStore: AppSessionStore
     private let fileSystem: FileSystemClient
     private let workspace: WorkspaceOpener
     private let completer: OnboardingCompleter
+    private let registry: AIProviderRegistry
 
     public init(
         sessionStore: AppSessionStore = AppSessionStore(),
         fileSystem: FileSystemClient = FoundationFileSystem(),
         workspace: WorkspaceOpener = FinderWorkspaceOpener(),
-        completer: OnboardingCompleter? = nil
+        completer: OnboardingCompleter? = nil,
+        registry: AIProviderRegistry = AIProviderRegistry()
     ) {
         self.sessionStore = sessionStore
         self.fileSystem = fileSystem
         self.workspace = workspace
+        self.registry = registry
         if let completer {
             self.completer = completer
         } else {
@@ -31,7 +35,9 @@ public final class SettingsViewModel: @unchecked Sendable {
         }
         self.workingDirectoryPath = sessionStore.load().workingDirectoryPath
         self.appSettings = .default
+        self.discoveredProviders = []
         reload()
+        refreshDiscoveredProviders()
     }
 
     public var defaultProviderDisplayName: String {
@@ -65,6 +71,25 @@ public final class SettingsViewModel: @unchecked Sendable {
         appSettings.calendarAutoDetectEnabled = enabled
         appSettings.calendarRemindMinutesBefore = minutes
         persistSettings()
+    }
+
+    /// Updates default AI tool and ask-every-time preference.
+    public func updateAIPreferences(defaultProviderID: String?, askEveryTime: Bool) {
+        if let defaultProviderID, KnownAIProviderOption.isKnownProviderID(defaultProviderID) {
+            appSettings.defaultAIProviderID = defaultProviderID
+        } else {
+            appSettings.defaultAIProviderID = nil
+        }
+        appSettings.askEveryTimeForProvider = askEveryTime
+        persistSettings()
+    }
+
+    public func refreshDiscoveredProviders() {
+        discoveredProviders = registry.discover()
+    }
+
+    public var availableProviderOptions: [AIProviderDescriptor] {
+        discoveredProviders.filter(\.isAvailable)
     }
 
     public func reload() {

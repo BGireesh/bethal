@@ -22,15 +22,27 @@ final class HomeShellController: ObservableObject {
     @Published private(set) var transcriptionProgress: TranscriptionProgress
     @Published private(set) var transcriptionError: String?
     @Published var showTranscriptionSheet: Bool
+    @Published private(set) var processingProgress: ProcessingProgress
+    @Published private(set) var processingError: String?
+    @Published private(set) var processingProviders: [AIProviderDescriptor]
+    @Published private(set) var processingAvailableProviders: [AIProviderDescriptor]
+    @Published private(set) var processingPreferredID: String?
+    @Published private(set) var processingEmptyHowTo: String
+    @Published var showProcessingSheet: Bool
+    @Published private(set) var discoveredProviders: [AIProviderDescriptor]
+    @Published private(set) var askEveryTimeForProvider: Bool
+    @Published private(set) var defaultAIProviderID: String?
 
     private let viewModel: HomeShellViewModel
     private let calendarReminders: CalendarReminderViewModel
     private let transcription: TranscriptionViewModel
+    private let processing: ProviderChooserViewModel
 
     init(
         viewModel: HomeShellViewModel = HomeShellViewModel(),
         calendarReminders: CalendarReminderViewModel = CalendarReminderViewModel(),
-        transcription: TranscriptionViewModel? = nil
+        transcription: TranscriptionViewModel? = nil,
+        processing: ProviderChooserViewModel? = nil
     ) {
         self.viewModel = viewModel
         self.calendarReminders = calendarReminders
@@ -40,6 +52,13 @@ final class HomeShellController: ObservableObject {
             let engine = AppleSpeechTranscriptionEngine()
             let coordinator = TranscriptionCoordinator(engine: engine)
             self.transcription = TranscriptionViewModel(coordinator: coordinator)
+        }
+        if let processing {
+            self.processing = processing
+        } else {
+            let registry = AIProviderRegistry()
+            let coordinator = ProcessingCoordinator(registry: registry)
+            self.processing = ProviderChooserViewModel(coordinator: coordinator)
         }
         self.navigation = viewModel.navigation
         self.meetings = viewModel.meetings
@@ -59,6 +78,16 @@ final class HomeShellController: ObservableObject {
         self.transcriptionProgress = self.transcription.progress
         self.transcriptionError = self.transcription.lastError
         self.showTranscriptionSheet = false
+        self.processingProgress = self.processing.progress
+        self.processingError = self.processing.lastError
+        self.processingProviders = self.processing.providers
+        self.processingAvailableProviders = self.processing.availableProviders
+        self.processingPreferredID = self.processing.preferredProviderID
+        self.processingEmptyHowTo = self.processing.emptyStateHowTo
+        self.showProcessingSheet = false
+        self.discoveredProviders = viewModel.settings.discoveredProviders
+        self.askEveryTimeForProvider = viewModel.settings.appSettings.askEveryTimeForProvider
+        self.defaultAIProviderID = viewModel.settings.appSettings.defaultAIProviderID
     }
 
     var showsMeetingsEmpty: Bool { viewModel.showsMeetingsEmpty }
@@ -76,6 +105,7 @@ final class HomeShellController: ObservableObject {
 
     func refresh() {
         viewModel.refresh()
+        viewModel.settings.refreshDiscoveredProviders()
         sync()
     }
 
@@ -88,6 +118,17 @@ final class HomeShellController: ObservableObject {
         viewModel.settings.updateCalendarPreferences(enabled: enabled, minutesBefore: minutesBefore)
         calendarReminders.reloadSettings()
         Task { await refreshCalendar() }
+        sync()
+    }
+
+    func updateAIPreferences(defaultProviderID: String?, askEveryTime: Bool) {
+        viewModel.settings.updateAIPreferences(defaultProviderID: defaultProviderID, askEveryTime: askEveryTime)
+        sync()
+    }
+
+    func refreshDiscoveredProviders() {
+        viewModel.settings.refreshDiscoveredProviders()
+        processing.refreshDiscovery()
         sync()
     }
 
@@ -145,6 +186,56 @@ final class HomeShellController: ObservableObject {
         transcriptionError = nil
     }
 
+    func processMeeting(id: String) {
+        showProcessingSheet = true
+        Task {
+            await processing.begin(meetingID: id)
+            syncProcessing()
+            refresh()
+        }
+    }
+
+    func selectProcessingProvider(id: String) {
+        Task {
+            await processing.selectProvider(id: id)
+            syncProcessing()
+            refresh()
+        }
+    }
+
+    func retryProcessing() {
+        Task {
+            await processing.retry()
+            syncProcessing()
+            refresh()
+        }
+    }
+
+    func showProcessingChooserAgain() {
+        processing.showChooserAgain()
+        syncProcessing()
+    }
+
+    func refreshProcessingDiscovery() {
+        processing.refreshDiscovery()
+        syncProcessing()
+    }
+
+    func dismissProcessingSheet() {
+        showProcessingSheet = false
+        processing.reset()
+        syncProcessing()
+    }
+
+    private func syncProcessing() {
+        processingProgress = processing.progress
+        processingError = processing.lastError
+        processingProviders = processing.providers
+        processingAvailableProviders = processing.availableProviders
+        processingPreferredID = processing.preferredProviderID
+        processingEmptyHowTo = processing.emptyStateHowTo
+    }
+
     private func sync() {
         navigation = viewModel.navigation
         meetings = viewModel.meetings
@@ -162,5 +253,9 @@ final class HomeShellController: ObservableObject {
         calendarError = calendarReminders.lastError
         transcriptionProgress = transcription.progress
         transcriptionError = transcription.lastError
+        discoveredProviders = viewModel.settings.discoveredProviders
+        askEveryTimeForProvider = viewModel.settings.appSettings.askEveryTimeForProvider
+        defaultAIProviderID = viewModel.settings.appSettings.defaultAIProviderID
+        syncProcessing()
     }
 }

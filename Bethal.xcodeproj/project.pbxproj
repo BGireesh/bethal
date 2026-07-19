@@ -80,6 +80,22 @@
 		AB00000000000000000105 /* MeetingAudioResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000105 /* MeetingAudioResolver.swift */; };
 		AB00000000000000000106 /* TranscriptionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000106 /* TranscriptionCoordinator.swift */; };
 		AB00000000000000000107 /* TranscriptionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000107 /* TranscriptionEngine.swift */; };
+		AB00000000000000000200 /* MeetingProcessRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000200 /* MeetingProcessRequest.swift */; };
+		AB00000000000000000201 /* MeetingProcessResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000201 /* MeetingProcessResult.swift */; };
+		AB00000000000000000202 /* ProviderSelectionPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000202 /* ProviderSelectionPolicy.swift */; };
+		AB00000000000000000203 /* ProcessingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000203 /* ProcessingPhase.swift */; };
+		AB00000000000000000204 /* ProcessingProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000204 /* ProcessingProgress.swift */; };
+		AB00000000000000000205 /* ProcessRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000205 /* ProcessRunner.swift */; };
+		AB00000000000000000206 /* FoundationProcessRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000206 /* FoundationProcessRunner.swift */; };
+		AB00000000000000000207 /* ExecutableLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000207 /* ExecutableLocator.swift */; };
+		AB00000000000000000208 /* PromptTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000208 /* PromptTemplates.swift */; };
+		AB00000000000000000209 /* AIProcessResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000209 /* AIProcessResponseParser.swift */; };
+		AB0000000000000000020A /* AIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000020A /* AIProvider.swift */; };
+		AB0000000000000000020B /* CLIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000020B /* CLIProvider.swift */; };
+		AB0000000000000000020C /* AIProviderRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000020C /* AIProviderRegistry.swift */; };
+		AB0000000000000000020D /* ProcessingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000020D /* ProcessingCoordinator.swift */; };
+		AB0000000000000000020E /* ProviderChooserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000020E /* ProviderChooserViewModel.swift */; };
+		AB0000000000000000020F /* ProviderChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000020F /* ProviderChooserView.swift */; };
 		RB000000000000000000CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = RS000000000000000000CB /* Assets.xcassets */; };
 		TB000000000000000000A7 /* AppIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000083 /* AppIdentityTests.swift */; };
 		TB000000000000000000A8 /* AppSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000084 /* AppSectionTests.swift */; };
@@ -119,6 +135,12 @@
 		TB000000000000000000CA /* InMemoryFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA000000000000000000A6 /* InMemoryFileSystem.swift */; };
 		TB00000000000000000108 /* TranscriptionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000108 /* TranscriptionViewModelTests.swift */; };
 		TB00000000000000000109 /* TranscriptionCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000109 /* TranscriptionCoordinatorTests.swift */; };
+		TB00000000000000000210 /* ProviderSelectionPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000210 /* ProviderSelectionPolicyTests.swift */; };
+		TB00000000000000000211 /* ProcessingPhaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000211 /* ProcessingPhaseTests.swift */; };
+		TB00000000000000000212 /* AIProviderRegistryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000212 /* AIProviderRegistryTests.swift */; };
+		TB00000000000000000213 /* AIProcessResponseParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000213 /* AIProcessResponseParserTests.swift */; };
+		TB00000000000000000214 /* ProcessingCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000214 /* ProcessingCoordinatorTests.swift */; };
+		TB00000000000000000215 /* ProviderChooserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000215 /* ProviderChooserViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,6 +227,22 @@
 		AA00000000000000000105 /* MeetingAudioResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingAudioResolver.swift; sourceTree = "<group>"; };
 		AA00000000000000000106 /* TranscriptionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionCoordinator.swift; sourceTree = "<group>"; };
 		AA00000000000000000107 /* TranscriptionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionEngine.swift; sourceTree = "<group>"; };
+		AA00000000000000000200 /* MeetingProcessRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingProcessRequest.swift; sourceTree = "<group>"; };
+		AA00000000000000000201 /* MeetingProcessResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingProcessResult.swift; sourceTree = "<group>"; };
+		AA00000000000000000202 /* ProviderSelectionPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderSelectionPolicy.swift; sourceTree = "<group>"; };
+		AA00000000000000000203 /* ProcessingPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingPhase.swift; sourceTree = "<group>"; };
+		AA00000000000000000204 /* ProcessingProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingProgress.swift; sourceTree = "<group>"; };
+		AA00000000000000000205 /* ProcessRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessRunner.swift; sourceTree = "<group>"; };
+		AA00000000000000000206 /* FoundationProcessRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationProcessRunner.swift; sourceTree = "<group>"; };
+		AA00000000000000000207 /* ExecutableLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutableLocator.swift; sourceTree = "<group>"; };
+		AA00000000000000000208 /* PromptTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptTemplates.swift; sourceTree = "<group>"; };
+		AA00000000000000000209 /* AIProcessResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIProcessResponseParser.swift; sourceTree = "<group>"; };
+		AA0000000000000000020A /* AIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIProvider.swift; sourceTree = "<group>"; };
+		AA0000000000000000020B /* CLIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLIProvider.swift; sourceTree = "<group>"; };
+		AA0000000000000000020C /* AIProviderRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIProviderRegistry.swift; sourceTree = "<group>"; };
+		AA0000000000000000020D /* ProcessingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingCoordinator.swift; sourceTree = "<group>"; };
+		AA0000000000000000020E /* ProviderChooserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderChooserViewModel.swift; sourceTree = "<group>"; };
+		AA0000000000000000020F /* ProviderChooserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderChooserView.swift; sourceTree = "<group>"; };
 		RS000000000000000000CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		TA00000000000000000083 /* AppIdentityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIdentityTests.swift; sourceTree = "<group>"; };
 		TA00000000000000000084 /* AppSectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSectionTests.swift; sourceTree = "<group>"; };
@@ -244,6 +282,12 @@
 		TA000000000000000000A6 /* InMemoryFileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryFileSystem.swift; sourceTree = "<group>"; };
 		TA00000000000000000108 /* TranscriptionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionViewModelTests.swift; sourceTree = "<group>"; };
 		TA00000000000000000109 /* TranscriptionCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionCoordinatorTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000210 /* ProviderSelectionPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderSelectionPolicyTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000211 /* ProcessingPhaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingPhaseTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000212 /* AIProviderRegistryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIProviderRegistryTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000213 /* AIProcessResponseParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIProcessResponseParserTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000214 /* ProcessingCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingCoordinatorTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000215 /* ProviderChooserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderChooserViewModelTests.swift; sourceTree = "<group>"; };
 		PR000000000000000000CD /* Bethal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bethal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		PT000000000000000000CE /* BethalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BethalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -334,6 +378,11 @@
 				AA0000000000000000001B /* Transcript.swift */,
 				AA00000000000000000100 /* TranscriptionPhase.swift */,
 				AA00000000000000000101 /* TranscriptionProgress.swift */,
+				AA00000000000000000200 /* MeetingProcessRequest.swift */,
+				AA00000000000000000201 /* MeetingProcessResult.swift */,
+				AA00000000000000000202 /* ProviderSelectionPolicy.swift */,
+				AA00000000000000000203 /* ProcessingPhase.swift */,
+				AA00000000000000000204 /* ProcessingProgress.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -344,6 +393,7 @@
 				GG000000000000000000EA /* Calendar */,
 				GG000000000000000000EB /* Home */,
 				GG000000000000000000EC /* Onboarding */,
+				GG0000000000000000010C /* Processing */,
 				GG000000000000000000ED /* Recording */,
 				GG000000000000000000EE /* Settings */,
 				GG0000000000000000010A /* Transcription */,
@@ -354,6 +404,7 @@
 		GG000000000000000000EF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				GG0000000000000000010D /* AIProviders */,
 				GG000000000000000000F0 /* Calendar */,
 				GG000000000000000000F1 /* Notifications */,
 				GG000000000000000000F2 /* Preferences */,
@@ -363,6 +414,31 @@
 				GG000000000000000000F5 /* Workspace */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		GG0000000000000000010C /* Processing */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000020E /* ProviderChooserViewModel.swift */,
+				AA0000000000000000020F /* ProviderChooserView.swift */,
+			);
+			path = Processing;
+			sourceTree = "<group>";
+		};
+		GG0000000000000000010D /* AIProviders */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000205 /* ProcessRunner.swift */,
+				AA00000000000000000206 /* FoundationProcessRunner.swift */,
+				AA00000000000000000207 /* ExecutableLocator.swift */,
+				AA00000000000000000208 /* PromptTemplates.swift */,
+				AA00000000000000000209 /* AIProcessResponseParser.swift */,
+				AA0000000000000000020A /* AIProvider.swift */,
+				AA0000000000000000020B /* CLIProvider.swift */,
+				AA0000000000000000020C /* AIProviderRegistry.swift */,
+				AA0000000000000000020D /* ProcessingCoordinator.swift */,
+			);
+			path = AIProviders;
 			sourceTree = "<group>";
 		};
 		GG0000000000000000010A /* Transcription */ = {
@@ -539,6 +615,8 @@
 				TA00000000000000000090 /* SchemaManifestTests.swift */,
 				TA00000000000000000091 /* TodoItemTests.swift */,
 				TA00000000000000000092 /* TranscriptTests.swift */,
+				TA00000000000000000210 /* ProviderSelectionPolicyTests.swift */,
+				TA00000000000000000211 /* ProcessingPhaseTests.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -554,6 +632,7 @@
 				TA00000000000000000098 /* RecordingViewModelTests.swift */,
 				TA00000000000000000099 /* SettingsViewModelTests.swift */,
 				TA00000000000000000108 /* TranscriptionViewModelTests.swift */,
+				TA00000000000000000215 /* ProviderChooserViewModelTests.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -571,6 +650,9 @@
 				TA000000000000000000A2 /* SchemaMigratorTests.swift */,
 				TA000000000000000000A3 /* StorageErrorTests.swift */,
 				TA00000000000000000109 /* TranscriptionCoordinatorTests.swift */,
+				TA00000000000000000212 /* AIProviderRegistryTests.swift */,
+				TA00000000000000000213 /* AIProcessResponseParserTests.swift */,
+				TA00000000000000000214 /* ProcessingCoordinatorTests.swift */,
 				TA000000000000000000A4 /* WorkingDirectoryStoreTests.swift */,
 				TA000000000000000000A5 /* WorkspaceOpenerTests.swift */,
 			);
@@ -753,6 +835,22 @@
 				AB00000000000000000105 /* MeetingAudioResolver.swift in Sources */,
 				AB00000000000000000106 /* TranscriptionCoordinator.swift in Sources */,
 				AB00000000000000000107 /* TranscriptionEngine.swift in Sources */,
+				AB00000000000000000200 /* MeetingProcessRequest.swift in Sources */,
+				AB00000000000000000201 /* MeetingProcessResult.swift in Sources */,
+				AB00000000000000000202 /* ProviderSelectionPolicy.swift in Sources */,
+				AB00000000000000000203 /* ProcessingPhase.swift in Sources */,
+				AB00000000000000000204 /* ProcessingProgress.swift in Sources */,
+				AB00000000000000000205 /* ProcessRunner.swift in Sources */,
+				AB00000000000000000206 /* FoundationProcessRunner.swift in Sources */,
+				AB00000000000000000207 /* ExecutableLocator.swift in Sources */,
+				AB00000000000000000208 /* PromptTemplates.swift in Sources */,
+				AB00000000000000000209 /* AIProcessResponseParser.swift in Sources */,
+				AB0000000000000000020A /* AIProvider.swift in Sources */,
+				AB0000000000000000020B /* CLIProvider.swift in Sources */,
+				AB0000000000000000020C /* AIProviderRegistry.swift in Sources */,
+				AB0000000000000000020D /* ProcessingCoordinator.swift in Sources */,
+				AB0000000000000000020E /* ProviderChooserViewModel.swift in Sources */,
+				AB0000000000000000020F /* ProviderChooserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,6 +896,12 @@
 				TB000000000000000000CA /* InMemoryFileSystem.swift in Sources */,
 				TB00000000000000000108 /* TranscriptionViewModelTests.swift in Sources */,
 				TB00000000000000000109 /* TranscriptionCoordinatorTests.swift in Sources */,
+				TB00000000000000000210 /* ProviderSelectionPolicyTests.swift in Sources */,
+				TB00000000000000000211 /* ProcessingPhaseTests.swift in Sources */,
+				TB00000000000000000212 /* AIProviderRegistryTests.swift in Sources */,
+				TB00000000000000000213 /* AIProcessResponseParserTests.swift in Sources */,
+				TB00000000000000000214 /* ProcessingCoordinatorTests.swift in Sources */,
+				TB00000000000000000215 /* ProviderChooserViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

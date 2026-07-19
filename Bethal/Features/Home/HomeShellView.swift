@@ -129,12 +129,21 @@ struct HomeShellView: View {
                             .foregroundStyle(.secondary)
                         }
                         Spacer()
-                        if item.canTranscribe {
-                            Button(item.transcribeButtonTitle) {
-                                controller.transcribeMeeting(id: item.id)
+                        HStack(spacing: DesignSpacing.sm) {
+                            if item.canTranscribe {
+                                Button(item.transcribeButtonTitle) {
+                                    controller.transcribeMeeting(id: item.id)
+                                }
+                                .buttonStyle(.bordered)
+                                .disabled(controller.transcriptionProgress.phase.isInProgress)
                             }
-                            .buttonStyle(.bordered)
-                            .disabled(controller.transcriptionProgress.phase.isInProgress)
+                            if item.canProcess {
+                                Button(item.processButtonTitle) {
+                                    controller.processMeeting(id: item.id)
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .disabled(controller.processingProgress.phase.isInProgress)
+                            }
                         }
                     }
                     .padding(.vertical, 2)
@@ -151,6 +160,29 @@ struct HomeShellView: View {
                 errorMessage: controller.transcriptionError,
                 onRetry: { controller.retryTranscription() },
                 onDismiss: { controller.dismissTranscriptionSheet() }
+            )
+        }
+        .sheet(isPresented: Binding(
+            get: { controller.showProcessingSheet },
+            set: { if !$0 { controller.dismissProcessingSheet() } }
+        )) {
+            ProviderChooserView(
+                providers: controller.processingProviders,
+                availableProviders: controller.processingAvailableProviders,
+                progress: controller.processingProgress,
+                errorMessage: controller.processingError,
+                emptyHowTo: controller.processingEmptyHowTo,
+                preferredID: controller.processingPreferredID,
+                onSelect: { controller.selectProcessingProvider(id: $0) },
+                onRetry: {
+                    if controller.processingProgress.selectedProviderID != nil {
+                        controller.retryProcessing()
+                    } else {
+                        controller.showProcessingChooserAgain()
+                    }
+                },
+                onRefresh: { controller.refreshProcessingDiscovery() },
+                onDismiss: { controller.dismissProcessingSheet() }
             )
         }
     }
