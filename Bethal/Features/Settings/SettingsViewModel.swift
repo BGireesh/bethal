@@ -59,6 +59,14 @@ public final class SettingsViewModel: @unchecked Sendable {
         return "Off"
     }
 
+    /// Updates calendar auto-detect preferences and persists to the working directory.
+    public func updateCalendarPreferences(enabled: Bool, minutesBefore: Int) {
+        let minutes = MeetingReminderEvaluator.normalizedMinutesBefore(minutesBefore)
+        appSettings.calendarAutoDetectEnabled = enabled
+        appSettings.calendarRemindMinutesBefore = minutes
+        persistSettings()
+    }
+
     public func reload() {
         loadError = nil
         let session = sessionStore.load()
@@ -100,5 +108,25 @@ public final class SettingsViewModel: @unchecked Sendable {
     /// Resolves bookmark when present; falls back to path.
     public func resolvedWorkingDirectoryURL() throws -> URL? {
         try completer.resolveWorkingDirectory(from: sessionStore.load())
+    }
+
+    private func persistSettings() {
+        loadError = nil
+        guard let path = workingDirectoryPath, !path.isEmpty else {
+            loadError = "Working directory is not configured."
+            return
+        }
+        let store = WorkingDirectoryStore(
+            root: URL(fileURLWithPath: path, isDirectory: true),
+            fileSystem: fileSystem
+        )
+        do {
+            if !store.isInitialized {
+                _ = try store.initialize()
+            }
+            try store.saveSettings(appSettings)
+        } catch {
+            loadError = error.localizedDescription
+        }
     }
 }

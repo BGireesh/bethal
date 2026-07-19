@@ -54,8 +54,11 @@ SKIP_BASENAMES = {
     "SettingsView.swift",
     "RecordingSpikeView.swift",
     "RecordingSessionView.swift",  # UI + timer; logic in RecordingViewModel
+    "MeetingReminderBanner.swift",
     "AVAudioCaptureEngine.swift",  # hardware AV; covered via CaptureEngine protocol + mock
     "SystemPermissionChecker.swift",  # real TCC; use MockPermissionChecker in tests
+    "EventKitCalendarClient.swift",  # real EventKit; MockCalendarClient in tests
+    "UserNotificationClient.swift",  # real UNUserNotificationCenter; MockNotificationClient in tests
 }
 failures = []
 tracked_files = []
@@ -96,6 +99,9 @@ for target in data.get("targets", []):
                     "RecordingSessionCoordinator.swift", "RecordingSpikeViewModel.swift",
                     "AVAuthorizationMapper.swift", "RecordingSpikeDecisions",
                     "RecordingViewModel.swift", "MeetingListPresentation.swift",
+                    "CalendarMeetingEvent.swift", "MeetingReminderEvaluator.swift",
+                    "CalendarAuthorizationStatus.swift", "CalendarClient.swift",
+                    "NotificationClient.swift", "CalendarReminderViewModel.swift",
                 }
                 if not domain_like:
                     continue

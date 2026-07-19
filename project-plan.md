@@ -350,7 +350,7 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 06 — Production recording UI & session lifecycle  
-**Status:** `[~]` in progress (PR open)  
+**Status:** `[x]` done (merged PR #6)  
 **Branch:** `feat/06-recording-ui`  
 **Goal:** Explicit start/stop recording with audio vs A/V modes.
 
@@ -368,20 +368,20 @@ Each sub-task is one branch: `feat/<id>-short-name` → PR → you manual test �
 ---
 
 ### Sub-task 07 — Calendar integration & pre-meeting 1-click remind  
-**Status:** `[ ]`  
+**Status:** `[~]` in progress (PR open)  
 **Branch:** `feat/07-calendar`  
 **Goal:** Detect upcoming calendar events; notify with 1-click start (never auto-record).
 
 **Deliverables:**
 
-- EventKit calendar client  
-- Poll or event-based “meeting starting soon”  
-- Notification + in-app banner → starts recording flow (optionally prefill title from event)  
-- Settings: enable/disable, minutes-before  
+- `CalendarClient` (EventKit + mock) + `MeetingReminderEvaluator`  
+- Polling refresh + local notification + in-app banner  
+- **Start recording** prefills title and opens Record (never auto-starts capture)  
+- Settings: enable toggle, minutes-before stepper, request access  
 
-**Manual test:** Create calendar event soon; receive reminder; 1-click opens recording with title.
+**Manual test:** Create calendar event starting soon; banner + optional notification; 1-click opens Record with title.
 
-**Tests:** Event filtering, scheduling math, mapping to meeting meta (mocked EventKit).
+**Tests:** Window math, mock calendar/notifications, reminder VM (100% Domain/Services; EventKit/UN wrappers excluded).
 
 ---
 
@@ -592,9 +592,10 @@ Dependencies are mostly linear; **07** can parallelize with **08** after **06** 
 | 2026-07-18 | Sub-task 03 marked done after PR #3 merge; sub-task 04 home shell in progress. |
 | 2026-07-18 | Sub-task 04 marked done after PR #4 merge; sub-task 05 recording spike in progress. |
 | 2026-07-18 | Sub-task 05 marked done after PR #5 merge; sub-task 06 production recording UI in progress. |
+| 2026-07-18 | Sub-task 06 marked done after PR #6 merge; sub-task 07 calendar reminders in progress. |
 
 ---
 
 ## 11. Next action
 
-**Sub-tasks 01–05 complete** once 06 merges. Next: **Sub-task 07 — Calendar integration**.
+**Sub-tasks 01–06 complete** once 07 merges. Next: **Sub-task 08 — Local transcription**.

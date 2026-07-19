@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HomeShellView: View {
     @StateObject private var controller: HomeShellController
+    @State private var calendarPollTask: Task<Void, Never>?
 
     init(controller: HomeShellController? = nil) {
         _controller = StateObject(wrappedValue: controller ?? HomeShellController())
@@ -22,26 +23,53 @@ struct HomeShellView: View {
             )
             .navigationTitle(AppIdentity.displayName)
         } detail: {
-            detail
-                .frame(minWidth: DesignSpacing.contentMinWidth)
-                .toolbar {
-                    ToolbarItem(placement: .primaryAction) {
-                        Button {
-                            controller.select(.record)
-                        } label: {
-                            Label("Record", systemImage: "record.circle")
-                        }
-                        .help("Start a new meeting recording")
-                    }
-                    ToolbarItem(placement: .automatic) {
-                        Button {
-                            controller.refresh()
-                        } label: {
-                            Label("Refresh", systemImage: "arrow.clockwise")
-                        }
-                        .help("Reload meetings, todos, and settings from disk")
-                    }
+            VStack(spacing: 0) {
+                if let event = controller.activeReminder {
+                    MeetingReminderBanner(
+                        event: event,
+                        minutesBefore: controller.calendarMinutesBefore,
+                        onStartRecording: { controller.startRecordingFromReminder() },
+                        onDismiss: { controller.dismissReminder() }
+                    )
+                    .padding([.horizontal, .top], DesignSpacing.md)
                 }
+
+                detail
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            .frame(minWidth: DesignSpacing.contentMinWidth)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        controller.select(.record)
+                    } label: {
+                        Label("Record", systemImage: "record.circle")
+                    }
+                    .help("Start a new meeting recording")
+                }
+                ToolbarItem(placement: .automatic) {
+                    Button {
+                        controller.refresh()
+                        Task { await controller.refreshCalendar() }
+                    } label: {
+                        Label("Refresh", systemImage: "arrow.clockwise")
+                    }
+                    .help("Reload meetings, todos, settings, and calendar")
+                }
+            }
+        }
+        .task {
+            await controller.refreshCalendar()
+            calendarPollTask?.cancel()
+            calendarPollTask = Task {
+                while !Task.isCancelled {
+                    try? await Task.sleep(nanoseconds: 30_000_000_000)
+                    await controller.refreshCalendar()
+                }
+            }
+        }
+        .onDisappear {
+            calendarPollTask?.cancel()
         }
     }
 
@@ -62,8 +90,9 @@ struct HomeShellView: View {
         case .meetings:
             meetingsDetail
         case .record:
-            RecordingSessionView {
+            RecordingSessionView(prefilledTitle: controller.pendingRecordingTitle) {
                 controller.refresh()
+                controller.clearPendingRecordingTitle()
             }
         case .todos:
             todosDetail
