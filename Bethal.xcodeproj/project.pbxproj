@@ -72,6 +72,14 @@
 		AB00000000000000000080 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000003F /* StorageError.swift */; };
 		AB00000000000000000081 /* WorkingDirectoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000040 /* WorkingDirectoryStore.swift */; };
 		AB00000000000000000082 /* WorkspaceOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000041 /* WorkspaceOpener.swift */; };
+		AB00000000000000000100 /* TranscriptionPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000100 /* TranscriptionPhase.swift */; };
+		AB00000000000000000101 /* TranscriptionProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000101 /* TranscriptionProgress.swift */; };
+		AB00000000000000000102 /* TranscriptionProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000102 /* TranscriptionProgressView.swift */; };
+		AB00000000000000000103 /* TranscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000103 /* TranscriptionViewModel.swift */; };
+		AB00000000000000000104 /* AppleSpeechTranscriptionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000104 /* AppleSpeechTranscriptionEngine.swift */; };
+		AB00000000000000000105 /* MeetingAudioResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000105 /* MeetingAudioResolver.swift */; };
+		AB00000000000000000106 /* TranscriptionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000106 /* TranscriptionCoordinator.swift */; };
+		AB00000000000000000107 /* TranscriptionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000000000000000107 /* TranscriptionEngine.swift */; };
 		RB000000000000000000CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = RS000000000000000000CB /* Assets.xcassets */; };
 		TB000000000000000000A7 /* AppIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000083 /* AppIdentityTests.swift */; };
 		TB000000000000000000A8 /* AppSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000084 /* AppSectionTests.swift */; };
@@ -109,6 +117,8 @@
 		TB000000000000000000C8 /* WorkingDirectoryStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA000000000000000000A4 /* WorkingDirectoryStoreTests.swift */; };
 		TB000000000000000000C9 /* WorkspaceOpenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA000000000000000000A5 /* WorkspaceOpenerTests.swift */; };
 		TB000000000000000000CA /* InMemoryFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA000000000000000000A6 /* InMemoryFileSystem.swift */; };
+		TB00000000000000000108 /* TranscriptionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000108 /* TranscriptionViewModelTests.swift */; };
+		TB00000000000000000109 /* TranscriptionCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TA00000000000000000109 /* TranscriptionCoordinatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +197,14 @@
 		AA0000000000000000003F /* StorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageError.swift; sourceTree = "<group>"; };
 		AA00000000000000000040 /* WorkingDirectoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingDirectoryStore.swift; sourceTree = "<group>"; };
 		AA00000000000000000041 /* WorkspaceOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceOpener.swift; sourceTree = "<group>"; };
+		AA00000000000000000100 /* TranscriptionPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionPhase.swift; sourceTree = "<group>"; };
+		AA00000000000000000101 /* TranscriptionProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionProgress.swift; sourceTree = "<group>"; };
+		AA00000000000000000102 /* TranscriptionProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionProgressView.swift; sourceTree = "<group>"; };
+		AA00000000000000000103 /* TranscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionViewModel.swift; sourceTree = "<group>"; };
+		AA00000000000000000104 /* AppleSpeechTranscriptionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSpeechTranscriptionEngine.swift; sourceTree = "<group>"; };
+		AA00000000000000000105 /* MeetingAudioResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingAudioResolver.swift; sourceTree = "<group>"; };
+		AA00000000000000000106 /* TranscriptionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionCoordinator.swift; sourceTree = "<group>"; };
+		AA00000000000000000107 /* TranscriptionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionEngine.swift; sourceTree = "<group>"; };
 		RS000000000000000000CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		TA00000000000000000083 /* AppIdentityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIdentityTests.swift; sourceTree = "<group>"; };
 		TA00000000000000000084 /* AppSectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSectionTests.swift; sourceTree = "<group>"; };
@@ -224,6 +242,8 @@
 		TA000000000000000000A4 /* WorkingDirectoryStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingDirectoryStoreTests.swift; sourceTree = "<group>"; };
 		TA000000000000000000A5 /* WorkspaceOpenerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceOpenerTests.swift; sourceTree = "<group>"; };
 		TA000000000000000000A6 /* InMemoryFileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryFileSystem.swift; sourceTree = "<group>"; };
+		TA00000000000000000108 /* TranscriptionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionViewModelTests.swift; sourceTree = "<group>"; };
+		TA00000000000000000109 /* TranscriptionCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionCoordinatorTests.swift; sourceTree = "<group>"; };
 		PR000000000000000000CD /* Bethal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bethal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		PT000000000000000000CE /* BethalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BethalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -312,6 +332,8 @@
 				AA00000000000000000019 /* SchemaManifest.swift */,
 				AA0000000000000000001A /* TodoItem.swift */,
 				AA0000000000000000001B /* Transcript.swift */,
+				AA00000000000000000100 /* TranscriptionPhase.swift */,
+				AA00000000000000000101 /* TranscriptionProgress.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -324,6 +346,7 @@
 				GG000000000000000000EC /* Onboarding */,
 				GG000000000000000000ED /* Recording */,
 				GG000000000000000000EE /* Settings */,
+				GG0000000000000000010A /* Transcription */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -336,9 +359,30 @@
 				GG000000000000000000F2 /* Preferences */,
 				GG000000000000000000F3 /* Recording */,
 				GG000000000000000000F4 /* Storage */,
+				GG0000000000000000010B /* Transcription */,
 				GG000000000000000000F5 /* Workspace */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		GG0000000000000000010A /* Transcription */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000102 /* TranscriptionProgressView.swift */,
+				AA00000000000000000103 /* TranscriptionViewModel.swift */,
+			);
+			path = Transcription;
+			sourceTree = "<group>";
+		};
+		GG0000000000000000010B /* Transcription */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000104 /* AppleSpeechTranscriptionEngine.swift */,
+				AA00000000000000000105 /* MeetingAudioResolver.swift */,
+				AA00000000000000000106 /* TranscriptionCoordinator.swift */,
+				AA00000000000000000107 /* TranscriptionEngine.swift */,
+			);
+			path = Transcription;
 			sourceTree = "<group>";
 		};
 		GG000000000000000000EA /* Calendar */ = {
@@ -509,6 +553,7 @@
 				TA00000000000000000097 /* RecordingSpikeViewModelTests.swift */,
 				TA00000000000000000098 /* RecordingViewModelTests.swift */,
 				TA00000000000000000099 /* SettingsViewModelTests.swift */,
+				TA00000000000000000108 /* TranscriptionViewModelTests.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -525,6 +570,7 @@
 				TA000000000000000000A1 /* RecordingCoordinatorTests.swift */,
 				TA000000000000000000A2 /* SchemaMigratorTests.swift */,
 				TA000000000000000000A3 /* StorageErrorTests.swift */,
+				TA00000000000000000109 /* TranscriptionCoordinatorTests.swift */,
 				TA000000000000000000A4 /* WorkingDirectoryStoreTests.swift */,
 				TA000000000000000000A5 /* WorkspaceOpenerTests.swift */,
 			);
@@ -699,6 +745,14 @@
 				AB00000000000000000080 /* StorageError.swift in Sources */,
 				AB00000000000000000081 /* WorkingDirectoryStore.swift in Sources */,
 				AB00000000000000000082 /* WorkspaceOpener.swift in Sources */,
+				AB00000000000000000100 /* TranscriptionPhase.swift in Sources */,
+				AB00000000000000000101 /* TranscriptionProgress.swift in Sources */,
+				AB00000000000000000102 /* TranscriptionProgressView.swift in Sources */,
+				AB00000000000000000103 /* TranscriptionViewModel.swift in Sources */,
+				AB00000000000000000104 /* AppleSpeechTranscriptionEngine.swift in Sources */,
+				AB00000000000000000105 /* MeetingAudioResolver.swift in Sources */,
+				AB00000000000000000106 /* TranscriptionCoordinator.swift in Sources */,
+				AB00000000000000000107 /* TranscriptionEngine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,6 +796,8 @@
 				TB000000000000000000C8 /* WorkingDirectoryStoreTests.swift in Sources */,
 				TB000000000000000000C9 /* WorkspaceOpenerTests.swift in Sources */,
 				TB000000000000000000CA /* InMemoryFileSystem.swift in Sources */,
+				TB00000000000000000108 /* TranscriptionViewModelTests.swift in Sources */,
+				TB00000000000000000109 /* TranscriptionCoordinatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,6 +864,7 @@
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Bethal reads your calendar to remind you with a 1-click option to start recording. It never joins meetings or auto-records.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Gireesh. All rights reserved.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Bethal records meeting audio on this Mac so you can transcribe and summarize calls locally.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Bethal transcribes meeting audio on this Mac. Recognition stays on-device when supported; nothing is uploaded by Bethal.";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -840,6 +897,7 @@
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Bethal reads your calendar to remind you with a 1-click option to start recording. It never joins meetings or auto-records.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Gireesh. All rights reserved.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Bethal records meeting audio on this Mac so you can transcribe and summarize calls locally.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Bethal transcribes meeting audio on this Mac. Recognition stays on-device when supported; nothing is uploaded by Bethal.";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

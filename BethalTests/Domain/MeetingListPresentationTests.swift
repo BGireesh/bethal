@@ -63,6 +63,7 @@ struct MeetingListPresentationTests {
         let row = MeetingListPresentation(
             id: "x",
             title: "T",
+            status: .captured,
             statusLabel: "S",
             modeLabel: "M",
             whenLabel: "W"
@@ -72,6 +73,41 @@ struct MeetingListPresentationTests {
         #expect(row.statusLabel == "S")
         #expect(row.modeLabel == "M")
         #expect(row.whenLabel == "W")
+        #expect(row.canTranscribe)
+        #expect(row.transcribeButtonTitle == "Transcribe")
+    }
+
+    @Test("transcribe affordances by status")
+    func transcribeAffordances() {
+        let base = MeetingIndexEntry(
+            id: "m",
+            title: "T",
+            status: .capturing,
+            captureMode: .audioOnly,
+            startedAt: Date()
+        )
+        #expect(!MeetingListPresentation(entry: base).canTranscribe)
+
+        var captured = base
+        captured.status = .captured
+        #expect(MeetingListPresentation(entry: captured).transcribeButtonTitle == "Transcribe")
+
+        var transcribed = base
+        transcribed.status = .transcribed
+        #expect(MeetingListPresentation(entry: transcribed).transcribeButtonTitle == "Re-transcribe")
+
+        var failed = base
+        failed.status = .failed
+        #expect(MeetingListPresentation(entry: failed).transcribeButtonTitle == "Retry transcription")
+
+        var pending = base
+        pending.status = .processedPendingReview
+        #expect(MeetingListPresentation(entry: pending).canTranscribe)
+        #expect(MeetingListPresentation(entry: pending).transcribeButtonTitle == "Re-transcribe")
+
+        var completed = base
+        completed.status = .completed
+        #expect(MeetingListPresentation(entry: completed).transcribeButtonTitle == "Re-transcribe")
     }
 
     @Test("status display names")

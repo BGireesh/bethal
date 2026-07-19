@@ -13,7 +13,7 @@ Bethal records meetings (audio or audio+video) on your Mac, stores everything un
 
 ## Status
 
-Sub-tasks **01–06** done. Sub-task **07** adds calendar auto-detect + 1-click record reminders (never auto-records). Transcription is sub-task 08 — tracked in `project-plan.md`.
+Sub-tasks **01–07** done. Sub-task **08** adds local transcription (Apple Speech → `transcript.json`) with progress/retry on the meetings list.
 
 ## Requirements
 

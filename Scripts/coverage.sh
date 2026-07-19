@@ -59,6 +59,8 @@ SKIP_BASENAMES = {
     "SystemPermissionChecker.swift",  # real TCC; use MockPermissionChecker in tests
     "EventKitCalendarClient.swift",  # real EventKit; MockCalendarClient in tests
     "UserNotificationClient.swift",  # real UNUserNotificationCenter; MockNotificationClient in tests
+    "AppleSpeechTranscriptionEngine.swift",  # real Speech framework; MockTranscriptionEngine in tests
+    "TranscriptionProgressView.swift",
 }
 failures = []
 tracked_files = []
@@ -102,6 +104,9 @@ for target in data.get("targets", []):
                     "CalendarMeetingEvent.swift", "MeetingReminderEvaluator.swift",
                     "CalendarAuthorizationStatus.swift", "CalendarClient.swift",
                     "NotificationClient.swift", "CalendarReminderViewModel.swift",
+                    "TranscriptionPhase.swift", "TranscriptionProgress.swift",
+                    "MeetingAudioResolver.swift", "TranscriptionEngine.swift",
+                    "TranscriptionCoordinator.swift", "TranscriptionViewModel.swift",
                 }
                 if not domain_like:
                     continue

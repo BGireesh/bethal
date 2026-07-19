@@ -19,16 +19,28 @@ final class HomeShellController: ObservableObject {
     @Published private(set) var calendarAuthLabel: String
     @Published private(set) var calendarError: String?
     @Published var pendingRecordingTitle: String?
+    @Published private(set) var transcriptionProgress: TranscriptionProgress
+    @Published private(set) var transcriptionError: String?
+    @Published var showTranscriptionSheet: Bool
 
     private let viewModel: HomeShellViewModel
     private let calendarReminders: CalendarReminderViewModel
+    private let transcription: TranscriptionViewModel
 
     init(
         viewModel: HomeShellViewModel = HomeShellViewModel(),
-        calendarReminders: CalendarReminderViewModel = CalendarReminderViewModel()
+        calendarReminders: CalendarReminderViewModel = CalendarReminderViewModel(),
+        transcription: TranscriptionViewModel? = nil
     ) {
         self.viewModel = viewModel
         self.calendarReminders = calendarReminders
+        if let transcription {
+            self.transcription = transcription
+        } else {
+            let engine = AppleSpeechTranscriptionEngine()
+            let coordinator = TranscriptionCoordinator(engine: engine)
+            self.transcription = TranscriptionViewModel(coordinator: coordinator)
+        }
         self.navigation = viewModel.navigation
         self.meetings = viewModel.meetings
         self.todos = viewModel.todos
@@ -44,6 +56,9 @@ final class HomeShellController: ObservableObject {
         self.calendarAuthLabel = calendarReminders.authorizationStatus.displayName
         self.calendarError = calendarReminders.lastError
         self.pendingRecordingTitle = nil
+        self.transcriptionProgress = self.transcription.progress
+        self.transcriptionError = self.transcription.lastError
+        self.showTranscriptionSheet = false
     }
 
     var showsMeetingsEmpty: Bool { viewModel.showsMeetingsEmpty }
@@ -103,6 +118,33 @@ final class HomeShellController: ObservableObject {
         pendingRecordingTitle = nil
     }
 
+    func transcribeMeeting(id: String) {
+        showTranscriptionSheet = true
+        Task {
+            await transcription.transcribe(meetingID: id)
+            transcriptionProgress = transcription.progress
+            transcriptionError = transcription.lastError
+            refresh()
+        }
+    }
+
+    func retryTranscription() {
+        guard let id = transcriptionProgress.meetingID else { return }
+        Task {
+            await transcription.retry(meetingID: id)
+            transcriptionProgress = transcription.progress
+            transcriptionError = transcription.lastError
+            refresh()
+        }
+    }
+
+    func dismissTranscriptionSheet() {
+        showTranscriptionSheet = false
+        transcription.reset()
+        transcriptionProgress = transcription.progress
+        transcriptionError = nil
+    }
+
     private func sync() {
         navigation = viewModel.navigation
         meetings = viewModel.meetings
@@ -118,5 +160,7 @@ final class HomeShellController: ObservableObject {
         calendarMinutesBefore = calendarReminders.minutesBefore
         calendarAuthLabel = calendarReminders.authorizationStatus.displayName
         calendarError = calendarReminders.lastError
+        transcriptionProgress = transcription.progress
+        transcriptionError = transcription.lastError
     }
 }
